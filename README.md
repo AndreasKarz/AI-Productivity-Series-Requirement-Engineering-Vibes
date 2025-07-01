@@ -1,2 +1,2 @@
-# AI-Productivity-Series-Requirement-Engineering-Vibes
+# AI Productivity Series - Requirement Engineering Vibes
 Kommt noch
