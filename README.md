@@ -63,3 +63,6 @@ https://dev.azure.com/swisslife-ai4ctrm/
 3. Aktiviere Derrive AI rules
 
 4. Install ADO MCP 
+
+Flight Levels
+OKR 
