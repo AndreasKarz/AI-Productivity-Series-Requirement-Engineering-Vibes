@@ -15,6 +15,10 @@
     "sequential-thinking": {
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+    },
+    "pdf-reader-mcp": {
+      "command": "npx",
+      "args": ["@sylphlab/pdf-reader-mcp"]
     }
   }
 }
