@@ -29,7 +29,7 @@ Wenn Du bist hier gekommen bist, dann hast Du die Vorbereitungen erfolgreich abg
 ### ADO MCP Server
 1. In Visual Studio Code **dieses Verzeichnis** öffnen.
 2. Öffne mit `Terminal > New Terminal` ein neues Terminal in Visual Studio Code
-3. Installiere den MCP Server global `npm install mcp-server-ado`.
+3. **Installiere den MCP Server** `npm install mcp-server-ado`. (Oder global mit Powershell im Access Terminal `npm install -g mcp-server-ado`)
 4. Öffnen die Datei `.vscode/mcp.json` und starte die beiden Server `ado` und `sequential-thinking`. Es müssen danach beide auf `Running` stehen
 5. Führe den Befehl `az login` aus und melde Dich mit Deinem ADO Konto an
 6. Öffne den GitHub Copilot Chat, stelle den Mode auf `Agent` und wähle das Model `Claude Sonet 4` aus
