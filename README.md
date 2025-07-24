@@ -13,7 +13,7 @@ bla bla
   - Microsoft-AzureCLI - PAV (AP046904)
   - ADO Zugriff auf die gewünschte Organisation (az login muss funktionieren)
 
-## Anleitung
+## Einstellungen und Konfiguration
 Wenn Du bist hier gekommen bist, dann hast Du die Vorbereitungen erfolgreich abgeschlossen. Jetzt kannst Du mit der Konfiguration beginnen:
 
 ### SpecStory
@@ -29,11 +29,18 @@ Wenn Du bist hier gekommen bist, dann hast Du die Vorbereitungen erfolgreich abg
 ### ADO MCP Server
 1. In Visual Studio Code **dieses Verzeichnis** öffnen.
 2. Öffne mit `Terminal > New Terminal` ein neues Terminal in Visual Studio Code
-3. **Installiere den MCP Server** `npm install mcp-server-ado`. (Oder global mit Powershell im Access Terminal `npm install -g mcp-server-ado`)
-4. Öffnen die Datei `.vscode/mcp.json` und starte die beiden Server `ado` und `sequential-thinking`. Es müssen danach beide auf `Running` stehen
-5. Führe den Befehl `az login` aus und melde Dich mit Deinem ADO Konto an
-6. Öffne den GitHub Copilot Chat, stelle den Mode auf `Agent` und wähle das Model `Claude Sonet 4` aus
+3. **Installiere den MCP Server** `npm install mcp-server-ado`. (Oder global mit Powershell im Admin Mode `npm install -g mcp-server-ado`)
+4. **Installiere die Azure DevOps MCP Server Extension** in Visual Studio Code Insiders: [Azure DevOps MCP Server](https://github.com/microsoft/azure-devops-mcp) ([Anleitung](https://github.com/microsoft/azure-devops-mcp))
+5. Öffnen die Datei `.vscode/mcp.json` und **starte die beiden Server** `ado` und `sequential-thinking`. Es müssen danach beide auf `Running` stehen
 
+## Und los geht's
+1. Führe den Befehl `az login` im Terminal aus und **melde Dich mit Deinem ADO Konto an**
+2. **Öffne den GitHub Copilot Chat**, stelle den Mode auf `Agent` und wähle das Model `Claude Sonet 4` aus
+3. Führe folgenden Prompt aus: `Liste mir alle zur Verfügung stehenden Projekte im ADO auf` (Am Anfang werden viele Berechtigungen abgefragt, die Du mit 'Always' beantworten kannst)
+
+Wenn Du die Liste bekommen hast, dann kannst Du nun mit prompten loslegen. Hier ein paar Beispiele:
+### Beispiele
+...
 
 
 https://specstory.com/  
