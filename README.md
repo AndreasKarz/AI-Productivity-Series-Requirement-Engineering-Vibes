@@ -27,43 +27,24 @@ Wenn Du bist hier gekommen bist, dann hast Du die Vorbereitungen erfolgreich abg
 2. Copilot starten und anmelden (SL Account)
 
 ### ADO MCP Server
-1. In Visual Studio Code **dieses Verzeichnis** öffnen.
-2. Öffne mit `Terminal > New Terminal` ein neues Terminal in Visual Studio Code
-3. **Installiere den MCP Server** `npm install mcp-server-ado`. (Oder global mit Powershell im Admin Mode `npm install -g mcp-server-ado`)
-4. **Installiere die Azure DevOps MCP Server Extension** in Visual Studio Code Insiders: [Azure DevOps MCP Server](https://github.com/microsoft/azure-devops-mcp) ([Anleitung](https://github.com/microsoft/azure-devops-mcp))
-5. Öffnen die Datei `.vscode/mcp.json` und **starte die beiden Server** `ado` und `sequential-thinking`. Es müssen danach beide auf `Running` stehen
+1. In Visual Studio Code Insiders **dieses Verzeichnis** öffnen.
+2. **Installiere die Azure DevOps MCP Server Extension** in Visual Studio Code Insiders: [Anleitung](https://github.com/microsoft/azure-devops-mcp)
+3. Öffnen die Datei `.vscode/mcp.json` und **starte die beiden Server** `ado` und `sequential-thinking`. Es müssen danach beide auf `Running` stehen
 
 ## Und los geht's
-1. Führe den Befehl `az login` im Terminal aus und **melde Dich mit Deinem ADO Konto an**
-2. **Öffne den GitHub Copilot Chat**, stelle den Mode auf `Agent` und wähle das Model `Claude Sonet 4` aus
-3. Führe folgenden Prompt aus: `Liste mir alle zur Verfügung stehenden Projekte im ADO auf` (Am Anfang werden viele Berechtigungen abgefragt, die Du mit 'Always' beantworten kannst)
+1. Öffne mit `Terminal > New Terminal` ein neues Terminal in Visual Studio Code
+2. Führe den Befehl `az login` im Terminal aus und **melde Dich mit Deinem ADO Konto an**
+3. **Öffne den GitHub Copilot Chat**, stelle den Mode auf `Agent` und wähle das Model `Claude Sonet 4` aus
+4. Führe folgenden Prompt aus: `Liste mir alle zur Verfügung stehenden Projekte im ADO auf` (Am Anfang werden viele Berechtigungen abgefragt, die Du mit 'Always' beantworten kannst)
 
 Wenn Du die Liste bekommen hast, dann kannst Du nun mit prompten loslegen. Hier ein paar Beispiele:
 ### Beispiele
 ...
 
+## Weitere Informationen
+- [Perplexity AI Engineer Space](https://www.perplexity.ai/spaces/the-ai-engineer-UslyhxrNTriahp77tvqP2g)
+- [SpecStory](https://specstory.com/)
+- [Weitere MCP Server](https://code.visualstudio.com/insider/mcp)
+- [Swiss Life Demo Organisation](https://dev.azure.com/swisslife-ai4ctrm/)
+- [GitHub Copilot Spaces](https://github.com/copilot/spaces?tab=org) (in progress)
 
-https://specstory.com/  
-
-
-
-https://github.com/copilot
-
-AP045370   AP047763
-
-https://dev.azure.com/swisslife-ai4ctrm/  
-
-## Vorbereitung
-- Bestelle die GitHub Rechte .... => 
-- https://code.visualstudio.com/mcp => https://github.com/microsoft/azure-devops-mcp => https://github.com/microsoft/azure-devops-mcp/blob/main/docs/HOWTO.md
-- Sequential Thinking auch noch ins MCP File packen
-- Tools disablen (GitHub CoPilot Toolsets noch anschauen)
-- Agent Mode
-- Model Claude Sonet 4
-
-
-
-Flight Levels
-OKR 
-
-https://code.visualstudio.com/insider/mcp
