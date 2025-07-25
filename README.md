@@ -61,15 +61,9 @@ https://dev.azure.com/swisslife-ai4ctrm/
 - Agent Mode
 - Model Claude Sonet 4
 
-## Introduction
 
-1. Install extension
-
-2. Konfiguriere .gitignore
-
-3. Aktiviere Derrive AI rules
-
-4. Install ADO MCP 
 
 Flight Levels
 OKR 
+
+https://code.visualstudio.com/insider/mcp
