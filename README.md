@@ -48,3 +48,7 @@ Wenn Du die Liste bekommen hast, dann kannst Du nun mit prompten loslegen. Hier 
 - [Swiss Life Demo Organisation](https://dev.azure.com/swisslife-ai4ctrm/)
 - [GitHub Copilot Spaces](https://github.com/copilot/spaces?tab=org) (in progress)
 
+## TODO
+- Toolset definierten
+- GitHub/SpecStory User Prompts
+- Beispiele erstellen und gleich als User Prompts abspeichern
