@@ -44,6 +44,7 @@ This document defines the rules and guidelines for the AI coding assistant to fo
 *   Write integration tests for complex interactions.
 *   Use a test-driven development (TDD) approach.
 *   Ensure all tests pass before committing code.
+*   Test cases must validate the requirements, not just the end result.
 
 ### Test Types
 *   Unit Tests: Verify the correctness of individual components in isolation.
