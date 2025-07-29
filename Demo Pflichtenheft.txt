@@ -1,0 +1,45 @@
+## 📝 Pflichtenheftauszug: Kontaktformular im Kundenportal
+
+### 1. Zielsetzung
+
+Das Kontaktformular soll es angemeldeten Kunden ermöglichen, Anliegen effizient und gezielt an den Kundenservice zu übermitteln.
+
+---
+
+### 2. Allgemeine Anforderungen
+
+* Das Formular ist ausschließlich im angemeldeten Zustand nutzbar.
+* Die Benutzeroberfläche unterstützt die Sprachen: Deutsch (DE), Englisch (EN), Italienisch (IT), Französisch (FR).
+* Alle Textelemente des Formulars müssen sprachabhängig über eine zentrale Übersetzungsdatei gepflegt werden.
+
+---
+
+### 3. Formularelemente und Logik
+
+| Feld                 | Beschreibung                                                                                                              | Pflichtfeld                | Validierung                                                  | Besondere Logik                               |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------- | -------------------------- | ------------------------------------------------------------ | --------------------------------------------- |
+| Name                 | Vom System aus dem Kundenprofil übernommen, read-only angezeigt                                                           | Ja                         | -                                                            | Keine Benutzereingabe möglich                 |
+| E-Mail-Adresse       | Vom System aus dem Kundenprofil übernommen, read-only angezeigt                                                           | Ja                         | -                                                            | Keine Benutzereingabe möglich                 |
+| Anfrage-Typ          | Auswahlfeld mit folgenden Optionen:<br>a) Vertragsproblem<br>b) Dokumentenproblem<br>c) Beratung<br>d) Allgemeine Anfrage | Ja                         | Muss eine der Optionen enthalten                             | Steuert die Sichtbarkeit nachfolgender Felder |
+| Vertragsnummer       | Textfeld                                                                                                                  | Ja, bei Auswahl a) oder b) | Nur alphanumerisch und Punkt (`.`), RegEx: `^[a-zA-Z0-9.]+$` | Nur sichtbar bei Vertrags-/Dokumentenproblem  |
+| Beratungszeitfenster | Radiobutton-Auswahl: Vormittag, Nachmittag, Abend                                                                         | Ja, bei Auswahl c)         | -                                                            | Nur sichtbar bei Beratungswunsch              |
+| Nachrichtenfeld      | Freitextfeld für zusätzliche Informationen                                                                                | Nein                       | Freitext, max. 2000 Zeichen                                  | Immer sichtbar                                |
+
+---
+
+### 4. Technische Anforderungen
+
+* Das Formular ist als reaktives Webformular (React) umzusetzen.
+* Validierungen erfolgen client- und serverseitig.
+* Die Sprachumschaltung darf keine Formularinhalte oder Zustände zurücksetzen.
+* Alle Felder müssen über semantisch korrekte HTML-Elemente verfügen (z. B. `<label>` zu `<input>`-Beziehung).
+
+---
+
+### 5. Usability & Barrierefreiheit
+
+* Die Lesbarkeit im Readonly-Zustand muss sichergestellt sein (z. B. Kontrast, Fokuszustand).
+* Alle Bedienelemente sind mit der Tastatur erreichbar.
+* ARIA-Labels zur Unterstützung von Screenreadern sind vorzusehen.
+
+---

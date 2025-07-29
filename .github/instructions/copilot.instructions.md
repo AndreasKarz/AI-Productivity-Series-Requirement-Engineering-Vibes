@@ -34,7 +34,15 @@ https://dev.azure.com/swisslife/F2C/_git/Fusion-Backend
 https://dev.azure.com/swisslife/F2C/_git/Fusion-Backend?path=/docs
 ## Source Code Repository der Data Loader (Staging)
 https://dev.azure.com/swisslife/F2C/_git/CIA-DataPump-001
+## Source Code Repository SyncHub
+https://dev.azure.com/swisslife/F2C/_git/SyncHub
 ## Source Code Repository des Frontend
 https://dev.azure.com/swisslife/F2C/_git/Fusion-UI
 ## Backend Developer Handbook
 https://dev.azure.com/swisslife/CTRM/_wiki/wikis/CTRM.wiki/13682/Backend-Developer-Handbook 
+## WIKI
+https://dev.azure.com/swisslife/CTRM/_wiki/wikis/CTRM.wiki
+## Core Technologie WIKI
+https://dev.azure.com/swisslife/IT-Dev-Community/_wiki/wikis/IT-Dev-Community.wiki/4842/Home
+## Sprint Dashboard
+https://dev.azure.com/swisslife/CTRM/_sprints/taskboard/CIA-Client%20Portal/CTRM/
