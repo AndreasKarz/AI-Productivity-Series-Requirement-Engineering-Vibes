@@ -1,6 +1,6 @@
 # AI Productivity Series - Requirement Engineering Vibes
 
-[TODO] Intro
+TODO Intro
 
 ## Vorbereitungen
 - Visual Studio Code Insiders installieren. Fall keine Adminrechte vorhanden sind, dann die [portable Version](https://code.visualstudio.com/insiders/) verwenden ([Anleitung](https://code.visualstudio.com/docs/editor/portable))
@@ -37,9 +37,12 @@ Wenn Du bist hier gekommen bist, dann hast Du die Vorbereitungen erfolgreich abg
 3. **Öffne den GitHub Copilot Chat**, stelle den Mode auf `Agent` und wähle das Model `Claude Sonet 4` aus
 4. Führe folgenden Prompt aus: `Liste mir alle zur Verfügung stehenden Projekte im ADO auf` (Am Anfang werden viele Berechtigungen abgefragt, die Du mit 'Always' beantworten kannst)
 
-Wenn Du die Liste bekommen hast, dann kannst Du nun mit prompten loslegen. Hier ein paar Beispiele:
-### Beispiele
-...
+Wenn Du die Liste bekommen hast, dann kannst Du nun mit prompten loslegen. 
+
+## Lern Ressourcen
+TODO
+- CoPilot Prompt Files
+- Prompt Engineering und wenn ein Prompt nicht richtig funktioniert, wie mit [The AI Engineer](https://www.perplexity.ai/spaces/the-ai-engineer-UslyhxrNTriahp77tvqP2g) überarbeiten lassen (mit Beispiel Prompt).
 
 ## Weitere Informationen
 - [Perplexity AI Engineer Space](https://www.perplexity.ai/spaces/the-ai-engineer-UslyhxrNTriahp77tvqP2g)
