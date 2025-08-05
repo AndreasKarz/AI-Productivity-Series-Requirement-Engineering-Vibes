@@ -3,7 +3,8 @@
         "AI-Productivity-Series-Requirement-Engineering-Vibes/.vscode/mcp.json: sequential-thinking": {
             "allowedModels": [
                 "copilot/claude-sonnet-4"
-            ]
+            ],
+            "chat.promptFiles": true
         }
     }
 }

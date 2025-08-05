@@ -41,7 +41,7 @@ Wenn Du die Liste bekommen hast, dann kannst Du nun mit prompten loslegen.
 
 ## Lern Ressourcen
 TODO
-- CoPilot Prompt Files
+- CoPilot Prompt Files (https://www.perplexity.ai/search/wie-funktionieren-die-github-c-csB5cqnSSu.zhwdhHvm6sg)
 - Prompt Engineering und wenn ein Prompt nicht richtig funktioniert, wie mit [The AI Engineer](https://www.perplexity.ai/spaces/the-ai-engineer-UslyhxrNTriahp77tvqP2g) überarbeiten lassen (mit Beispiel Prompt).
 
 ## Weitere Informationen
@@ -52,6 +52,5 @@ TODO
 - [GitHub Copilot Spaces](https://github.com/copilot/spaces?tab=org) (in progress)
 
 ## TODO
-- Toolset definierten
-- GitHub/SpecStory User Prompts
+- Prompt um Feature/PBI zu überarbeiten
 - Beispiele erstellen und gleich als User Prompts abspeichern
