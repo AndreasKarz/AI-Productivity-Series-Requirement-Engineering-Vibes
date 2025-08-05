@@ -1,6 +1,6 @@
 # AI Productivity Series - Requirement Engineering Vibes
 
-bla bla
+[TODO] Intro
 
 ## Vorbereitungen
 - Visual Studio Code Insiders installieren. Fall keine Adminrechte vorhanden sind, dann die [portable Version](https://code.visualstudio.com/insiders/) verwenden ([Anleitung](https://code.visualstudio.com/docs/editor/portable))
