@@ -1,17 +1,29 @@
-# AI Productivity Series - Requirement Engineering Vibes
+# Agentic Requirement Engineering
 
-TODO Intro
+[Deutsch](README.md) | [English](README.en.md)
+
+**Requirements Engineering & Testing neu gedacht.**  
+Stell dir vor, Du sparst wertvolle Zeit und hebst gleichzeitig die Qualität Deiner Projekte auf ein neues Level. Genau das macht **Agentic Requirement Engineering möglich** – und das in einem Bruchteil der Zeit, die du jetzt dafür aufwendest.
+
+Dieses Repository ist Dein Einstieg in eine fokussierte, effiziente und inspirierende Arbeitsweise. Hier findest Du alles, was Du brauchst: klare Anleitungen, erprobte Prompts und ein praktisches Setup, welches Dich direkt ins Tun bringen.  
+**Be ready – und lass Dich von smarter Automatisierung und punktgenauer Präzision begeistern.**  
+Das nächste Level beginnt jetzt.
 
 ## Vorbereitungen
-- Visual Studio Code Insiders installieren. Fall keine Adminrechte vorhanden sind, dann die [portable Version](https://code.visualstudio.com/insiders/) verwenden ([Anleitung](https://code.visualstudio.com/docs/editor/portable))
-- Ausserhalb der SL => installiere die [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows) oder [Portable Azure CLI](https://learn.microsoft.com/de-de/cli/azure/install-azure-cli-windows?view=azure-cli-latest&pivots=zip) und prüfe mit `az --version`, ob die Installation erfolgreich war
-- Installiere die [SpecStory Extension](https://marketplace.visualstudio.com/items?itemName=SpecStory.specstory-vscode) in Visual Studio Code Insiders
-- Stelle sicher, dass Du im [AI Engineer Perplexity Space](https://www.perplexity.ai/spaces/the-ai-engineer-UslyhxrNTriahp77tvqP2g) Prompts generieren kannst
-- Bestelle die benötigten Rechte:
-  - GitHub-Enterprise-Access (AP045370)
-  - GitHub-Co-Pilot for Business (AP047763)
-  - Microsoft-AzureCLI - PAV (AP046904)
-  - ADO Zugriff auf die gewünschte Organisation (az login muss funktionieren)
+- Klone dieses Repository in ein Verzeichnis Deiner Wahl (**Es ist wichtig zu klonen**, damit Du die Updates erhälst!) 
+- [Visual Studio Code](https://code.visualstudio.com/) oder besser [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) muss installiert sein. <small>(AP047391)</small>
+- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows) muss installiert sein. <small>(AP047392)</small>
+- Du brauchst einen GitHub Account, am besten einen GitHub Enterprise Account. <small>(AP045370)</small>
+- Prüfe das Du den GitHub Copilot nutzen kannst. Optimal wäre GitHub Copilot for Business. <small>(AP047763)</small>
+- Installiere die [SpecStory Extension](https://marketplace.visualstudio.com/items?itemName=SpecStory.specstory-vscode) in Visual Studio Code (Insiders).
+- Stelle sicher, dass Du im [AI Engineer Perplexity Space](https://www.perplexity.ai/spaces/the-ai-engineer-UslyhxrNTriahp77tvqP2g) Prompts generieren kannst.
+ 
+ Prüfe die Vorbereitungen:
+ - Führe in PowerShell den Befehl `az --version` aus. Du solltest eine Ausgabe mit der Version der Azure CLI sehen.
+ - Melde Dich mit `az login --allow-no-subscriptions` in der Azure CLI an. 
+ - Wechsle in PowerShell in Dein Verzeichnis und führe den Befehl `git clone --force` aus.
+ - Führe dann den Befehl `code .` aus, um Visual Studio Code zu öffnen.
+ - Prüfe die Installation der Extensions *SpecStory* und *GitHub* Copilot.
 
 ## Einstellungen und Konfiguration
 Wenn Du bist hier gekommen bist, dann hast Du die Vorbereitungen erfolgreich abgeschlossen. Jetzt kannst Du mit der Konfiguration beginnen:
