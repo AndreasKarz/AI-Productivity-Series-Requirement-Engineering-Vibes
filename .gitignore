@@ -419,3 +419,7 @@ FodyWeavers.xsd
 *.msp
 **/.specstory
 /package-lock.json
+/.github/userprompts/*
+!/.github/userprompts/template_say_funky_monkey.md
+/.assets/*
+!/.assets/README.md
