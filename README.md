@@ -83,6 +83,10 @@ Erstellt manuelle Test Cases zu einem WorkItem in ADO und verknüpft diese korre
 - template.copilot.instructions.md erstellen
 - Prompt um Feature/PBI zu überarbeiten
 - Beispiele erstellen und gleich als User Prompts abspeichern
+- Textgrössen definieren in den Basisinstruktionen, wie kompakt/kurz/detailliert
+  - kurz: 1-2 Sätze
+  - kompakt: 3-5 Sätze
+  - detailliert: ausführlich, mehrere Absätze, inkl. Beispiele/Begründung
 
 ## Weitere Ressourcen
 [Dokumentation Prompt Files](https://code.visualstudio.com/docs/copilot/copilot-customization#_prompt-files-experimental)
