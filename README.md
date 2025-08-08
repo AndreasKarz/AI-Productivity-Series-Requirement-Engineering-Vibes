@@ -13,7 +13,7 @@ Dieses Repository ist Dein Einstieg in eine fokussierte, effiziente und inspirie
 ## Vorbereitungen
 - Klone dieses Repository in ein Verzeichnis Deiner Wahl (**Es ist wichtig zu klonen**, damit Du die Updates erhälst!) 
 - [Visual Studio Code](https://code.visualstudio.com/) oder besser [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) muss installiert sein. <small>(AP047391)</small>
-- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows) muss installiert sein. <small>(AP047392)</small>
+- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows) muss installiert sein. <small>(AP046904)</small>
 - Du brauchst einen GitHub Account, am besten einen GitHub Enterprise Account. <small>(AP045370)</small>
 - Prüfe das Du den GitHub Copilot nutzen kannst. Optimal wäre GitHub Copilot for Business. <small>(AP047763)</small>
 - Installiere die [SpecStory Extension](https://marketplace.visualstudio.com/items?itemName=SpecStory.specstory-vscode) in Visual Studio Code (Insiders).
