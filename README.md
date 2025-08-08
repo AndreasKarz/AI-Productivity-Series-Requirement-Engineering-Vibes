@@ -83,3 +83,7 @@ Erstellt manuelle Test Cases zu einem WorkItem in ADO und verknüpft diese korre
 - template.copilot.instructions.md erstellen
 - Prompt um Feature/PBI zu überarbeiten
 - Beispiele erstellen und gleich als User Prompts abspeichern
+
+## Weitere Ressourcen
+[Dokumentation Prompt Files](https://code.visualstudio.com/docs/copilot/copilot-customization#_prompt-files-experimental)
+[IREB RE@Agile Empfehlung für Akzeptanzkriterien](https://www.perplexity.ai/search/was-sind-mogliche-formate-fur-W482QZ6bRzWh_0MCBAKfdA#0)
