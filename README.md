@@ -31,6 +31,10 @@ Damit du immer mit der **neusten ARE Version arbeitest**, führe regelmässig `.
 
 **Wenn Du die Liste bekommen hast, dann kannst Du nun mit prompten loslegen.**
 
+# Liste der verfügbaren Prompts
+Hier findest Du eine Übersicht der verfügbaren Prompts, die Dir helfen, effizient zu arbeiten.
+TODO
+
 # Instructions
 Mach Dich mit der Verzeichnisstruktur vertraut. Hier findest Du alle wichtigen Dateien und Ordner, die Dir helfen, effizient zu arbeiten. **Für eigenen Dateien, Assets und Instruktionen das Icon 🤐 beachten!** Diese werden NICHT versioniert und somit auch nicht gelöscht bei einer Aktualisierung des Repository.
 
