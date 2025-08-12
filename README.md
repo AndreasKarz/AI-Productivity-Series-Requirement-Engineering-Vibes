@@ -66,11 +66,7 @@ Dies ist die Reihenfolge, in der die Anweisungen und Prompts verarbeitet werden.
 - `.github/prompts/`: Enthält die vorgefertigten Prompts für die Nutzung mit GitHub Copilot.
 
 ## Prompts
-Es gibt 2 Arten von Prompts in diesem Verzeichnis: prompts und userprompts. Beide sind im Copilot Chat verfügbar. Der grosse Unterschied ist, dass prompts als Auswahl erscheinen, userprompts müssen eingetippt werden.
-
-### create_test_cases
-Erstellt manuelle Test Cases zu einem WorkItem in ADO und verknüpft diese korrekt.
-`/create_test_cases nnnnn`
+Es gibt 2 Arten von Prompts in diesem Verzeichnis: prompts und userprompts. Beide sind im Copilot Chat verfügbar. Der grosse Unterschied ist, dass Prompts als Auswahl erscheinen, UserPrompts müssen eingetippt werden.
 
 
 ## TODO
