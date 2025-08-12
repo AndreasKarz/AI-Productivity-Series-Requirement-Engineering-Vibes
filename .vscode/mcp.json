@@ -1,16 +1,10 @@
 {
-  "inputs": [
-    {
-      "id": "ado_org",
-      "type": "promptString",
-      "description": "Azure DevOps organization name  (e.g. 'contoso')"
-    }
-  ],
+  "inputs": [],
   "servers": {
     "ado": {
       "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "@azure-devops/mcp", "${input:ado_org}"]
+      "command": "pwsh",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/.vscode/start-ado-mcp.ps1", "swisslife"]
     },
     "sequential-thinking": {
       "command": "npx",
