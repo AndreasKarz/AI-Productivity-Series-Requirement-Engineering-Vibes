@@ -32,7 +32,9 @@ Damit du immer mit der **neusten ARE Version arbeitest**, führe regelmässig `.
 **Wenn Du die Liste bekommen hast, dann kannst Du nun mit prompten loslegen.**
 
 # Liste der verfügbaren Prompts
-Hier findest Du eine Übersicht der verfügbaren Prompts, die Dir helfen, effizient zu arbeiten.
+Hier findest Du eine Übersicht der verfügbaren Prompts, die Dir helfen, effizient zu arbeiten:
+- `/analyze_workitem <WorkItemID>` => Analysiert einen WorkItem in ADO und gibt relevante Informationen zurück.
+- `/create_test_cases <WorkItemID>` => Erstellt im Dialog manuelle Test Cases zu einem WorkItem in ADO und verknüpft diese korrekt.
 TODO
 - WIKI Inhalte suchen
 - Source code durchsuchen
