@@ -18,7 +18,7 @@ function Write-Status {
     }
 }
 
-cls
+Clear-Host
 Write-Host "========================================" -ForegroundColor Blue
 Write-Host "  Entwicklungsumgebung Setup" -ForegroundColor Blue
 Write-Host "========================================" -ForegroundColor Blue
@@ -84,8 +84,7 @@ if (-not $vsCodeExists) {
 # 5. Node.js Installation
 $nodeBasePath = Join-Path $env:USERPROFILE "Apps\node-$NodeVersion-win-x64"
 Write-Status "Prüfe Node.js Installation..."
-
-if (-not (Test-Path $nodeBasePath)) {
+if (-not (Get-Command node -ErrorAction SilentlyContinue)) {
     Write-Status "Node.js nicht gefunden, lade und installiere..." "Warning"
     try {
         $downloadUrl = "https://nodejs.org/dist/$NodeVersion/node-$NodeVersion-win-x64.zip"
@@ -134,7 +133,7 @@ if ($currentUserPath -notlike "*$nodeBasePath*") {
 # 8. Azure Login (optional, kann übersprungen werden)
 Write-Status "Starte Azure Login (kann mit Ctrl+C übersprungen werden)..."
 try {
-    # az login --allow-no-subscriptions
+    az login --allow-no-subscriptions
     Write-Status "Azure Login erfolgreich" "Success"
 } catch {
     Write-Status "Azure Login übersprungen oder fehlgeschlagen" "Warning"
@@ -155,17 +154,13 @@ try {
     $vscodeExe = $possiblePaths | Where-Object { Test-Path $_ } | Select-Object -First 1
 
     if ($vscodeExe) {
-        $readmePath = Join-Path $targetPath "README.md"
-
         $WScriptShell = New-Object -ComObject WScript.Shell
         $shortcut = $WScriptShell.CreateShortcut($shortcutPath)
         $shortcut.TargetPath = $vscodeExe
-        # Erst Ordner, dann README.md als separate Argumente
-        $shortcut.Arguments = "`"$targetPath`" `"$readmePath`""
+        $shortcut.Arguments = "-r `"$targetPath`" `"$targetPath\README.md`" -g --command workbench.action.terminal.toggleTerminal -r"
         $shortcut.WorkingDirectory = $targetPath
         $shortcut.Description = "VS Code Insiders - ARE Projekt"
         $shortcut.Save()
-
         Write-Status "Desktop Shortcut erfolgreich erstellt: $shortcutPath" "Success"
     }
 } catch {
@@ -186,7 +181,7 @@ Write-Host "========================================" -ForegroundColor Blue
 Write-Status "Starte VS Code Insiders..."
 try {
     if ($repoPath -and (Test-Path $repoPath)) {
-        # Set-Location $repoPath
+        Set-Location $repoPath
         code-insiders .
         Write-Status "VS Code Insiders gestartet im Repository-Verzeichnis" "Success"
     } else {
