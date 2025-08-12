@@ -11,43 +11,19 @@ Dieses Repository ist Dein Einstieg in eine fokussierte, effiziente und inspirie
 # Das nächste Level beginnt jetzt.
 
 ## Vorbereitungen
-- Klone dieses Repository in ein Verzeichnis Deiner Wahl (**Es ist wichtig zu klonen**, damit Du die Updates erhälst!) 
-- [Visual Studio Code](https://code.visualstudio.com/) oder besser [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/) muss installiert sein. <small>(AP047391)</small>
-- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows) muss installiert sein. <small>(AP046904)</small>
-- rundll32.exe sysdm.cpl,EditEnvironmentVariables
-- Du brauchst einen GitHub Account, am besten einen GitHub Enterprise Account. <small>(AP045370)</small>
-- Prüfe das Du den GitHub Copilot nutzen kannst. Optimal wäre GitHub Copilot for Business. <small>(AP047763)</small>
-- Installiere die [SpecStory Extension](https://marketplace.visualstudio.com/items?itemName=SpecStory.specstory-vscode) in Visual Studio Code (Insiders).
+> **Downloade das [are_setup.ps1](https://github.com/AndreasKarz/AI-Productivity-Series-Requirement-Engineering-Vibes/blob/main/are_setup.ps1) Installationsscript** und starte es in PowerShell. Es wird Dir helfen, die notwendigen Vorbereitungen zu treffen und die Umgebung einzurichten. Nach der Installation wir **Visual Studio Code Insiders geöffnet**.
+
+**Danach sind noch folgende Schritte auszuführen:**
 - **Installiere die Azure DevOps MCP Server Extension** in Visual Studio Code Insiders: [Anleitung](https://github.com/microsoft/azure-devops-mcp)
-- Stelle sicher, dass Du im [AI Engineer Perplexity Space](https://www.perplexity.ai/spaces/the-ai-engineer-UslyhxrNTriahp77tvqP2g) Prompts generieren kannst.
- 
-**Prüfe die Vorbereitungen:**
- - Führe in PowerShell den Befehl `az --version` aus. Du solltest eine Ausgabe mit der Version der Azure CLI sehen. (Install-Module Az -Scope CurrentUser)
- - Melde Dich mit `az login --allow-no-subscriptions` in der Azure CLI an. (Connect-AzAccount)
- - Wechsle in PowerShell in Dein Verzeichnis und führe den Befehl `git clone --force` aus.
- - Führe dann den Befehl `code .` aus, um Visual Studio Code zu öffnen.
- - Prüfe die Installation der Extensions *SpecStory* und *GitHub* Copilot.
-
-## Einstellungen und Konfiguration
-Wenn Du bist hier gekommen bist, dann hast Du die Vorbereitungen erfolgreich abgeschlossen. Jetzt kannst Du mit der Konfiguration beginnen:
-
-### SpecStory
-1. Öffne Visual Studio Code (Insiders)
-2. Klicke auf das Extensions-Symbol in der linken Seitenleiste
-3. Klicke auf das Zahnrad-Symbol oben in der Extensions-Ansicht
-4. **Aktiviere Auto-save**
-
-### GitHub Copilot
-1. Copilot Chat starten und anmelden <small>(SL Account)</small>
-
-### ADO MCP Server
-1. Öffne in Visual Studio Code Insiders die **Explorer Ansicht**.
-2. Öffne die Datei `.vscode/mcp.json` und **starte die beiden Server** `ado` und `sequential-thinking`. Es müssen danach beide auf `Running` stehen
+- Stelle sicher, dass Du im **[AI Engineer Perplexity Space](https://www.perplexity.ai/spaces/the-ai-engineer-UslyhxrNTriahp77tvqP2g)** Prompts generieren kannst.
+- Öffne den **Copilot Chat** und melde dich an <small>(SL Account)</small>
+- Öffne in Visual Studio Code Insiders die **Explorer Ansicht**.
+- Öffne die Datei `.vscode/mcp.json` und **starte die beiden Server** `ado` und `sequential-thinking`. Es müssen danach beide auf `Running` stehen
 
 ## Und los geht's
 1. Öffne die Ansicht **Terminal** in Visual Studio Code
 2. Führe den Befehl `az login` im Terminal aus und **melde Dich mit Deinen ADO Credentials an**
-3. **Öffne den GitHub Copilot Chat**, stelle den Mode auf `Agent` und wähle das Model `Claude Sonet 4` aus
+3. **Öffne den GitHub Copilot Chat**, stelle den Mode auf `Agent` und wähle das Model `GPT-5` aus
 4. Führe folgenden Prompt aus: `Liste mir via MCP alle zur Verfügung stehenden Projekte im ADO auf` (Am Anfang werden viele Berechtigungen abgefragt, die Du mit 'Always' beantworten kannst)
 
 **Wenn Du die Liste bekommen hast, dann kannst Du nun mit prompten loslegen.**
@@ -81,7 +57,6 @@ Erstellt manuelle Test Cases zu einem WorkItem in ADO und verknüpft diese korre
 
 
 ## TODO
-- template.copilot.instructions.md erstellen
 - Prompt um Feature/PBI zu überarbeiten
 - Beispiele erstellen und gleich als User Prompts abspeichern
 - Textgrössen definieren in den Basisinstruktionen, wie kompakt/kurz/detailliert
@@ -92,3 +67,9 @@ Erstellt manuelle Test Cases zu einem WorkItem in ADO und verknüpft diese korre
 ## Weitere Ressourcen
 [Dokumentation Prompt Files](https://code.visualstudio.com/docs/copilot/copilot-customization#_prompt-files-experimental)
 [IREB RE@Agile Empfehlung für Akzeptanzkriterien](https://www.perplexity.ai/search/was-sind-mogliche-formate-fur-W482QZ6bRzWh_0MCBAKfdA#0)
+
+
+- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows) muss installiert sein. <small>(AP046904)</small>
+- rundll32.exe sysdm.cpl,EditEnvironmentVariables
+- Du brauchst einen GitHub Account, am besten einen GitHub Enterprise Account. <small>(AP045370)</small>
+- Prüfe das Du den GitHub Copilot nutzen kannst. Optimal wäre GitHub Copilot for Business. <small>(AP047763)</small>
