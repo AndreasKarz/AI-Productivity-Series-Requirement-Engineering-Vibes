@@ -25,7 +25,7 @@ Damit du immer mit der **neusten ARE Version arbeitest**, führe regelmässig `.
 
 ## Und los geht's
 1. Öffne die Ansicht **Terminal** in Visual Studio Code
-2. Führe den Befehl `az login` im Terminal aus und **melde Dich mit Deinen ADO Credentials an**
+2. Führe den Befehl `az login --allow-no-subscriptions` im Terminal aus und **melde Dich mit Deinen ADO Credentials an**
 3. **Öffne den GitHub Copilot Chat**, stelle den Mode auf `Agent` und wähle das Model `GPT-5` aus
 4. Führe folgenden Prompt aus: `Liste mir via MCP alle zur Verfügung stehenden Projekte im ADO auf` (Am Anfang werden viele Berechtigungen abgefragt, die Du mit 'Always' beantworten kannst)
 
@@ -42,6 +42,7 @@ TODO
 - Testabdeckung analysieren
 - Felder in der ganzen Codebasis durchsuchen und die Ladestrecke komplett aufzeigen
 - Übersetzungen anzeigen
+- Mailtemplate inkl. Konfiguration anzeigen
 - ...
 
 # Instructions
