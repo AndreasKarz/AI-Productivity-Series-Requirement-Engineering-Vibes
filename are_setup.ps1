@@ -8,17 +8,17 @@ param(
     [string]$NodeVersion = "v22.18.0"
 )
 
-# Hilfsfunktion für farbige Ausgaben
 function Write-Status {
     param([string]$Message, [string]$Status = "Info")
     switch ($Status) {
-        "Success" { Write-Host "✓ $Message" -ForegroundColor Green }
-        "Warning" { Write-Host "⚠ $Message" -ForegroundColor Yellow }
-        "Error"   { Write-Host "✗ $Message" -ForegroundColor Red }
-        default   { Write-Host "→ $Message" -ForegroundColor Cyan }
+        "Success" { Write-Host "[OK] $Message" -ForegroundColor Green }
+        "Warning" { Write-Host "[!] $Message" -ForegroundColor Yellow }
+        "Error"   { Write-Host "[X] $Message" -ForegroundColor Red }
+        default   { Write-Host "-> $Message" -ForegroundColor Cyan }
     }
 }
 
+cls
 Write-Host "========================================" -ForegroundColor Blue
 Write-Host "  Entwicklungsumgebung Setup" -ForegroundColor Blue
 Write-Host "========================================" -ForegroundColor Blue
@@ -41,19 +41,14 @@ if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
 
 # 2. Repository klonen
 $repoPath = Join-Path $env:USERPROFILE 'ARE'
-Write-Status "Prüfe Repository..."
 if (-not (Test-Path $repoPath)) {
-    Write-Status "Repository nicht gefunden, lade herunter..." "Warning"
-    try {
-        Set-Location $env:USERPROFILE
-        git clone https://github.com/AndreasKarz/AI-Productivity-Series-Requirement-Engineering-Vibes.git
-        Write-Status "Repository erfolgreich geklont" "Success"
-    } catch {
-        Write-Status "Repository konnte nicht geklont werden: $($_.Exception.Message)" "Error"
-    }
+    Write-Status "Repository nicht gefunden, klone in $repoPath..." "Warning"
+    git clone https://github.com/AndreasKarz/AI-Productivity-Series-Requirement-Engineering-Vibes.git (Join-Path $env:USERPROFILE 'ARE')
+    Write-Status "Repository erfolgreich geklont" "Success"
 } else {
     Write-Status "Repository bereits vorhanden: $repoPath" "Success"
 }
+
 
 # 3. Azure PowerShell Modul
 Write-Status "Prüfe Azure PowerShell Modul..."
@@ -139,17 +134,59 @@ if ($currentUserPath -notlike "*$nodeBasePath*") {
 # 8. Azure Login (optional, kann übersprungen werden)
 Write-Status "Starte Azure Login (kann mit Ctrl+C übersprungen werden)..."
 try {
-    az login --allow-no-subscriptions
+    # az login --allow-no-subscriptions
     Write-Status "Azure Login erfolgreich" "Success"
 } catch {
     Write-Status "Azure Login übersprungen oder fehlgeschlagen" "Warning"
 }
 
-# 9. VS Code Insiders starten
+# 9. Desktop Shortcut für VS Code Insiders erstellen
+Write-Status "Erstelle Desktop Shortcut für VS Code Insiders..."
+try {
+    $desktopPath   = [Environment]::GetFolderPath("Desktop")
+    $shortcutPath  = Join-Path $desktopPath "VS Code Insiders - ARE.lnk"
+    $targetPath    = Join-Path $env:USERPROFILE "ARE"
+
+    $possiblePaths = @(
+        "$env:LOCALAPPDATA\Programs\Microsoft VS Code Insiders\Code - Insiders.exe",
+        "$env:PROGRAMFILES\Microsoft VS Code Insiders\Code - Insiders.exe"
+    )
+
+    $vscodeExe = $possiblePaths | Where-Object { Test-Path $_ } | Select-Object -First 1
+
+    if ($vscodeExe) {
+        $readmePath = Join-Path $targetPath "README.md"
+
+        $WScriptShell = New-Object -ComObject WScript.Shell
+        $shortcut = $WScriptShell.CreateShortcut($shortcutPath)
+        $shortcut.TargetPath = $vscodeExe
+        # Erst Ordner, dann README.md als separate Argumente
+        $shortcut.Arguments = "`"$targetPath`" `"$readmePath`""
+        $shortcut.WorkingDirectory = $targetPath
+        $shortcut.Description = "VS Code Insiders - ARE Projekt"
+        $shortcut.Save()
+
+        Write-Status "Desktop Shortcut erfolgreich erstellt: $shortcutPath" "Success"
+    }
+} catch {
+    Write-Status "Fehler beim Erstellen des Desktop Shortcuts: $($_.Exception.Message)" "Error"
+}
+
+# 10. Abschluss-Hinweise
+Write-Host "========================================" -ForegroundColor Blue
+Write-Host "Hinweise:" -ForegroundColor Yellow
+Write-Host "- Für neue Terminal-Sessions ist Node.js über 'node' und 'npm' verfügbar" -ForegroundColor Gray
+Write-Host "- VS Code Insiders läuft als 'code-insiders'" -ForegroundColor Gray
+Write-Host "- Desktop Shortcut 'VS Code Insiders - ARE' wurde erstellt (falls VS Code Insiders gefunden wurde)" -ForegroundColor Gray
+Write-Host ("- Projekt-Verzeichnis: " + (Join-Path $env:USERPROFILE "ARE")) -ForegroundColor Gray
+Write-Host "- Copilot-Link: https://github.com/orgs/swisslife-ch/sso?return_to=%2Fcopilot" -ForegroundColor Gray
+Write-Host "========================================" -ForegroundColor Blue
+
+# 11. VS Code Insiders starten
 Write-Status "Starte VS Code Insiders..."
 try {
     if ($repoPath -and (Test-Path $repoPath)) {
-        Set-Location $repoPath
+        # Set-Location $repoPath
         code-insiders .
         Write-Status "VS Code Insiders gestartet im Repository-Verzeichnis" "Success"
     } else {
@@ -159,11 +196,3 @@ try {
 } catch {
     Write-Status "VS Code Insiders konnte nicht gestartet werden: $($_.Exception.Message)" "Warning"
 }
-
-Write-Host "`n========================================" -ForegroundColor Blue
-Write-Status "Setup abgeschlossen!" "Success"
-Write-Host "Hinweise:" -ForegroundColor Yellow
-Write-Host "- Für neue Terminal-Sessions ist Node.js über 'node' und 'npm' verfügbar" -ForegroundColor Gray
-Write-Host "- VS Code Insiders läuft als 'code-insiders'" -ForegroundColor Gray
-Write-Host "- Copilot-Link: https://github.com/orgs/swisslife-ch/sso?return_to=%2Fcopilot" -ForegroundColor Gray
-Write-Host "========================================" -ForegroundColor Blue
