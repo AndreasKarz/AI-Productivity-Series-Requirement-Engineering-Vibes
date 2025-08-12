@@ -40,6 +40,8 @@ https://dev.azure.com/swisslife/F2C/_git/CIA-DataPump-001
 https://dev.azure.com/swisslife/F2C/_git/SyncHub
 ## Source Code Repository des Frontend
 https://dev.azure.com/swisslife/F2C/_git/Fusion-UI
+## Source Code Repository der Notification Core Templates (Mail Templates)
+https://dev.azure.com/swisslife/F2C/_git/Fusion-Notification-Core-Templates
 ## Backend Developer Handbook
 https://dev.azure.com/swisslife/CTRM/_wiki/wikis/CTRM.wiki/13682/Backend-Developer-Handbook 
 ## WIKI
