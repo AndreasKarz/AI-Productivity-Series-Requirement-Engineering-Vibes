@@ -34,6 +34,13 @@ Damit du immer mit der **neusten ARE Version arbeitest**, führe regelmässig `.
 # Liste der verfügbaren Prompts
 Hier findest Du eine Übersicht der verfügbaren Prompts, die Dir helfen, effizient zu arbeiten.
 TODO
+- WIKI Inhalte suchen
+- Source code durchsuchen
+- Zeitgewinn berechnen
+- Testabdeckung analysieren
+- Felder in der ganzen Codebasis durchsuchen und die Ladestrecke komplett aufzeigen
+- Übersetzungen anzeigen
+- ...
 
 # Instructions
 Mach Dich mit der Verzeichnisstruktur vertraut. Hier findest Du alle wichtigen Dateien und Ordner, die Dir helfen, effizient zu arbeiten. **Für eigenen Dateien, Assets und Instruktionen das Icon 🤐 beachten!** Diese werden NICHT versioniert und somit auch nicht gelöscht bei einer Aktualisierung des Repository.
