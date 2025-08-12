@@ -1,0 +1,1 @@
+Set-Location (Join-Path $env:USERPROFILE 'ARE'); git pull --force

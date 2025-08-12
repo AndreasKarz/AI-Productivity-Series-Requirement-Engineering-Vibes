@@ -8,10 +8,16 @@
         }
     },
     "chat.mcp.enabled": true,
-    "chat.mcp.discovery.enabled": true,
+    "chat.mcp.discovery.enabled": {
+        "claude-desktop": true,
+        "windsurf": true,
+        "cursor-global": true,
+        "cursor-workspace": true
+    },
     "chat.mcp.autostart": "newAndOutdated",
     "chat.tools.terminal.autoApprove": {
         "/^git (status|show\b.*)$/": true,
+        "intent": true,
         "core_get_work_item": true,
         "wit_list_work_item_comments": true,
         "wit_get_work_item": true,
@@ -37,7 +43,6 @@
         "wit_update_work_items_batch": true,
         "wit_work_items_link": true,
         "wit_work_item_unlink": true,
-        "Deprecated Tools": true,
         "wit_add_child_work_item": true,
         "wit_close_and_link_workitem_duplicates": true,
         "repo_list_repos_by_project": true,

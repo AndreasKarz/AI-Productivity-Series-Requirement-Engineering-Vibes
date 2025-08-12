@@ -10,6 +10,9 @@ Dieses Repository ist Dein Einstieg in eine fokussierte, effiziente und inspirie
 
 # Das nächste Level beginnt jetzt.
 
+## Aktualisieren
+Damit du immer mit der **neusten ARE Version arbeitest**, führe regelmässig `./are_update.ps1` aus. **Damit aktualisierst du die Prompts, Instruktionen und Konfigurationen in diesem Repository.**
+
 ## Vorbereitungen
 > **Downloade das [are_setup.ps1](https://github.com/AndreasKarz/AI-Productivity-Series-Requirement-Engineering-Vibes/blob/main/are_setup.ps1) Installationsscript** und starte es in PowerShell. Es wird Dir helfen, die notwendigen Vorbereitungen zu treffen und die Umgebung einzurichten. Nach der Installation wir **Visual Studio Code Insiders geöffnet**.
 
