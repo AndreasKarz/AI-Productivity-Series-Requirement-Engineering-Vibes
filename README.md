@@ -22,7 +22,7 @@ Dieses Repository ist Dein Einstieg in eine fokussierte, effiziente und inspirie
 - Stelle sicher, dass Du im [AI Engineer Perplexity Space](https://www.perplexity.ai/spaces/the-ai-engineer-UslyhxrNTriahp77tvqP2g) Prompts generieren kannst.
  
 **Prüfe die Vorbereitungen:**
- - Führe in PowerShell den Befehl `az --version` aus. Du solltest eine Ausgabe mit der Version der Azure CLI sehen. (Install-Module Az.Accounts -Scope CurrentUser)
+ - Führe in PowerShell den Befehl `az --version` aus. Du solltest eine Ausgabe mit der Version der Azure CLI sehen. (Install-Module Az -Scope CurrentUser)
  - Melde Dich mit `az login --allow-no-subscriptions` in der Azure CLI an. (Connect-AzAccount)
  - Wechsle in PowerShell in Dein Verzeichnis und führe den Befehl `git clone --force` aus.
  - Führe dann den Befehl `code .` aus, um Visual Studio Code zu öffnen.
