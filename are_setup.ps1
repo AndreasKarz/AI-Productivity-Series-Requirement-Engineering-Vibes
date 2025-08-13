@@ -157,7 +157,7 @@ try {
         $WScriptShell = New-Object -ComObject WScript.Shell
         $shortcut = $WScriptShell.CreateShortcut($shortcutPath)
         $shortcut.TargetPath = $vscodeExe
-        $shortcut.Arguments = "-r `"$targetPath`" `"$targetPath\README.md`" -g --command workbench.action.terminal.toggleTerminal -r"
+        $shortcut.Arguments = "-r `"$targetPath`" `"$targetPath\.vscode\mcp.json`" -g --command workbench.action.terminal.toggleTerminal -r"
         $shortcut.WorkingDirectory = $targetPath
         $shortcut.Description = "VS Code Insiders - ARE Projekt"
         $shortcut.Save()
