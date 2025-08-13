@@ -39,11 +39,15 @@ Hier findest Du eine Übersicht der verfügbaren Prompts, die Dir helfen, effizi
 TODO
 - WIKI Inhalte suchen
 - Source code durchsuchen
+- Bug analysieren 
 - Zeitgewinn berechnen
+- Aufteilung BE/FE im Sprint auswerten und Dashboard erstellen inkl. Ratschlägen
 - Testabdeckung analysieren
-- Felder in der ganzen Codebasis durchsuchen und die Ladestrecke komplett aufzeigen
+- Property in der ganzen Codebasis durchsuchen und die Ladestrecke komplett aufzeigen
 - Übersetzungen anzeigen
 - Mailtemplate inkl. Konfiguration anzeigen
+- Logs analysieren (mit Frage, welche Datei in .assets untersucht werden soll)
+- PDF Handbuch zusammenfassen (testen, ob CoPilot PDFs lesen kann, sonst Workaround. Fragen, welche Datei in .assets untersucht werden soll, alles oder ein spezielles Thema)
 - ...
 
 # Instructions
