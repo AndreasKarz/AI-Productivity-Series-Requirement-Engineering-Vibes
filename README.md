@@ -79,8 +79,8 @@ Es gibt 2 Arten von Prompts in diesem Verzeichnis: prompts und userprompts. Beid
   - detailliert: ausführlich, mehrere Absätze, inkl. Beispiele/Begründung
 
 ## Weitere Ressourcen
-[Dokumentation Prompt Files](https://code.visualstudio.com/docs/copilot/copilot-customization#_prompt-files-experimental)
-[IREB RE@Agile Empfehlung für Akzeptanzkriterien](https://www.perplexity.ai/search/was-sind-mogliche-formate-fur-W482QZ6bRzWh_0MCBAKfdA#0)
+- [Dokumentation Prompt Files](https://code.visualstudio.com/docs/copilot/copilot-customization#_prompt-files-experimental)
+- [IREB RE@Agile Empfehlung für Akzeptanzkriterien](https://www.perplexity.ai/search/was-sind-mogliche-formate-fur-W482QZ6bRzWh_0MCBAKfdA#0)
 
 
 - [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows) muss installiert sein. <small>(AP046904)</small>
