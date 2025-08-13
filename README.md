@@ -1,4 +1,4 @@
-# Agentic Requirement Engineering
+# Agentic Requirement Engineering (ARE)
 
 [Deutsch](README.md) | [English](README.en.md)
 
@@ -11,17 +11,18 @@ Dieses Repository ist Dein Einstieg in eine fokussierte, effiziente und inspirie
 # Das nächste Level beginnt jetzt.
 
 ## Aktualisieren
-Damit du immer mit der **neusten ARE Version arbeitest**, führe regelmässig `./are_update.ps1` aus. **Damit aktualisierst du die Prompts, Instruktionen und Konfigurationen in diesem Repository.**
+> Damit du immer mit der **neusten ARE Version arbeitest**, führe regelmässig `./are_update.ps1` aus. **Damit aktualisierst du die Prompts, Instruktionen und Konfigurationen in diesem Repository.**
 
 ## Vorbereitungen
-> **Downloade das [are_setup.ps1](https://github.com/AndreasKarz/AI-Productivity-Series-Requirement-Engineering-Vibes/blob/main/are_setup.ps1) Installationsscript** und starte es in PowerShell. Es wird Dir helfen, die notwendigen Vorbereitungen zu treffen und die Umgebung einzurichten. Nach der Installation wir **Visual Studio Code Insiders geöffnet**.
+> **Downloade das [are_setup.ps1](https://github.com/AndreasKarz/AI-Productivity-Series-Requirement-Engineering-Vibes/blob/main/are_setup.ps1) Installationsscript** und starte es in PowerShell. Es wird Dir helfen, die notwendigen Vorbereitungen zu treffen und die Umgebung einzurichten. Nach der Installation findest du in deinem Benutzerverzeichnis den Ordner "ARE" und **Visual Studio Code Insiders öffnet** sich in diesem Ordner.<br/>
+> Zusätzlich befindet sich auf dem Desktop eine Verknüpfung zu ARE, mit welcher du direkt in diesem Ordner zu arbeiten kannst.
 
 **Danach sind noch folgende Schritte auszuführen:**
 - **Installiere die Azure DevOps MCP Server Extension** in Visual Studio Code Insiders: [Anleitung](https://github.com/microsoft/azure-devops-mcp)
 - Stelle sicher, dass Du im **[AI Engineer Perplexity Space](https://www.perplexity.ai/spaces/the-ai-engineer-UslyhxrNTriahp77tvqP2g)** Prompts generieren kannst.
 - Öffne den **Copilot Chat** und melde dich an <small>(SL Account)</small>
 - Öffne in Visual Studio Code Insiders die **Explorer Ansicht**.
-- Öffne die Datei `.vscode/mcp.json` und **starte die beiden Server** `ado` und `sequential-thinking`. Es müssen danach beide auf `Running` stehen
+- Öffne die Datei `.vscode/mcp.json` und **starte die beiden Server** `ado` und `sequential-thinking`. Es müssen beide auf `Running` stehen.
 
 ## Und los geht's
 1. Öffne die Ansicht **Terminal** in Visual Studio Code
