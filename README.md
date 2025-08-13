@@ -10,9 +10,6 @@ Dieses Repository ist Dein Einstieg in eine fokussierte, effiziente und inspirie
 
 # Das nächste Level beginnt jetzt.
 
-## Aktualisieren
-> Damit du immer mit der **neusten ARE Version arbeitest**, führe regelmässig `./are_update.ps1` aus. **Damit aktualisierst du die Prompts, Instruktionen und Konfigurationen in diesem Repository.**
-
 ## Vorbereitungen
 > **Downloade das [are_setup.ps1](https://github.com/AndreasKarz/AI-Productivity-Series-Requirement-Engineering-Vibes/blob/main/are_setup.ps1) Installationsscript** und starte es in PowerShell. Es wird Dir helfen, die notwendigen Vorbereitungen zu treffen und die Umgebung einzurichten. Nach der Installation findest du in deinem Benutzerverzeichnis den Ordner "ARE" und **Visual Studio Code Insiders öffnet** sich in diesem Ordner.<br/>
 > Zusätzlich befindet sich auf dem Desktop eine Verknüpfung zu ARE, mit welcher du direkt in diesem Ordner zu arbeiten kannst.
@@ -32,7 +29,11 @@ Dieses Repository ist Dein Einstieg in eine fokussierte, effiziente und inspirie
 
 **Wenn Du die Liste bekommen hast, dann kannst Du nun mit prompten loslegen.**
 
-# Liste der verfügbaren Prompts
+# Arbeiten mit ARE
+> Starte die ARE Umgebung mit dem bei der Installation erstellten Desktop Icon. 
+> Öffne `Ansicht > Terminal` und führe im Terminal `./are_start.ps1` aus. **Damit aktualisierst du die Prompts, Instruktionen und Konfigurationen in diesem Repository** und meldest dich an.
+
+## Liste der verfügbaren Prompts
 Hier findest Du eine Übersicht der verfügbaren Prompts, die Dir helfen, effizient zu arbeiten:
 - `/analyze_workitem <WorkItemID>` => Analysiert einen WorkItem in ADO und gibt relevante Informationen zurück.
 - `/create_test_cases <WorkItemID>` => Erstellt im Dialog manuelle Test Cases zu einem WorkItem in ADO und verknüpft diese korrekt.
