@@ -75,12 +75,8 @@ Es gibt 2 Arten von Prompts in diesem Verzeichnis: prompts und userprompts. Beid
 
 
 ## TODO
-- Prompt um Feature/PBI zu überarbeiten
-- Beispiele erstellen und gleich als User Prompts abspeichern
-- Textgrössen definieren in den Basisinstruktionen, wie kompakt/kurz/detailliert
-  - kurz: 1-2 Sätze
-  - kompakt: 3-5 Sätze
-  - detailliert: ausführlich, mehrere Absätze, inkl. Beispiele/Begründung
+- Beispiele erstellen und als User Prompts abspeichern
+
 
 ## Weitere Ressourcen
 - [Dokumentation Prompt Files](https://code.visualstudio.com/docs/copilot/copilot-customization#_prompt-files-experimental)
