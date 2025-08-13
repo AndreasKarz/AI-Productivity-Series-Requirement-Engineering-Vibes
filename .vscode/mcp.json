@@ -13,6 +13,7 @@
       "args": ["-y", "@azure-devops/mcp", "${input:ado_org}"]
     },
     "sequential-thinking": {
+  "type": "stdio",
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
     }

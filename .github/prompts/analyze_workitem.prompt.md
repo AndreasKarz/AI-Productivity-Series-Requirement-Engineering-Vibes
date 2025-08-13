@@ -37,6 +37,7 @@
         <capability>update:work-item-fields</capability>
       </capabilities>
       <fields-expected>
+  <field>System.WorkItemType</field>
         <field>System.Title</field>
         <field>System.Description</field>
         <field>Microsoft.VSTS.Common.AcceptanceCriteria</field>
@@ -94,18 +95,26 @@
     <phase id="0-collection" required="true">
       <goal>Collect and normalize all relevant ADO data for the target work item.</goal>
       <actions>
-        <action>Fetch work item core fields and custom fields.</action>
+        <action>Fetch work item core fields and custom fields, including System.WorkItemType.</action>
         <action>Fetch full comment history, change history (field diffs), and attachments metadata.</action>
         <action>Fetch linked items up to includeLinkedItemsDepth, with link types (parent/child/related, PRs, commits).</action>
+        <action>If a Parent link exists, also fetch Parent core fields and attachments metadata.</action>
+        <action>For all attachments (current item and Parent): retrieve accessible text content where feasible (e.g., TXT/MD/HTML/CSV/JSON; PDF/DOCX via text extraction if available). If content cannot be extracted, include filename, size, type, and a note.</action>
         <action>Compile a trace map of references (IDs, titles, types, current states).</action>
-  <action>Normalize ADO HTML fields (e.g., Description, Acceptance Criteria) to Markdown for further processing; preserve semantic structures (lists, headings, code) and links.</action>
+        <action>Normalize ADO HTML fields (e.g., Description, Acceptance Criteria) to Markdown for further processing; preserve semantic structures (lists, headings, code) and links.</action>
       </actions>
       <outputs>
         <schema name="collectionReport">
           <field name="workItemSummary" />
+          <field name="workItemType" />
           <field name="fieldsPresent" />
           <field name="fieldsMissing" />
           <field name="links" />
+          <field name="attachmentsOverview" />
+          <field name="attachmentsExtracts" />
+          <field name="parentSummary" />
+          <field name="parentAttachmentsOverview" />
+          <field name="parentAttachmentsExtracts" />
           <field name="commentsOverview" />
           <field name="historyKeyChanges" />
           <field name="risksOrAmbiguities" />
@@ -120,7 +129,10 @@
       <goal>Assess completeness and quality against IREB and ISTQB.</goal>
       <actions>
         <action>Evaluate clarity, completeness, consistency, testability, feasibility.</action>
+        <action>Consider Work Item Type (e.g., Product Backlog Item/Feature/Epic/Task/Bug) and apply type-spezifische Kriterien: z. B. Akzeptanzkriterien obligatorisch für PBI/Feature; ReproSteps/Expected für Bugs; Aufwand/Sizing für Tasks.</action>
         <action>Identify contradictions with linked items and project policies (if found in workspace docs).</action>
+        <action>Analyze attachments for additional requirements, constraints, data definitions, UI mockups; integrate relevant findings and flag conflicts or gaps.</action>
+        <action>Assess alignment with Parent (falls vorhanden): Ziele, Scope, NFRs, Abhängigkeiten; markieren, wenn Child den Parent unter- oder überschreitet.</action>
         <action>Assess acceptance criteria quality and coverage, including negative/edge scenarios.</action>
         <action>Detect role ambiguity, undefined terms, missing constraints, NFRs.</action>
       </actions>
@@ -128,6 +140,9 @@
         <schema name="analysisSummary">
           <field name="strengths" />
           <field name="gaps" />
+          <field name="typeSpecificFindings" />
+          <field name="attachmentsFindings" />
+          <field name="parentAlignmentFindings" />
           <field name="risks" />
           <field name="testabilityFindings" />
           <field name="traceabilityFindings" />
@@ -142,6 +157,7 @@
         <action>Draft improved Title, Description, Acceptance Criteria (GWT), NFRs, and Tags.</action>
         <action>List change diffs field-by-field with rationale and IREB/ISTQB mapping.</action>
         <action>Prepare questions for the user where assumptions are needed.</action>
+        <action>Provide a numbered catalog of proposed changes and extensions (Änderungskatalog), each item traceable to a field or artifact (inkl. Attachment-bezogene Vorschläge und Link-Anpassungen, Parent-bezogene Anpassungen).</action>
       </actions>
       <outputs>
         <schema name="proposal">
@@ -155,6 +171,7 @@
             <subfield name="linksAdjustments" />
           </field>
           <field name="rationalePerEdit" />
+          <field name="changeCatalogNumbered" />
           <field name="openQuestions" />
         </schema>
       </outputs>
@@ -162,6 +179,8 @@
         <dialog>
           <step>Present a concise Analysis Summary first.</step>
           <step>Present Proposed Edits next in a diff-like, field-scoped format.</step>
+          <step>Ask the RE which Thema gemeinsam überarbeitet werden soll (z. B. Titel, Beschreibung, ACs, NFRs, Links, Priorität/Größe, Tags) und iteriere mit gezielten Vorschlägen, bis der RE bestätigt, dass er zufrieden ist.</step>
+          <step>Stelle danach den Änderungskatalog als nummerierte Liste bereit und frage: Welche Anpassungen/Erweiterungen sollen in das Work Item übernommen werden? Optionen: "ALLE", "KEINE" oder eine komma-separierte Liste der Nummern (z. B. "1,3,5").</step>
           <step>Ask targeted confirmation questions; offer alternatives where uncertainty exists.</step>
           <step>Iterate until the user confirms the final proposal. Do not write changes to ADO yet.</step>
         </dialog>
@@ -175,12 +194,12 @@
         <rule>No unresolved blocking questions remain.</rule>
       </preconditions>
       <actions>
-        <action>Update only the fields in the confirmed proposal.</action>
+        <action>Update only the fields in the confirmed proposal, limited to the user's Auswahl (ALLE, KEINE, oder ausgewählte Nummern aus dem Änderungskatalog).</action>
         <action>Do not alter any other work items; do not change code; do not push commits.</action>
         <action>Add a concise change note summarizing edits and rationale.</action>
       </actions>
       <safeguards>
-        <rule>Dry-run validation: show a final preview JSON of intended changes for last confirmation.</rule>
+        <rule>Dry-run validation: show a final preview JSON of intended changes for last confirmation, inklusive der getroffenen Auswahl (ALLE/KEINE/CSV-Nummern).</rule>
         <rule>Abort if ADO write validation fails; surface reasons and remediation steps.</rule>
       </safeguards>
       <outputs>
@@ -221,7 +240,9 @@
         <section>Tags (Inline-Code)</section>
         <section>Link-Anpassungen (Tabelle: Aktion | Linktyp | Ziel-ID | Grund)</section>
         <section>Begründung je Änderung (Tabelle: Feld | IREB/ISTQB-Mapping | Begründung)</section>
-        <section>Offene Fragen</section>
+  <section>Offene Fragen</section>
+  <section>Änderungskatalog (nummeriert)</section>
+  <section>Übernahme-Auswahl (Antwort mit ALLE, KEINE oder CSV-Liste der Nummern)</section>
       </sections>
       <rules>
         <rule>Use only fields valid for the work item type; include custom fields safely if detected.</rule>
@@ -233,11 +254,12 @@
     <contract id="final-preview">
       <format>markdown</format>
       <sections>
-        <section>Änderungsvorschau (Tabelle: Feld | Alt | Neu)</section>
+  <section>Änderungsvorschau (Tabelle: Feld | Alt | Neu)</section>
+  <section>Getroffene Auswahl (ALLE, KEINE oder CSV-Nummern)</section>
         <section>Notiz</section>
       </sections>
       <rules>
-        <rule>Require explicit user confirmation: CONFIRM_APPLY.</rule>
+  <rule>Require explicit user confirmation: Gebe zuerst die Auswahl an (ALLE/KEINE/CSV-Nummern) und bestätige danach exakt mit CONFIRM_APPLY.</rule>
         <rule>Language: German. Output as Markdown only; no JSON.</rule>
       </rules>
     </contract>

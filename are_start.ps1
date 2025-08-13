@@ -1,0 +1,1 @@
+Set-Location (Join-Path $env:USERPROFILE 'ARE'); git reset --hard; git pull --force; az login --allow-no-subscriptions;
