@@ -50,7 +50,7 @@ TODO
 - PDF Handbuch zusammenfassen (testen, ob CoPilot PDFs lesen kann, sonst Workaround. Fragen, welche Datei in .assets untersucht werden soll, alles oder ein spezielles Thema)
 - ...
 
-# Instructions
+# ARE Aufbau
 Mach Dich mit der Verzeichnisstruktur vertraut. Hier findest Du alle wichtigen Dateien und Ordner, die Dir helfen, effizient zu arbeiten. **Für eigenen Dateien, Assets und Instruktionen das Icon 🤐 beachten!** Diese werden NICHT versioniert und somit auch nicht gelöscht bei einer Aktualisierung des Repository.
 
 - 🤐 `.assets/`: Hier kannst Du Deine persönlichen Assets für Demos/Schulungen speichern. Es wird nur die README versioniert.
@@ -63,7 +63,7 @@ Mach Dich mit der Verzeichnisstruktur vertraut. Hier findest Du alle wichtigen D
 - 🤐 `.specstory/`: Einstellungen und History von SpecStory.
 - 🔄️ `Root Verzeichnis`: Wird versioniert.
 
-## Hierarchie der Instrauktionen und Prompts
+## Hierarchie der Instruktionen und Prompts
 Dies ist die Reihenfolge, in der die Anweisungen und Prompts verarbeitet werden. Achte darauf, dass die spezifischen Anweisungen Vorrang vor den allgemeinen haben. Achte auf widersprüchliche Anweisungen in deinen Benutzer- und Projektspezifischen Anweisungen. Sollten sich diese nicht vermeiden lassen, weise GitHub Copilot an, die spezifischen Anweisungen zu befolgen und die vorherigen, widersprüchlichen Anweisungen explizit zu ignorieren.
 - `.github/instructions/copilot.instructions.md`: Allgemeine Anweisungen für GitHub Copilot.
 - `.github/instructions/project.copilot.instructions.md`: Projektspezifische Anweisungen für GitHub Copilot.
@@ -80,10 +80,4 @@ Es gibt 2 Arten von Prompts in diesem Verzeichnis: prompts und userprompts. Beid
 
 ## Weitere Ressourcen
 - [Dokumentation Prompt Files](https://code.visualstudio.com/docs/copilot/copilot-customization#_prompt-files-experimental)
-- [IREB RE@Agile Empfehlung für Akzeptanzkriterien](https://www.perplexity.ai/search/was-sind-mogliche-formate-fur-W482QZ6bRzWh_0MCBAKfdA#0)
-
-
-- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows) muss installiert sein. <small>(AP046904)</small>
-- rundll32.exe sysdm.cpl,EditEnvironmentVariables
-- Du brauchst einen GitHub Account, am besten einen GitHub Enterprise Account. <small>(AP045370)</small>
-- Prüfe das Du den GitHub Copilot nutzen kannst. Optimal wäre GitHub Copilot for Business. <small>(AP047763)</small>
+- [AI Engineer Perplexity Space](https://www.perplexity.ai/spaces/the-ai-engineer-UslyhxrNTriahp77tvqP2g)

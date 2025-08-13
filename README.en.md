@@ -39,14 +39,18 @@ Here you'll find an overview of the available prompts that help you work efficie
 TODO
 - Search WIKI content
 - Browse source code
+- Analyze bug 
 - Calculate time savings
+- Evaluate BE/FE split in the sprint and create a dashboard incl. recommendations
 - Analyze test coverage
 - Search fields throughout the entire codebase and show the complete loading path
 - Display translations
 - Show mail templates including configuration
+- Analyze logs (ask which file in .assets should be inspected)
+- Summarize PDF manual (test if Copilot can read PDFs; otherwise provide a workaround. Ask which file in .assets should be used, all or a specific topic)
 - ...
 
-# Instructions
+# ARE structure
 Familiarize yourself with the directory structure. Here you'll find all important files and folders that help you work efficiently. **Pay attention to the 🤐 icon for your own files, assets, and instructions!** These are NOT versioned and therefore won't be deleted when updating the repository.
 
 - 🤐 `.assets/`: Here you can store your personal assets for demos/training. Only the README is versioned.
@@ -69,19 +73,11 @@ This is the order in which instructions and prompts are processed. Note that spe
 ## Prompts
 There are 2 types of prompts in this directory: prompts and userprompts. Both are available in Copilot Chat. The big difference is that prompts appear as selections, while UserPrompts must be typed in.
 
+
 ## TODO
-- Prompt to revise feature/PBI
 - Create examples and save them as User Prompts
-- Define text sizes in basic instructions, such as compact/short/detailed
-  - short: 1-2 sentences
-  - compact: 3-5 sentences
-  - detailed: comprehensive, multiple paragraphs, including examples/justification
+
 
 ## Additional Resources
-[Documentation Prompt Files](https://code.visualstudio.com/docs/copilot/copilot-customization#_prompt-files-experimental)
-[IREB RE@Agile Recommendation for Acceptance Criteria](https://www.perplexity.ai/search/was-sind-mogliche-formate-fur-W482QZ6bRzWh_0MCBAKfdA#0)
-
-- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows) must be installed. <small>(AP046904)</small>
-- rundll32.exe sysdm.cpl,EditEnvironmentVariables
-- You need a GitHub account, preferably a GitHub Enterprise account. <small>(AP045370)</small>
-- Verify that you can use GitHub Copilot. GitHub Copilot for Business would be optimal. <small>(AP047763)</small>
+- [Documentation Prompt Files](https://code.visualstudio.com/docs/copilot/copilot-customization#_prompt-files-experimental)
+- [AI Engineer Perplexity Space](https://www.perplexity.ai/spaces/the-ai-engineer-UslyhxrNTriahp77tvqP2g)

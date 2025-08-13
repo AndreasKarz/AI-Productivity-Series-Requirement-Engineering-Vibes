@@ -52,7 +52,7 @@ if (-not (Test-Path $repoPath)) {
 
 # 3. Azure PowerShell Modul
 Write-Status "Prüfe Azure PowerShell Modul..."
-if (-not (Get-Module -ListAvailable -Name Az.Accounts)) {
+if (-not (Get-Command az -ErrorAction SilentlyContinue)) {
     Write-Status "Az Modul nicht gefunden, installiere..." "Warning"
     try {
         Install-Module Az -Scope CurrentUser -Force -AllowClobber -Repository PSGallery
