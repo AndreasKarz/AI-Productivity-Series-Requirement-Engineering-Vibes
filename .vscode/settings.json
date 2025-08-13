@@ -2,7 +2,8 @@
     "chat.mcp.serverSampling": {
         "AI-Productivity-Series-Requirement-Engineering-Vibes/.vscode/mcp.json: sequential-thinking": {
             "allowedModels": [
-                "copilot/claude-sonnet-4"
+                "copilot/claude-sonnet-4",
+                "copilot/GPT-5"
             ],
             "chat.promptFiles": true
         }

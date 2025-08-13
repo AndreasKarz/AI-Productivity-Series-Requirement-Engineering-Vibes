@@ -38,13 +38,13 @@ Hier findest Du eine Übersicht der verfügbaren Prompts, die Dir helfen, effizi
 - `/analyze_workitem <WorkItemID>` => Analysiert einen WorkItem in ADO und gibt relevante Informationen zurück.
 - `/create_test_cases <WorkItemID>` => Erstellt im Dialog manuelle Test Cases zu einem WorkItem in ADO und verknüpft diese korrekt.
 TODO
+- Property in der ganzen Codebasis durchsuchen und die Ladestrecke komplett aufzeigen
 - WIKI Inhalte suchen
 - Source code durchsuchen
 - Bug analysieren 
 - Zeitgewinn berechnen
 - Aufteilung BE/FE im Sprint auswerten und Dashboard erstellen inkl. Ratschlägen
 - Testabdeckung analysieren
-- Property in der ganzen Codebasis durchsuchen und die Ladestrecke komplett aufzeigen
 - Übersetzungen anzeigen
 - Mailtemplate inkl. Konfiguration anzeigen
 - Logs analysieren (mit Frage, welche Datei in .assets untersucht werden soll)
