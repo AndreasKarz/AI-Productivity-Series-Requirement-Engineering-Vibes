@@ -1,7 +1,9 @@
 ---
-id: create-test-cases
-title: Azure DevOps Test Case Designer & Creator (MCP-enabled, ISTQB)
+mode: 'agent'
+model: 'Claude Sonnet 4'
+tools: ['codebase', 'testFailure', 'terminalSelection', 'terminalLastCommand', 'searchResults', 'editFiles', 'runNotebooks', 'search', 'runCommands', 'runTasks', 'Microsoft Docs', 'ado', 'sequential-thinking', 'azure_summarize_topic']
 description: Design and create deterministic, redundancy-free manual test cases for an Azure DevOps Work Item using MCP tools (ado, sequential-thinking), with German output, a dry-run preview, and explicit confirmation before creation.
+---
 parameters:
   - name: workItemId
     label: Work Item ID
