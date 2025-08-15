@@ -55,6 +55,8 @@ Write-Status "Prüfe Azure PowerShell Modul..."
 if (-not (Get-Command az -ErrorAction SilentlyContinue)) {
     Write-Status "Az Modul nicht gefunden, installiere..." "Warning"
     try {
+        winget install --id Microsoft.AzureCLI -e --source winget --scope user --silent
+        Write-Status "Azure CLI erfolgreich installiert" "Success"
         Install-Module Az -Scope CurrentUser -Force -AllowClobber -Repository PSGallery
         Write-Status "Az Modul erfolgreich installiert" "Success"
     } catch {
@@ -82,7 +84,7 @@ if (-not $vsCodeExists) {
 }
 
 # 5. Node.js Installation
-$nodeBasePath = Join-Path $env:USERPROFILE "Apps\node-$NodeVersion-win-x64"
+$nodeBasePath = Join-Path $env:USERPROFILE "Apps\Nodenode-$NodeVersion-win-x64"
 Write-Status "Prüfe Node.js Installation..."
 if (-not (Get-Command node -ErrorAction SilentlyContinue)) {
     Write-Status "Node.js nicht gefunden, lade und installiere..." "Warning"
