@@ -84,7 +84,7 @@ if (-not $vsCodeExists) {
 }
 
 # 5. Node.js Installation
-$nodeBasePath = Join-Path $env:USERPROFILE "Apps\Nodenode-$NodeVersion-win-x64"
+$nodeBasePath = Join-Path $env:USERPROFILE "Apps\Node\node-$NodeVersion-win-x64"
 Write-Status "Prüfe Node.js Installation..."
 if (-not (Get-Command node -ErrorAction SilentlyContinue)) {
     Write-Status "Node.js nicht gefunden, lade und installiere..." "Warning"
