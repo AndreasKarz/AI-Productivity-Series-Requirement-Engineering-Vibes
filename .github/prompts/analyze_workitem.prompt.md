@@ -5,33 +5,33 @@ tools: ['codebase', 'testFailure', 'terminalSelection', 'terminalLastCommand', '
 description: Analyze and improve an Azure DevOps Work Item via MCP tools (ado, sequential-thinking) following IREB/ISTQB, with a dry-run preview and optional apply.
 ---
 parameters:
-  - name: workItemId
+  - name: **workItemId**
     label: Work Item ID
     type: number
     required: true
-  - name: adoProject
+  - name: **adoProject**
     label: ADO Project
     type: string
     required: false
     default: CTRM
-  - name: includeLinkedItemsDepth
+  - name: **includeLinkedItemsDepth**
     label: Link depth
     type: number
     required: false
     default: 1
-  - name: language
+  - name: **language**
     label: Output language
     type: enum
     options: [de, en]
     default: de
     required: true
-  - name: applyMode
+  - name: **applyMode**
     label: Apply mode (dry-run/apply)
     type: enum
     options: [dry-run, apply]
     default: dry-run
     required: true
-  - name: useGermanFewShots
+  - name: **useGermanFewShots**
     label: Use German few-shot examples (style guide)
     type: boolean
     default: false
@@ -39,6 +39,10 @@ parameters:
 ---
 
 Hints (do not repeat):
+- Always read and apply:
+  - .github/instructions/copilot.instructions.md (IREB, ISTQB, OKR, Flight Levels)
+  - .github/instructions/project.copilot.instructions.md (CTRM specifics and code repositories)
+  - .github/instructions/user.copilot.instructions.md (language, formatting, user prefs)
 - Respond exclusively in {{language}}.
 - If {{language}} == "de":
   - Use exactly the following German section headers and wording shown under “German section headers”.
@@ -49,7 +53,7 @@ Hints (do not repeat):
   - sequential-thinking: create a brief internal plan (3–6 steps) in English before acting; do not output the plan unless the user asks.
 - If MCP tools are unavailable: politely ask for copy/paste of essential content and proceed with a partial analysis.
 - No speculation. Mark unverifiable parts as ANNAHME (for DE) or ASSUMPTION (for EN) and ask targeted questions.
-- JSON only inside ```json code fences. Otherwise use Markdown.
+- Always generate well formatted output with titles, headers, and numbered lists.
 - Preferred terminology (bidirectional):
   - Acceptance Criteria ↔ Akzeptanzkriterien
   - Non-functional requirements (NFRs) ↔ Nichtfunktionale Kriterien
@@ -107,9 +111,9 @@ Output format (Markdown, in this exact order; use German headers when language =
 - Vorgeschlagene Beschreibung
 - Akzeptanzkriterien (GIVEN/WHEN/THEN Liste)
 - Nichtfunktionale Kriterien
-  | Attribut | Messgröße | Schwelle | Verifikation |
+  | Attribut | Messgrösse | Schwelle | Verifikation |
   |---|---|---|---|
-- Priorität/Größe (Stichpunkte)
+- Priorität/Grösse (Stichpunkte)
 - Tags (Inline-Code, z. B. `security`, `backend`)
 - Link-Hinweise (Empfehlungen: Aktion | Linktyp | Ziel-ID/Bezug | Grund)
 
