@@ -29,6 +29,7 @@ if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
     Write-Status "Git nicht gefunden, installiere über winget..." "Warning"
     try {
         winget install --id Git.Git -e --source winget --scope user --silent
+        $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
         Write-Status "Git erfolgreich installiert" "Success"
     } catch {
         Write-Status "Git Installation fehlgeschlagen: $($_.Exception.Message)" "Error"
@@ -43,7 +44,7 @@ if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
 $repoPath = Join-Path $env:USERPROFILE 'ARE'
 if (-not (Test-Path $repoPath)) {
     Write-Status "Repository nicht gefunden, klone in $repoPath..." "Warning"
-    git clone https://github.com/AndreasKarz/AI-Productivity-Series-Requirement-Engineering-Vibes.git (Join-Path $env:USERPROFILE 'ARE')
+    git -c http.sslVerify=false clone https://github.com/AndreasKarz/AI-Productivity-Series-Requirement-Engineering-Vibes.git (Join-Path $env:USERPROFILE 'ARE')
     Write-Status "Repository erfolgreich geklont" "Success"
 } else {
     Write-Status "Repository bereits vorhanden: $repoPath" "Success"
@@ -59,6 +60,7 @@ if (-not (Get-Command az -ErrorAction SilentlyContinue)) {
         Write-Status "Azure CLI erfolgreich installiert" "Success"
         Install-Module Az -Scope CurrentUser -Force -AllowClobber -Repository PSGallery
         Write-Status "Az Modul erfolgreich installiert" "Success"
+        $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
     } catch {
         Write-Status "Az Modul Installation fehlgeschlagen: $($_.Exception.Message)" "Error"
     }
@@ -99,6 +101,18 @@ if (-not (Get-Command node -ErrorAction SilentlyContinue)) {
         Remove-Item $zipFile
         
         Write-Status "Node.js erfolgreich installiert" "Success"
+
+        Write-Status "Prüfe und aktualisiere PATH Variable..."
+        $currentUserPath = [Environment]::GetEnvironmentVariable('Path', 'User')
+        if ($currentUserPath -notlike "*$nodeBasePath*") {
+            $newPath = "$currentUserPath;$nodeBasePath"
+            [Environment]::SetEnvironmentVariable('Path', $newPath, 'User')
+            $env:Path = "$env:Path;$nodeBasePath"
+            Write-Status "PATH erfolgreich aktualisiert: $nodeBasePath" "Success"
+        } else {
+            Write-Status "Node.js Pfad bereits im USER PATH vorhanden" "Success"
+        }
+        $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
     } catch {
         Write-Status "Node.js Installation fehlgeschlagen: $($_.Exception.Message)" "Error"
     }
@@ -106,33 +120,7 @@ if (-not (Get-Command node -ErrorAction SilentlyContinue)) {
     Write-Status "Node.js bereits vorhanden: $nodeBasePath" "Success"
 }
 
-# 6. npm Update
-if (Test-Path $nodeBasePath) {
-    $npmPath = Join-Path $nodeBasePath 'npm.cmd'
-    if (Test-Path $npmPath) {
-        Write-Status "Aktualisiere npm auf neueste Version..."
-        try {
-            & $npmPath install -g npm@latest
-            Write-Status "npm erfolgreich aktualisiert" "Success"
-        } catch {
-            Write-Status "npm Update fehlgeschlagen: $($_.Exception.Message)" "Warning"
-        }
-    }
-}
-
-# 7. PATH Variable setzen
-Write-Status "Prüfe und aktualisiere PATH Variable..."
-$currentUserPath = [Environment]::GetEnvironmentVariable('Path', 'User')
-if ($currentUserPath -notlike "*$nodeBasePath*") {
-    $newPath = "$currentUserPath;$nodeBasePath"
-    [Environment]::SetEnvironmentVariable('Path', $newPath, 'User')
-    $env:Path = "$env:Path;$nodeBasePath"
-    Write-Status "PATH erfolgreich aktualisiert: $nodeBasePath" "Success"
-} else {
-    Write-Status "Node.js Pfad bereits im USER PATH vorhanden" "Success"
-}
-
-# 8. Azure Login (optional, kann übersprungen werden)
+# 6. Azure Login (optional, kann übersprungen werden)
 Write-Status "Starte Azure Login (kann mit Ctrl+C übersprungen werden)..."
 try {
     az login --allow-no-subscriptions
@@ -141,7 +129,7 @@ try {
     Write-Status "Azure Login übersprungen oder fehlgeschlagen" "Warning"
 }
 
-# 9. Desktop Shortcut für VS Code Insiders erstellen
+# 7. Desktop Shortcut für VS Code Insiders erstellen
 Write-Status "Erstelle Desktop Shortcut für VS Code Insiders..."
 try {
     $desktopPath   = [Environment]::GetFolderPath("Desktop")
@@ -169,7 +157,7 @@ try {
     Write-Status "Fehler beim Erstellen des Desktop Shortcuts: $($_.Exception.Message)" "Error"
 }
 
-# 10. Abschluss-Hinweise
+# 8. Abschluss-Hinweise
 Write-Host "========================================" -ForegroundColor Blue
 Write-Host "Hinweise:" -ForegroundColor Yellow
 Write-Host "- Für neue Terminal-Sessions ist Node.js über 'node' und 'npm' verfügbar" -ForegroundColor Gray
@@ -179,17 +167,12 @@ Write-Host ("- Projekt-Verzeichnis: " + (Join-Path $env:USERPROFILE "ARE")) -For
 Write-Host "- Copilot-Link: https://github.com/orgs/swisslife-ch/sso?return_to=%2Fcopilot" -ForegroundColor Gray
 Write-Host "========================================" -ForegroundColor Blue
 
-# 11. VS Code Insiders starten
+# 9. VS Code Insiders starten
 Write-Status "Starte VS Code Insiders..."
 try {
-    if ($repoPath -and (Test-Path $repoPath)) {
-        Set-Location $repoPath
-        code-insiders .
-        Write-Status "VS Code Insiders gestartet im Repository-Verzeichnis" "Success"
-    } else {
-        code-insiders .
-        Write-Status "VS Code Insiders gestartet" "Success"
-    }
+    Set-Location $repoPath
+    code-insiders .
+    Write-Status "VS Code Insiders gestartet im Repository-Verzeichnis" "Success"
 } catch {
     Write-Status "VS Code Insiders konnte nicht gestartet werden: $($_.Exception.Message)" "Warning"
 }
