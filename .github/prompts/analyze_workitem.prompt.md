@@ -1,6 +1,6 @@
 ---
 mode: 'agent'
-model: 'Claude Sonnet 4'
+model: 'GPT-5 (Preview)'
 tools: ['codebase', 'testFailure', 'terminalSelection', 'terminalLastCommand', 'searchResults', 'editFiles', 'runNotebooks', 'search', 'runCommands', 'runTasks', 'Microsoft Docs', 'ado', 'sequential-thinking', 'azure_summarize_topic']
 description: Analyze and improve an Azure DevOps Work Item via MCP tools (ado, sequential-thinking) following IREB/ISTQB, with a dry-run preview and optional apply.
 ---

@@ -2,7 +2,7 @@
 	<meta>
 		<title>Multi-Repo Data Load Chain Analyst</title>
 		<description>Find a field across code repositories and analyze the complete data load chain across GraphQL, SQL, SyncHub, microservices, and languages. Apply strict anti-hallucination rules and produce a precise Markdown diagram plus file list.</description>
-		<model>GPT-5</model>
+		<model>GPT-5 (Preview)</model>
 		<mode>Agent</mode>
 		<safety>
 			<temperature>0.2</temperature>

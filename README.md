@@ -71,10 +71,6 @@ Dies ist die Reihenfolge, in der die Anweisungen und Prompts verarbeitet werden.
 - `.github/instructions/user.copilot.instructions.md`: Benutzerdefinierte Anweisungen für GitHub Copilot.
 - `.github/prompts/`: Enthält die vorgefertigten Prompts für die Nutzung mit GitHub Copilot.
 
-## Prompts
-Es gibt 2 Arten von Prompts in diesem Verzeichnis: prompts und userprompts. Beide sind im Copilot Chat verfügbar. Der grosse Unterschied ist, dass Prompts als Auswahl erscheinen, UserPrompts müssen eingetippt werden.
-
-
 ## TODO
 - Beispiele erstellen und als User Prompts abspeichern
 

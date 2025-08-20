@@ -420,9 +420,10 @@ FodyWeavers.xsd
 **/.specstory
 /package-lock.json
 /.github/userprompts/*
-!/.github/userprompts/template_say_funky_monkey.md
+!/.github/userprompts/template_say_funky_monkey.prompt.md
 /.assets/*
 !/.assets/README.md
 !/.assets/Prompt Template.md
 /.github/instructions/project.copilot.instructions.md
 /.github/instructions/user.copilot.instructions.md
+/scripts
