@@ -2,99 +2,59 @@
 mode: 'agent'
 model: 'GPT-5 (Preview)'
 tools: ['codebase', 'testFailure', 'terminalSelection', 'terminalLastCommand', 'searchResults', 'editFiles', 'runNotebooks', 'search', 'runCommands', 'runTasks', 'Microsoft Docs', 'ado', 'sequential-thinking', 'azure_summarize_topic']
-description: Design and create deterministic, redundancy-free manual test cases for an Azure DevOps Work Item using MCP tools (ado, sequential-thinking), with German output, a dry-run preview, and explicit confirmation before creation.
+description: Design and create deterministic, redundancy-free manual test cases for an Azure DevOps Work Item using MCP tools (ado, sequential-thinking), a dry-run preview, and explicit confirmation before creation.
 ---
 parameters:
   - name: workItemId
     label: Work Item ID
     type: number
     required: true
-  - name: adoProject
-    label: ADO Project
-    type: string
-    required: false
-    default: CTRM
-  - name: testSuiteUrl
-    label: Requirement-Based Test Suite URL (optional)
-    type: string
-    required: false
-  - name: language
-    label: Output language
-    type: enum
-    options: [de, en]
-    default: de
-    required: true
-  - name: applyMode
-    label: Apply mode (dry-run/apply)
-    type: enum
-    options: [dry-run, apply]
-    default: dry-run
-    required: true
-  - name: useGermanFewShots
-    label: Use German few-shot examples (style guide)
-    type: boolean
-    default: false
-    required: false
 ---
-
-Hints (do not repeat):
-- Respond exclusively in {{language}}.
-- If {{language}} == "de":
-  - Use exactly the following German section headers and wording shown under “German section headers”.
-  - Use de-DE formatting (decimal comma, DD.MM.YYYY).
-  - Before finalizing, self-check: if any non-German words appear in headings or boilerplate, rewrite the output.
-- Use MCP tools if available:
-  - ado: read work item fields, links (incl. "Tested By"), comments, history, attachments (extract text where possible); create/link test cases and suites only after explicit confirmation.
-  - sequential-thinking: create a brief internal plan (3–6 steps) in English before acting; do not output the plan unless the user asks.
-- If MCP tools are unavailable: ask for copy/paste of the essential Work Item content and proceed with a partial proposal.
-- No speculation. Mark unverifiable parts as ANNAHME (for DE) or ASSUMPTION (for EN) and ask targeted questions.
-- JSON only inside ```json code fences. Otherwise use Markdown.
-- Test design rules (ISTQB):
+# Rules (do not repeat):
+- Use the **ADO MCP** server and the project `CTRM` for the job.
+- In the Work Item, the **test cases are strictly linked** via "Tested By" (Work Item == Tested By ==> Test Case)
+- If the **Work Item Type** is `Bug` or `Product Backlog Item`, the tests should be written in short simple IT English. Otherwise, use Swiss German (no Eszett `ß`) language.
+- If the **user add** something like `auf deutsch`, **adapt the output accordingly**.
+- **No speculation and/or assumptions**. Mark unverifiable parts as ANNAHME (for DE) or ASSUMPTION (for EN) and ask targeted questions.
+- **Respect the ISTQB guidelines**, especially:
   - 1:1 mapping between each step and one expected result.
-  - Separate Vorbedingungen (setup) from Testschritte (actions).
   - Cover happy path, negative cases, and edge cases (distinct objectives; avoid redundancy).
   - Use explicit numbering 1..n for proposal items; do not rely on auto-numbering with repeated "1.".
-- Preferred terminology: GIVEN/WHEN/THEN stays English; tag created cases with 'Ai Gen'; link via "Tested By" to the source Work Item.
+- Ensure the **`Expected result`** in the test steps is **detailed**, including all relevant checkpoints and the **exact definition** from the associated Work Item. 
+- **"Verify step completes successfully" is not acceptable!** Describe ALL Expected results in detail.
+- Tag **every created case** with `Ai Gen`
 
-German section headers (use exactly when language == "de"):
-## Analyse — Kurzfassung
-## Vorschlag — Felder
-## Begründung je Änderung
-## Offene Fragen
-## Änderungskatalog
-## Übernahme-Auswahl
-## Final-Vorschau
+# Workflow (Sequential Thinking enforced)
+- **Step 1**: **Analyze** the acceptance criteria for completeness
+  1. **Ensure all functional** and non-functional requirements are covered.
+  2. **Check for any ambiguities or inconsistencies in the requirements**.
+  3. **Validate that the acceptance criteria are testable and measurable**.
 
-Confirm to apply (only if applyMode=apply):
-- Confirm exactly with: CONFIRM_APPLY
-- Then:
-  - Erzeuge nur die ausgewählten Testfälle, verknüpfe via "Tested By", tagge mit 'Ai Gen'.
-  - Report:
-    - Erstellte Testfälle (Liste: ID, Titel)
-    - Links/Suite-Hinweise
-    - Note (1–2 Sätze)
+- **Step 2**: **Design** test cases
+  1. **Inspect possible existing test cases** (linked via `Tested By`) for reuse.
+  2. Design **at least 1 and at most 3 test cases for each acceptance criterion** (do not create anything in ado yet!).
+  3. Ensure each test case has a **clear objective** and covers different scenarios (happy path, negative cases, edge cases).
+  4. Document the test cases in a **structured format**, including preconditions, test steps, and expected results.
+  5. Review and refine the test cases to **eliminate any redundancy and ensure clarity**.
+  6. **Show an numbered list of your test cases in the chat in the following format**:
+    ```
+    ## Test Case 1: [Title]
+    - **Preconditions**: [List of preconditions]
+    - **Test Steps**:
+      1. [Step 1]
+         - **Expected Result**: [Detailed expected result]
+      2. [Step 2]
+         - **Expected Result**: [Detailed expected result]
+      ...
+    ```
+  7. **Open a dialog with me** and let us rework every test case together.
 
-Few-shot examples (only as a style guide when useGermanFewShots == true; do not copy content verbatim):
-Example — Vorschlagsübersicht (DE):
-1. Positivfall: Erfolgreiches Anlegen
-2. Negativfall: Validierungsfehler bei Pflichtfeldern
-3. Edge Case: Maximale Feldlänge
-
-Example — Testfall (DE):
-## 2. Titel: TC-${workItemId}-02: Validierungsfehler bei Pflichtfeldern
-Zweck/Nutzen:
-- Validierungen greifbar und nutzerverständlich
-
-Vorbedingungen:
-- Rolle „Editor“, Umgebung Staging, leerer Browser-Cache
-
-Testschritte:
-1) Navigiere zur Seite „Neues Objekt“
-2) Lasse das Pflichtfeld „Name“ leer und klicke Speichern
-
-Erwartete Ergebnisse:
-1) Seite lädt, Formular sichtbar
-2) Fehlermeldung „Name ist ein Pflichtfeld“, kein Datensatz angelegt
-
-Daten/Varianten:
-- Name = ""
+- **Step 3**: **Implement** the test in Azure DevOps.
+  1. **Ask**, which test cases designed in Step 2 should be created?
+     - All
+     - None
+     - [Specific test case(s)] (e.g. `1,2,6`)
+  2. **Renumbering the test cases as needed** (e.g. `1,2,6` => `1,2,3`).
+  2. **Create these test cases** via the ADO MCP server.
+  3. **Ensure traceability by** linking test cases back to their corresponding acceptance criteria (Test Case == Tests ==> Work Item).
+  4. **Show me an overview** that summarizes all created test cases and their links to the acceptance criteria.
