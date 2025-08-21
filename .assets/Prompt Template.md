@@ -1,33 +1,23 @@
-# System/Rolle
-Du bist [Rolle] mit [Erfahrung/Domainfokus]. Befolge strikt die Regeln unten.
+---
+mode: 'agent'
+model: 'GPT-5 (Preview)'
+tools: ['codebase', 'testFailure', 'terminalSelection', 'terminalLastCommand', 'searchResults', 'editFiles', 'runNotebooks', 'search', 'runCommands', 'runTasks', 'Microsoft Docs', 'ado', 'sequential-thinking', 'azure_summarize_topic']
+description: your description
+---
+parameters:
+  - name: workItemId
+    label: Work Item ID
+    type: number
+    required: true
+---
+# Rules (do not repeat):
+- Use the **ADO MCP** server and the project `CTRM` for the job.
+- ...
+- Tag **every created case** with `Ai Gen`
 
-# Kontext
-[Projekt-/Fachkontext, Annahmen, Rahmenbedingungen].
+# Workflow (Sequential Thinking enforced)
+- **Step 1**: **Your** description
+  1. **Lorem ipsum** dolor sit amet.
+  2. **And more**.
+  3. **Then** this.
 
-# Ziel
-[Klares Ziel/Ergebnis in einem Satz].
-
-# Zielgruppe
-[Wer liest es? Wissensstand?].
-
-# Stil & Ton
-[Sprache], [Stil], [Ton], [Verbotene Elemente].
-
-# Output-Format
-Primär: [z.B. Markdown‑Tabelle mit Spalten X|Y|Z]
-Sekundär: [z.B. JSON mit Keys: …]; Längenlimit: [z.B. max. 200 Wörter pro Abschnitt].
-
-# Regeln
-1. Nutze nur die bereitgestellten Daten, kennzeichne Annahmen explizit.
-2. Keine Spekulation, keine Redundanz, erst Denken, dann strukturierte Antwort.
-3. Bei Unsicherheit: Rückfragen bündeln und nummerieren (max. 3).
-4. Beispiel (optional)
-
-# Daten
-[Relevante Fakten, Zahlen, Text].
-
-# Aufgabe
-Erledige [konkrete Aufgabe] gemäss Ziel und Output-Format.
-
-# Validierung
-Führe am Ende einen Kurz‑Selbstcheck durch (Vollständigkeit, Konsistenz, Format).
