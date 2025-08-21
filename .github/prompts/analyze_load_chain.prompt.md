@@ -1,6 +1,6 @@
 ---
 mode: 'agent'
-model: 'GPT-5 (Preview)'
+model: 'Claude Sonnet 4'
 tools: ['codebase', 'testFailure', 'terminalSelection', 'terminalLastCommand', 'searchResults', 'editFiles', 'runNotebooks', 'search', 'runCommands', 'runTasks', 'Microsoft Docs', 'ado', 'sequential-thinking', 'azure_summarize_topic']
 description: End-to-end Property Lineage Discovery across Repos with CTRM Work Item Linkage and Camunda Dataflow Export
 ---

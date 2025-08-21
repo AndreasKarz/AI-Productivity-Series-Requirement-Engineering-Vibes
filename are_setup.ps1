@@ -13,8 +13,8 @@ function Write-Status {
     switch ($Status) {
         "Success" { Write-Host "[OK] $Message" -ForegroundColor Green }
         "Warning" { Write-Host "[!] $Message" -ForegroundColor Yellow }
-        "Error"   { Write-Host "[X] $Message" -ForegroundColor Red }
-        default   { Write-Host "-> $Message" -ForegroundColor Cyan }
+        "Error" { Write-Host "[X] $Message" -ForegroundColor Red }
+        default { Write-Host "-> $Message" -ForegroundColor Cyan }
     }
 }
 
@@ -23,19 +23,40 @@ Write-Host "========================================" -ForegroundColor Blue
 Write-Host "  Entwicklungsumgebung Setup" -ForegroundColor Blue
 Write-Host "========================================" -ForegroundColor Blue
 
-# 1. Git Installation prüfen und installieren
+# 1. Git Installation prüfen und (portabel) installieren
 Write-Status "Prüfe Git Installation..."
+$gitBasePath = Join-Path $env:USERPROFILE "Apps\Git\PortableGit"
 if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
-    Write-Status "Git nicht gefunden, installiere über winget..." "Warning"
+    Write-Status "Git nicht gefunden, lade und installiere PortableGit..." "Warning"
     try {
-        winget install --id Git.Git -e --source winget --scope user --silent
-        $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
+        $downloadUrl = "https://github.com/git-for-windows/git/releases/latest/download/PortableGit-2.47.1-64-bit.zip"
+        $appsDir = Join-Path $env:USERPROFILE 'Apps\Git'
+        $zipFile = "$env:TEMP\git-portable.zip"
+        
+        New-Item -ItemType Directory -Path $appsDir -Force | Out-Null
+        Invoke-WebRequest $downloadUrl -OutFile $zipFile -UseBasicParsing
+        Expand-Archive $zipFile $appsDir -Force
+        Remove-Item $zipFile
+        
         Write-Status "Git erfolgreich installiert" "Success"
-    } catch {
-        Write-Status "Git Installation fehlgeschlagen: $($_.Exception.Message)" "Error"
-        exit 1
+
+        Write-Status "Prüfe und aktualisiere PATH Variable..."
+        $currentUserPath = [Environment]::GetEnvironmentVariable('Path', 'User')
+        if ($currentUserPath -notlike "*$gitBasePath*") {
+            $newPath = "$currentUserPath;$gitBasePath\bin;$gitBasePath\cmd"
+            [Environment]::SetEnvironmentVariable('Path', $newPath, 'User')
+            $env:Path = "$env:Path;$gitBasePath\bin;$gitBasePath\cmd"
+            Write-Status "PATH erfolgreich aktualisiert: $gitBasePath\bin;$gitBasePath\cmd" "Success"
+        }
+        else {
+            Write-Status "Git Pfad bereits im USER PATH vorhanden" "Success"
+        }
     }
-} else {
+    catch {
+        Write-Status "Git Installation fehlgeschlagen: $($_.Exception.Message)" "Error"
+    }
+}
+else {
     $gitVersion = git --version
     Write-Status "Git bereits installiert: $gitVersion" "Success"
 }
@@ -46,7 +67,8 @@ if (-not (Test-Path $repoPath)) {
     Write-Status "Repository nicht gefunden, klone in $repoPath..." "Warning"
     git -c http.sslVerify=false clone https://github.com/AndreasKarz/AI-Productivity-Series-Requirement-Engineering-Vibes.git (Join-Path $env:USERPROFILE 'ARE')
     Write-Status "Repository erfolgreich geklont" "Success"
-} else {
+}
+else {
     Write-Status "Repository bereits vorhanden: $repoPath" "Success"
 }
 
@@ -60,11 +82,13 @@ if (-not (Get-Command az -ErrorAction SilentlyContinue)) {
         Write-Status "Azure CLI erfolgreich installiert" "Success"
         Install-Module Az -Scope CurrentUser -Force -AllowClobber -Repository PSGallery
         Write-Status "Az Modul erfolgreich installiert" "Success"
-        $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
-    } catch {
+        $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
+    }
+    catch {
         Write-Status "Az Modul Installation fehlgeschlagen: $($_.Exception.Message)" "Error"
     }
-} else {
+}
+else {
     Write-Status "Az Modul bereits installiert" "Success"
 }
 
@@ -78,10 +102,12 @@ if (-not $vsCodeExists) {
     try {
         winget install Microsoft.VisualStudioCode.Insiders --scope user --silent
         Write-Status "VS Code Insiders erfolgreich installiert" "Success"
-    } catch {
+    }
+    catch {
         Write-Status "VS Code Insiders Installation fehlgeschlagen: $($_.Exception.Message)" "Error"
     }
-} else {
+}
+else {
     Write-Status "VS Code Insiders bereits installiert" "Success"
 }
 
@@ -109,14 +135,17 @@ if (-not (Get-Command node -ErrorAction SilentlyContinue)) {
             [Environment]::SetEnvironmentVariable('Path', $newPath, 'User')
             $env:Path = "$env:Path;$nodeBasePath"
             Write-Status "PATH erfolgreich aktualisiert: $nodeBasePath" "Success"
-        } else {
+        }
+        else {
             Write-Status "Node.js Pfad bereits im USER PATH vorhanden" "Success"
         }
-        $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
-    } catch {
+        $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
+    }
+    catch {
         Write-Status "Node.js Installation fehlgeschlagen: $($_.Exception.Message)" "Error"
     }
-} else {
+}
+else {
     Write-Status "Node.js bereits vorhanden: $nodeBasePath" "Success"
 }
 
@@ -125,16 +154,17 @@ Write-Status "Starte Azure Login (kann mit Ctrl+C übersprungen werden)..."
 try {
     az login --allow-no-subscriptions
     Write-Status "Azure Login erfolgreich" "Success"
-} catch {
+}
+catch {
     Write-Status "Azure Login übersprungen oder fehlgeschlagen" "Warning"
 }
 
 # 7. Desktop Shortcut für VS Code Insiders erstellen
 Write-Status "Erstelle Desktop Shortcut für VS Code Insiders..."
 try {
-    $desktopPath   = [Environment]::GetFolderPath("Desktop")
-    $shortcutPath  = Join-Path $desktopPath "VS Code Insiders - ARE.lnk"
-    $targetPath    = Join-Path $env:USERPROFILE "ARE"
+    $desktopPath = [Environment]::GetFolderPath("Desktop")
+    $shortcutPath = Join-Path $desktopPath "VS Code Insiders - ARE.lnk"
+    $targetPath = Join-Path $env:USERPROFILE "ARE"
 
     $possiblePaths = @(
         "$env:LOCALAPPDATA\Programs\Microsoft VS Code Insiders\Code - Insiders.exe",
@@ -153,7 +183,8 @@ try {
         $shortcut.Save()
         Write-Status "Desktop Shortcut erfolgreich erstellt: $shortcutPath" "Success"
     }
-} catch {
+}
+catch {
     Write-Status "Fehler beim Erstellen des Desktop Shortcuts: $($_.Exception.Message)" "Error"
 }
 
@@ -173,6 +204,7 @@ try {
     Set-Location $repoPath
     code-insiders .
     Write-Status "VS Code Insiders gestartet im Repository-Verzeichnis" "Success"
-} catch {
+}
+catch {
     Write-Status "VS Code Insiders konnte nicht gestartet werden: $($_.Exception.Message)" "Warning"
 }

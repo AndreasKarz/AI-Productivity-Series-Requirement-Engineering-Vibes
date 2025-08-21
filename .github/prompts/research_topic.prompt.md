@@ -1,6 +1,6 @@
 ---
 mode: 'agent'
-model: 'GPT-5 (Preview)'
+model: 'Claude Sonnet 4'
 tools: ['codebase', 'testFailure', 'terminalSelection', 'terminalLastCommand', 'searchResults', 'editFiles', 'runNotebooks', 'search', 'runCommands', 'runTasks', 'Microsoft Docs', 'ado', 'sequential-thinking', 'azure_summarize_topic']
 description: Unified Wiki & Documentation Topic Consolidation with Conflict Resolution, CTRM Work Item Evidence, and Source Metadata
 ---
@@ -38,7 +38,7 @@ Instructions (English only; output language adapts to user; Swiss German default
 
 # Sequential Thinking Phases
 1) Intake
-   - Confirm topic parameter.
+   - Confirm topic.
    - Load project.copilot.instructions.md and user.copilot.instructions.md.
    - Identify all Wiki/Doc endpoints; prepare CTRM Work Item search strategy (keywords, tags, areas).
 2) Discovery
