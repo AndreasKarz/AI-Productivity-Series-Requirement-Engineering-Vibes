@@ -78,3 +78,4 @@ Dies ist die Reihenfolge, in der die Anweisungen und Prompts verarbeitet werden.
 ## Weitere Ressourcen
 - [Dokumentation Prompt Files](https://code.visualstudio.com/docs/copilot/copilot-customization#_prompt-files-experimental)
 - [AI Engineer Perplexity Space](https://www.perplexity.ai/spaces/the-ai-engineer-UslyhxrNTriahp77tvqP2g)
+- [Spickzettel zu GitHub Copilot Chat](https://docs.github.com/de/copilot/reference/cheat-sheet)
