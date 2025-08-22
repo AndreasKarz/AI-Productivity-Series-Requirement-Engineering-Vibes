@@ -427,3 +427,6 @@ FodyWeavers.xsd
 /.github/instructions/project.copilot.instructions.md
 /.github/instructions/user.copilot.instructions.md
 /scripts
+/test-results
+/playwright-report
+/tests

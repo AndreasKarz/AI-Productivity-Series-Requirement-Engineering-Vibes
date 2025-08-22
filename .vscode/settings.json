@@ -1,4 +1,9 @@
 {
+    "chat.promptFiles": true,
+    "chat.promptFilesLocations": {
+        ".github/userprompts": true
+    },
+    "github.copilot.chat.codeGeneration.useInstructionFiles": true,
     "chat.mcp.serverSampling": {
         "AI-Productivity-Series-Requirement-Engineering-Vibes/.vscode/mcp.json: sequential-thinking": {
             "allowedModels": [
@@ -87,8 +92,5 @@
         "search_code": true,
         "search_wiki": true,
         "search_workitem": true
-    },
-    "chat.promptFilesLocations": {
-        ".github/userprompts": true
     }
 }
