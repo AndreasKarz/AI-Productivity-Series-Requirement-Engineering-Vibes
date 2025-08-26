@@ -73,6 +73,14 @@ Task:
 You are a Requirements Engineer (IREB) with a test-first mindset (ISTQB). Analyze the Azure DevOps Work Item {{workItemId}} in project {{adoProject}} and optimize it. Respect the actual work item type (from ADO), incl. Bug-specific ReproSteps and PBI/Feature Acceptance Criteria.
 
 Procedure (tool-assisted):
+0) Work Item Type Check
+   - First, retrieve the System.WorkItemType field for Work Item {{workItemId}}.
+   - If System.WorkItemType == "Bug": 
+     * Stop execution of this prompt.
+     * Switch to and execute the analyze_bug.prompt.md prompt instead.
+     * Pass all current parameters (workItemId, adoProject, includeLinkedItemsDepth, applyMode) to the Bug analysis prompt.
+   - If System.WorkItemType != "Bug": Continue with step 1) below.
+
 1) Collection (ado)
    - Retrieve core and custom fields: System.WorkItemType, System.Title, System.Description, Microsoft.VSTS.Common.AcceptanceCriteria, Microsoft.VSTS.Common.Priority, Microsoft.VSTS.Scheduling.StoryPoints, System.AssignedTo, System.Tags, System.State; for Bugs also Microsoft.VSTS.TCM.ReproSteps; include further team-specific fields if present.
    - Retrieve links up to depth {{includeLinkedItemsDepth}} with types (Parent/Child/Related/PR/Commit).
@@ -86,6 +94,7 @@ Procedure (tool-assisted):
    - Assess: Clarity/Unambiguity, Completeness, Consistency (internal/external), Correctness, Testability/Verifiability, Traceability, Prioritization, Feasibility.
    - For ACs: GWT form, measurable oracles/thresholds, pre/postconditions; also negative/edge cases.
    - Cross-check with Parent and linked items (goals, scope, NFRs, conflicts).
+   - Test Coverage Analysis: Retrieve all Test Cases linked via "Tested By" relationship. Verify that each Acceptance Criterion is covered by at least one Test Case. Identify coverage gaps and assess test quality (clear test steps, expected results matching AC criteria).
 
 3) Proposal
    - Produce: Title, Description (Markdown), Acceptance Criteria (GIVEN/WHEN/THEN list), Non-functional Criteria (NFR table), Priority/Size (if sensible), Tags, optional Link recommendations (as text only; no auto-change).
@@ -103,6 +112,7 @@ Output format (Markdown, in this exact order; use German headers when language =
 ## Analyse — Kurzfassung
 - Executive Summary
 - Wichtigste Befunde (IREB/ISTQB)
+- Testabdeckung (Coverage-Analyse der verlinkten Test Cases)
 - Risiken & Unklarheiten
 - Nummerierte Empfehlungen (1–n, je 1–2 Sätze)
 

@@ -35,20 +35,18 @@ Dieses Repository ist Dein Einstieg in eine fokussierte, effiziente und inspirie
 
 ## Liste der verfügbaren Prompts
 Hier findest Du eine Übersicht der verfügbaren Prompts, die Dir helfen, effizient zu arbeiten:
+- `/analyze_bug <WorkItemID>` => Analysiert einen Bug in ADO und führt Dich interaktiv durch die Verbesserung.
 - `/analyze_workitem <WorkItemID>` => Analysiert einen WorkItem in ADO und gibt relevante Informationen zurück.
 - `/create_test_cases <WorkItemID>` => Erstellt im Dialog manuelle Test Cases zu einem WorkItem in ADO und verknüpft diese korrekt.
 - `/research_topic <Topic>` => Durchsucht alle WIKIs und Dokumentationen nach diesem Thema und erstellt eine Zusammenfassung.
+- `/analyze_load_chain <PropertyName>` => Property in der ganzen Codebasis durchsuchen und die Ladestrecke komplett aufzeigen inkl. den involvierten WorkItems.
 TODO
-- Property in der ganzen Codebasis durchsuchen und die Ladestrecke komplett aufzeigen
 - Source code durchsuchen
-- Bug analysieren 
 - Zeitgewinn berechnen
 - Aufteilung BE/FE im Sprint auswerten und Dashboard erstellen inkl. Ratschlägen
-- Testabdeckung analysieren
 - Übersetzungen anzeigen
 - Mailtemplate inkl. Konfiguration anzeigen
 - Logs analysieren (mit Frage, welche Datei in .assets untersucht werden soll)
-- PDF Handbuch zusammenfassen (testen, ob CoPilot PDFs lesen kann, sonst Workaround. Fragen, welche Datei in .assets untersucht werden soll, alles oder ein spezielles Thema)
 - ...
 
 # ARE Aufbau
