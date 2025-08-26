@@ -40,13 +40,13 @@ Hier findest Du eine Übersicht der verfügbaren Prompts, die Dir helfen, effizi
 - `/create_test_cases <WorkItemID>` => Erstellt im Dialog manuelle Test Cases zu einem WorkItem in ADO und verknüpft diese korrekt.
 - `/research_topic <Topic>` => Durchsucht alle WIKIs und Dokumentationen nach diesem Thema und erstellt eine Zusammenfassung.
 - `/analyze_load_chain <PropertyName>` => Property in der ganzen Codebasis durchsuchen und die Ladestrecke komplett aufzeigen inkl. den involvierten WorkItems.
+- `/analyze_logs` => Logs analysieren, Datei in den Chat hochladen oder Pfad angeben.
 TODO
 - Source code durchsuchen
 - Zeitgewinn berechnen
 - Aufteilung BE/FE im Sprint auswerten und Dashboard erstellen inkl. Ratschlägen
 - Übersetzungen anzeigen
 - Mailtemplate inkl. Konfiguration anzeigen
-- Logs analysieren (mit Frage, welche Datei in .assets untersucht werden soll)
 - ...
 
 # ARE Aufbau
