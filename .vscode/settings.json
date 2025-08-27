@@ -14,6 +14,7 @@
         }
     },
     "chat.mcp.enabled": true,
+    "chat.mcp.access": "all",
     "chat.mcp.discovery.enabled": {
         "claude-desktop": true,
         "windsurf": true,

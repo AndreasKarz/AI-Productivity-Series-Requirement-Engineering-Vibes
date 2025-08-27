@@ -12,7 +12,7 @@
       "command": "npx",
       "args": [
         "-y",
-        "@azure-devops/mcp@next",
+        "@azure-devops/mcp",
         "${input:ado_org}"
       ]
     },
