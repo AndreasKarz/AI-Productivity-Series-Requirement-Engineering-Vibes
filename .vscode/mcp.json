@@ -30,6 +30,20 @@
         "@playwright/mcp@latest"
       ],
       "type": "stdio"
+    },
+    "microsoft-docs": {
+      "type": "http",
+      "url": "https://learn.microsoft.com/api/mcp"
+    },
+    "memory": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory@latest"
+      ],
+      "env": {
+        "MEMORY_FILE_PATH": "${env:USERPROFILE}\\.vscode-insiders\\mcp-memory.json"
+      }
     }
   }
 }
