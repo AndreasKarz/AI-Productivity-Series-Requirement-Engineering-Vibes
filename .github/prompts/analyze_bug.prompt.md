@@ -1,7 +1,7 @@
 ---
 mode: 'agent'
 model: 'Claude Sonnet 4'
-tools: ['codebase', 'testFailure', 'terminalSelection', 'terminalLastCommand', 'searchResults', 'editFiles', 'runNotebooks', 'search', 'runCommands', 'runTasks', 'Microsoft Docs', 'ado', 'sequential-thinking', 'azure_summarize_topic']
+tools: ['search_code', 'search_wiki', 'search_workitem', 'codebase', 'testFailure', 'terminalSelection', 'terminalLastCommand', 'searchResults', 'editFiles', 'search', 'runCommands', 'runTasks', 'Microsoft Docs', 'ado', 'sequential-thinking', 'azure_summarize_topic']
 description: Analyze and improve Azure DevOps Bug Work Items via MCP tools (ado, sequential-thinking) following IREB/ISTQB standards, with interactive step-by-step dialog and confirmation before changes.
 ---
 parameters:

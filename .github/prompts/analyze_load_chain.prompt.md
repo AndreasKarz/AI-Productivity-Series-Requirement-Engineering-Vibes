@@ -1,8 +1,7 @@
-```prompt
 ---
 mode: 'agent'
 model: 'Claude Sonnet 4'
-tools: ['codebase', 'testFailure', 'terminalSelection', 'terminalLastCommand', 'searchResults', 'editFiles', 'runNotebooks', 'search', 'runCommands', 'runTasks', 'Microsoft Docs', 'ado', 'sequential-thinking', 'azure_summarize_topic']
+tools: ['search_code', 'search_wiki', 'search_workitem', 'codebase', 'testFailure', 'terminalSelection', 'terminalLastCommand', 'searchResults', 'editFiles', 'search', 'runCommands', 'runTasks', 'Microsoft Docs', 'ado', 'sequential-thinking', 'azure_summarize_topic']
 description: End-to-end Property Lineage Discovery across Azure DevOps Repositories with CTRM Work Item Linkage and Comprehensive Documentation
 ---
 parameters:
@@ -259,4 +258,3 @@ The analysis should produce decision-ready documentation suitable for CTRM suppo
 - **Formatting**: Follow `.github/instructions/user.copilot.instructions.md`
 - **Professional Standards**: IREB requirements engineering principles
 - **Links**: Always provide working Azure DevOps URLs for verification
-```
