@@ -43,6 +43,14 @@
       "env": {
         "MEMORY_FILE_PATH": "${env:USERPROFILE}\\.vscode-insiders\\mcp-memory.json"
       }
+    },
+    "pdf2img": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        ".mcp\\pdf2img\\index.js"
+      ],
+      "cwd": "${workspaceFolder}"
     }
   }
 }
