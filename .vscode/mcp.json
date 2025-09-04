@@ -51,6 +51,14 @@
         ".mcp\\pdf2img\\index.js"
       ],
       "cwd": "${workspaceFolder}"
+    },
+    "asciidoc": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        ".mcp\\asciidoc\\index.js"
+      ],
+      "cwd": "${workspaceFolder}"
     }
   }
 }
