@@ -1,1 +1,1 @@
-Set-Location (Join-Path $env:USERPROFILE 'ARE'); git reset --hard; git pull --force; az login --allow-no-subscriptions; az account show; Write-Host "Packages werden aktualisiert..." -ForegroundColor Yellow; npm install --silent; 
+Set-Location (Join-Path $env:USERPROFILE 'ARE'); git reset --hard; git pull --force; Write-Output "" | & az login --allow-no-subscriptions; Write-Host "Packages werden aktualisiert..." -ForegroundColor Yellow; npm install --silent; 
