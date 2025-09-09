@@ -101,5 +101,10 @@
         "search_code": true,
         "search_wiki": true,
         "search_workitem": true
-    }
+    },
+    "workbench.editorAssociations": {
+        "*.md": "markdownEditor.customEditor"
+    },
+    "markdown-wysiwyg.enablePreview": true,
+    "markdown-wysiwyg.autoSave": true
 }

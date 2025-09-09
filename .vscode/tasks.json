@@ -74,33 +74,6 @@
                 "ARE Auto Start"
             ],
             "problemMatcher": []
-        },
-        {
-            "label": "Open README WYSIWYG",
-            "type": "shell",
-            "command": "powershell",
-            "args": [
-                "-NoProfile",
-                "-ExecutionPolicy",
-                "Bypass",
-                "-Command",
-                "$file = '${workspaceFolder}/README.md'; Start-Sleep -Seconds 1; Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.SendKeys]::SendWait('^+{e}')"
-            ],
-            "group": "build",
-            "runOptions": {
-                "runOn": "folderOpen"
-            },
-            "presentation": {
-                "echo": false,
-                "reveal": "never",
-                "focus": false,
-                "panel": "shared"
-            },
-            "dependsOrder": "sequence",
-            "dependsOn": [
-                "Open README"
-            ],
-            "problemMatcher": []
         }
     ]
 }
