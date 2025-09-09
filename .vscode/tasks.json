@@ -4,17 +4,20 @@
         {
             "label": "Install Extensions",
             "type": "shell",
-            "command": "code-insiders",
+            "command": "powershell",
             "args": [
-                "--install-extension",
-                "adamerose.markdown-wysiwyg"
+                "-NoProfile",
+                "-ExecutionPolicy",
+                "Bypass",
+                "-Command",
+                "$extensions = @('adamerose.markdown-wysiwyg', 'ms-azuretools.vscode-azure-mcp-server', 'ms-azuretools.vscode-azurecli', 'ms-azuretools.azure-dev', 'ms-azuretools.vscode-azureresourcegroups', 'ms-azuretools.vscode-azure-github-copilot'); foreach ($ext in $extensions) { Write-Host \"Installing $ext...\" -ForegroundColor Yellow; code-insiders --install-extension $ext --force }"
             ],
             "group": "build",
             "runOptions": {
                 "runOn": "folderOpen"
             },
             "presentation": {
-                "echo": false,
+                "echo": true,
                 "reveal": "silent",
                 "focus": false,
                 "panel": "shared",
