@@ -73,23 +73,66 @@ else {
 }
 
 
-# 3. Azure PowerShell Modul
-Write-Status "Prüfe Azure PowerShell Modul..."
-if (-not (Get-Command az -ErrorAction SilentlyContinue)) {
-    Write-Status "Az Modul nicht gefunden, installiere..." "Warning"
+# 3. Azure CLI auf Benutzerebene installieren
+Write-Status "Prüfe Azure CLI Installation..."
+$azDest = Join-Path $env:USERPROFILE 'Tools\azure-cli'
+if (-not (Test-Path "$azDest\bin\az.cmd")) {
+    Write-Status "Azure CLI nicht gefunden, installiere auf Benutzerebene..." "Warning"
     try {
-        winget install --id Microsoft.AzureCLI -e --source winget --scope user --silent
+        $tmp = Join-Path $env:TEMP 'azure-cli.zip'
+        New-Item -ItemType Directory -Path $azDest -Force | Out-Null
+
+        # Offizielles aktuelles ZIP (x64) laden
+        Invoke-WebRequest 'https://aka.ms/installazurecliwindowszipx64' -OutFile $tmp -UseBasicParsing
+
+        # Entpacken und aufraeumen
+        Expand-Archive -Path $tmp -DestinationPath $azDest -Force
+        Remove-Item $tmp
+
+        # PATH fuer den Benutzer persistent ergaenzen
+        $old = [Environment]::GetEnvironmentVariable('Path', 'User')
+        if (-not ($old -split ';' | ForEach-Object { $_.TrimEnd('\') }) -contains "$azDest\bin") {
+            [Environment]::SetEnvironmentVariable('Path', "$old;$azDest\bin", 'User')
+        }
+
+        # Fuer die aktuelle Session sofort nutzbar machen
+        $env:Path += ";$azDest\bin"
+
+        # REQUESTS_CA_BUNDLE setzen
+        $caCertPath = Join-Path $azDest 'Lib\site-packages\certifi\cacert.pem'
+        if (Test-Path $caCertPath) {
+            [Environment]::SetEnvironmentVariable('REQUESTS_CA_BUNDLE', $caCertPath, 'User')
+            $env:REQUESTS_CA_BUNDLE = $caCertPath
+        }
+
         Write-Status "Azure CLI erfolgreich installiert" "Success"
-        Install-Module Az -Scope CurrentUser -Force -AllowClobber -Repository PSGallery
-        Write-Status "Az Modul erfolgreich installiert" "Success"
-        $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
+        
+        # Funktionstest
+        & "$azDest\bin\az.cmd" --version
     }
     catch {
-        Write-Status "Az Modul Installation fehlgeschlagen: $($_.Exception.Message)" "Error"
+        Write-Status "Azure CLI Installation fehlgeschlagen: $($_.Exception.Message)" "Error"
     }
 }
 else {
-    Write-Status "Az Modul bereits installiert" "Success"
+    Write-Status "Azure CLI bereits installiert" "Success"
+}
+
+# Azure PowerShell Modul
+Write-Status "Prüfe Azure PowerShell Modul..."
+try {
+    $azModule = Get-Module -ListAvailable -Name Az -ErrorAction SilentlyContinue
+    if (-not $azModule) {
+        Write-Status "Az PowerShell Modul nicht gefunden, installiere..." "Warning"
+        Install-Module Az -Scope CurrentUser -Force -AllowClobber -Repository PSGallery
+        Write-Status "Az PowerShell Modul erfolgreich installiert" "Success"
+    }
+    else {
+        Write-Status "Az PowerShell Modul bereits installiert (Version: $($azModule[0].Version))" "Success"
+    }
+}
+catch {
+    Write-Status "Az PowerShell Modul Installation fehlgeschlagen: $($_.Exception.Message)" "Error"
 }
 
 # 4. Visual Studio Code Insiders
