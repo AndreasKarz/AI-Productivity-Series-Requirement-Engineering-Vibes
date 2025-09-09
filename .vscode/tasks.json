@@ -9,8 +9,8 @@
                 "-NoProfile",
                 "-ExecutionPolicy",
                 "Bypass",
-                "-Command",
-                "$extensions = @('adamerose.markdown-wysiwyg', 'ms-azuretools.vscode-azure-mcp-server', 'ms-azuretools.vscode-azurecli', 'ms-azuretools.azure-dev', 'ms-azuretools.vscode-azureresourcegroups', 'ms-azuretools.vscode-azure-github-copilot'); foreach ($ext in $extensions) { Write-Host \"Installing $ext...\" -ForegroundColor Yellow; code-insiders --install-extension $ext --force }"
+                "-File",
+                "${workspaceFolder}/install-extensions.ps1"
             ],
             "group": "build",
             "runOptions": {
