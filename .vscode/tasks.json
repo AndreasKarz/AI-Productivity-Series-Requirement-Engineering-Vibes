@@ -76,7 +76,7 @@
             "problemMatcher": []
         },
         {
-            "label": "Activate WYSYWYG",
+            "label": "Open README WYSIWYG",
             "type": "shell",
             "command": "powershell",
             "args": [
@@ -84,7 +84,7 @@
                 "-ExecutionPolicy",
                 "Bypass",
                 "-Command",
-                "Start-Sleep -Seconds 2; code-insiders --command 'markdown-wysiwyg.toggle'"
+                "$file = '${workspaceFolder}/README.md'; Start-Sleep -Seconds 1; Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.SendKeys]::SendWait('^+{e}')"
             ],
             "group": "build",
             "runOptions": {
