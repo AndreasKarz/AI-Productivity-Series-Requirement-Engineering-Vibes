@@ -1,60 +1,62 @@
-# Agentic Requirement Engineering (ARE)
+# **CoTREx** Agentic Requirements Engineering (**ARE**)
 
 [Deutsch](README.md) | [English](README.en.md)
+
+---
 
 **Requirements Engineering & Testing neu gedacht.**  
 Stell dir vor, Du sparst wertvolle Zeit und hebst gleichzeitig die Qualität Deiner Projekte auf ein neues Level. Genau das macht **Agentic Requirement Engineering möglich** – und das in einem Bruchteil der Zeit, die du jetzt dafür aufwendest.
 
-Dieses Repository ist Dein Einstieg in eine fokussierte, effiziente und inspirierende Arbeitsweise. Hier findest Du alles, was Du brauchst: klare Anleitungen, erprobte Prompts und ein praktisches Setup, welches Dich direkt ins Tun bringen.  
+**Willst Du mit CoTREx ARE arbeiten?** [Dann melde Dich bei uns](https://teams.microsoft.com/l/channel/19%3AgnGndOg7XoTvLgeRPqdtLvwdRnHjGwQto9XQ0oRKjL81%40thread.tacv2/01%20TREX%20Public?groupId=8c4a846d-9e6a-4aae-a23e-ae2f203b52d6&tenantId=ab3ae8a3-fd32-4b83-831e-919c6fcd28b2) und wir machen mit Dir das Onboarding.  
 **Be ready – und lass Dich von smarter Automatisierung und punktgenauer Präzision begeistern.**
 
-# Das nächste Level beginnt jetzt.
+# Das nächste Level beginnt jetzt. ![](https://swisslife.sharepoint.com/:i:/s/Co-TREx/Eaqr_Vq82jFKgWTxfsGgryUBMzX9FXVrDo_0heQTR8s5Kg?e=rsgIt7)
 
-## Vorbereitungen
+## Liste der verfügbaren Prompts:
 
-> **Downloade das** [**are\_setup.ps1**](https://github.com/AndreasKarz/AI-Productivity-Series-Requirement-Engineering-Vibes/blob/main/are_setup.ps1) **Installationsscript** und starte es in PowerShell. Es wird Dir helfen, die notwendigen Vorbereitungen zu treffen und die Umgebung einzurichten. Nach der Installation findest du in deinem Benutzerverzeichnis den Ordner "ARE" und **Visual Studio Code Insiders öffnet** sich in diesem Ordner.
-> 
-> Zusätzlich befindet sich auf dem Desktop eine Verknüpfung zu ARE, mit welcher du direkt in diesem Ordner zu arbeiten kannst.
+> 👉🏻 Wenn Du im Copilot im `**Agent**` Mode bist, kannst Du die folgenden Prompts einfach aufrufen, in dem Du die Anweisung mit `**/**` beginnst und dann den Namen des Prompts zu schreiben beginnst .
 
-**Danach sind noch folgende Schritte auszuführen:**
+### **/analyze\_workitem** `**WorkItem ID**`
 
-*   **Installiere die Azure DevOps MCP Server Extension** in Visual Studio Code Insiders: [Anleitung](https://github.com/microsoft/azure-devops-mcp)
-*   Stelle sicher, dass Du im [**AI Engineer Perplexity Space**](https://www.perplexity.ai/spaces/the-ai-engineer-UslyhxrNTriahp77tvqP2g) Prompts generieren kannst.
-*   Öffne den **Copilot Chat** und melde dich an (SL Account)
-*   Öffne in Visual Studio Code Insiders die **Explorer Ansicht**.
-*   Öffne die Datei `.vscode/mcp.json` und **starte die beiden Server** `ado` und `sequential-thinking`. Es müssen beide auf `Running` stehen.
+Analysiert ein WorkItem in **Azure DevOps (ADO)** nach IREB®, ISTQB®, CTRM, OKR und FlightLevels. Gibt danach eine **Zusammenfassung** der Analyse mit **Vorschlägen** aus. Diese können **im Dialog noch angepasst** werden und werden danach vom Copilot **auf Wunsch direkt ins WorkItem** übernommen.
 
-## Und los geht's
+### **/create\_test\_cases** `**WorkItem ID**`
 
-1.  Öffne die Ansicht **Terminal** in Visual Studio Code
-2.  Führe den Befehl `az login --allow-no-subscriptions` im Terminal aus und **melde Dich mit Deinen ADO Credentials an**
-3.  **Öffne den GitHub Copilot Chat**, stelle den Mode auf `Agent` und wähle das Model `GPT-5` aus
-4.  Führe folgenden Prompt aus: `Liste mir via MCP alle zur Verfügung stehenden Projekte im ADO auf` (Am Anfang werden viele Berechtigungen abgefragt, die Du mit 'Always' beantworten kannst)
+**Prüft** zuerst das WorkItem inkl. den Kommentaren sowie allenfalls schon verlinkten Test Cases und validiert die Akzeptanzkriterien auf Vollständigkeit. Macht danach Vorschläge nach ISTQB® für weitere Test Cases. Diese können **im Dialog bearbeitet** werden und danach **erstellt Copilot diese auf Wunsch** und **verlinkt** diese auch korrekt mit dem WorkItem.
 
-**Wenn Du die Liste bekommen hast, dann kannst Du nun mit prompten loslegen.**
+### **/create\_feature** `**File**` **oder** `**Beschreibung**`
 
-# Arbeiten mit ARE
+**Analysiert** die Datei (Markdown, Text, ASCIIDOC oder PDF) oder die Beschreibung, **prüft** dann die Anforderungen nach IREB® und **geht dann in einen Dialog**. Sind alle Fragen beantwortet und der Vorschlag im Dialog überarbeitet, **erstellt der Copilot daraus das Feature**.  
 
-> Starte die ARE Umgebung mit dem bei der Installation erstellten Desktop Icon.  
-> Öffne `Ansicht > Terminal` und führe im Terminal `./are_start.ps1` aus. **Damit aktualisierst du die Prompts, Instruktionen und Konfigurationen in diesem Repository** und meldest dich an.
+### **/gf\_info** `**Name des Geschäftsfalles**`
 
-## Liste der verfügbaren Prompts
+Sucht **alle Informationen zu einem Geschäftsfall** und erstellt dann eine Zusammenfassung daraus.
 
-Hier findest Du eine Übersicht der verfügbaren Prompts, die Dir helfen, effizient zu arbeiten:
+### **/research\_topic** `**Topic**`
 
-*   `/analyze_bug <WorkItemID>` => Analysiert einen Bug in ADO und führt Dich interaktiv durch die Verbesserung.
-*   `/analyze_workitem <WorkItemID>` => Analysiert einen WorkItem in ADO und gibt relevante Informationen zurück.
-*   `/create_test_cases <WorkItemID>` => Erstellt im Dialog manuelle Test Cases zu einem WorkItem in ADO und verknüpft diese korrekt.
-*   `/research_topic <Topic>` => Durchsucht alle WIKIs und Dokumentationen nach diesem Thema und erstellt eine Zusammenfassung.
-*   `/analyze_load_chain <PropertyName>` => Property in der ganzen Codebasis durchsuchen und die Ladestrecke komplett aufzeigen inkl. den involvierten WorkItems.
-*   `/analyze_logs` => Logs analysieren, Datei in den Chat hochladen oder Pfad angeben.  
-    TODO
-*   Source code durchsuchen
-*   Zeitgewinn berechnen
-*   Aufteilung BE/FE im Sprint auswerten und Dashboard erstellen inkl. Ratschlägen
-*   Übersetzungen anzeigen
-*   Mailtemplate inkl. Konfiguration anzeigen
-*   ...
+Du **suchst** nach einem bestimmten **Thema**, Du weisst, es ist irgendwo in den Tiefen eines **ADO WIKIs** (_Sharepoint wird aktuell noch nicht unterstützt_), aber Du findest es nicht? **ARE wird es für Dich finden!**
+
+### **/analyze\_bug** `**WorkItem ID**`
+
+Analysiert das Bug WorkItem und sucht dann ähnliche Bugs, vermutlich relevante PBIs, prüft Pull Requests, **analysiert** den Code und **erstellt** Dir dann eine **Übersicht**.
+
+### **/analyze\_load\_chain** `**Property Name**`
+
+Du hast ein Property, **bei dem Du nicht weisst, woher es kommt und wohin es geht**? Dann versuche mal diesen Prompt und lass ihn nach der kompletten Strecke suchen. Er sucht das Property in allen Repositories die er findet und analysiert dann die gesamt Ladekette. Dabei referenziert er auf den Code und berücksichtigt auch WorkItems.
+
+### **/analyze\_logs** `**LogFile**`
+
+**Kopiere Dein LogFile** in den Ordner `.assets` und gib es dann diesem Prompt mit. Er **analysiert das Log**, untersucht den Source Code und die Pull Requests und gibt dann eine **zusammengefasste Analyse** aus.
+
+### **/create\_ui\_test** `**TestCase ID**`
+
+Führt den manuellen Test Case aus und erstellt auf Wunsch eine entsprechende **Playwright Testdatei**. (Funktioniert nur mit WEB UIs). 
+
+Anstatt die `TestCase ID` kann auch **ein Test beschrieben werden**, z.B. _/create\_ui\_test https://www.stadt-zuerich.ch/de/lebenslagen/neu-in-zuerich/other-languages.html - klicke auf jede Sprache und prüfe dann auf der Folgeseite ob alle Übersetzungen korrekt und fehlerfrei sind_
+
+### **/forensic\_analyze\_pdf** `**PDF Datei**`
+
+Lade das gewünschte PDF in den Ordner `.assets` und gib diese dann dem Prompt mit. Er kann das PDF generell aber auch einzelne Unterschriften im Dokument **forensisch untersuchen**. 
 
 # ARE Aufbau
 
@@ -78,11 +80,6 @@ Dies ist die Reihenfolge, in der die Anweisungen und Prompts verarbeitet werden.
 *   `.github/instructions/project.copilot.instructions.md`: Projektspezifische Anweisungen für GitHub Copilot.
 *   `.github/instructions/user.copilot.instructions.md`: Benutzerdefinierte Anweisungen für GitHub Copilot.
 *   `.github/prompts/`: Enthält die vorgefertigten Prompts für die Nutzung mit GitHub Copilot.
-
-## TODO
-
-*   Beispiele erstellen und als User Prompts abspeichern
-*   https://asciidoc.org/ MCP Server
 
 ## Weitere Ressourcen
 
