@@ -17,8 +17,7 @@ if (-not (Test-Path $azCliPath)) {
 }
 else {
     Write-Host "Azure CLI gefunden, führe Login aus..." -ForegroundColor Green
-    az login --allow-no-subscriptions
-    az account show
+    Write-Output "" | & az login --allow-no-subscriptions
 }
 
 # Packages aktualisieren

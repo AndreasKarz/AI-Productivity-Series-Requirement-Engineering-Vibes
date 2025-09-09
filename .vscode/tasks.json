@@ -29,7 +29,7 @@
         {
             "label": "Open README",
             "type": "shell",
-            "command": "code",
+            "command": "code-insiders",
             "args": [
                 "--reuse-window",
                 "${workspaceFolder}/README.md"
