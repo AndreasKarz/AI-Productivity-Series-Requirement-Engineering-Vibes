@@ -98,11 +98,17 @@ if (-not (Test-Path "$azDest\bin\az.cmd")) {
         # Fuer die aktuelle Session sofort nutzbar machen
         $env:Path += ";$azDest\bin"
 
-        # REQUESTS_CA_BUNDLE setzen
+        # REQUESTS_CA_BUNDLE und NODE_EXTRA_CA_CERTS setzen
         $caCertPath = Join-Path $azDest 'Lib\site-packages\certifi\cacert.pem'
         if (Test-Path $caCertPath) {
             [Environment]::SetEnvironmentVariable('REQUESTS_CA_BUNDLE', $caCertPath, 'User')
             $env:REQUESTS_CA_BUNDLE = $caCertPath
+            [Environment]::SetEnvironmentVariable('NODE_EXTRA_CA_CERTS', $caCertPath, 'User')
+            $env:NODE_EXTRA_CA_CERTS = $caCertPath
+            # npm cafile konfigurieren falls npm verfügbar
+            if (Get-Command npm -ErrorAction SilentlyContinue) {
+                npm config set cafile "$caCertPath" --location=user
+            }
         }
 
         Write-Status "Azure CLI erfolgreich installiert" "Success"

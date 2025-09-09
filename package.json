@@ -1,6 +1,7 @@
 {
     "name": "node-playwright-setup",
     "version": "1.0.0",
+    "type": "module",
     "description": "ARE Setup",
     "scripts": {
         "test": "playwright test",
@@ -9,19 +10,30 @@
         "test:debug": "playwright test --debug",
         "report": "playwright show-report",
         "setup:pdf2img": "cd .mcp/pdf2img && npm install",
-        "postinstall": "npm run setup:pdf2img"
+        "setup:asciidoc": "cd .mcp/asciidoc && npm install",
+        "setup:all": "npm run setup:pdf2img && npm run setup:asciidoc",
+        "postinstall": "npm run setup:all"
     },
     "devDependencies": {
-        "@playwright/test": "^1.40.0",
-        "@types/node": "^20.10.0",
-        "typescript": "^5.3.0"
+        "@playwright/test": "^1.55.0",
+        "@types/node": "^24.3.1",
+        "typescript": "^5.9.2"
     },
     "dependencies": {
-        "@modelcontextprotocol/sdk": "^1.0.0",
+        "@modelcontextprotocol/sdk": "^1.17.5",
         "pdf-poppler": "^0.2.1",
         "jimp": "^0.22.12",
-        "fs-extra": "^11.2.0",
-        "uuid": "^9.0.1"
+        "fs-extra": "^11.3.1",
+        "uuid": "^13.0.0",
+        "canvas": "^3.2.0",
+        "path": "^0.12.7",
+        "pdf-lib": "^1.17.1",
+        "pdf-parse": "^1.1.1",
+        "pdf2json": "^3.2.0",
+        "pdf2pic": "^3.2.0",
+        "pdfjs-dist": "^5.4.149",
+        "puppeteer": "^24.19.0",
+        "sharp": "^0.34.3"
     },
     "engines": {
         "node": ">=18"
