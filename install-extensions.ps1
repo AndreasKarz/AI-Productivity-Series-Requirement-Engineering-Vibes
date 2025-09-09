@@ -1,7 +1,7 @@
 # Extension Installation Script
 # Installiert alle benötigten VS Code Extensions für ARE
 
-Write-Host "Installing VS Code Extensions..." -ForegroundColor Cyan
+Write-Host "Installing VS Code Extensions..."
 
 # Finde code-insiders executable
 $codeInsiders = $null
@@ -15,7 +15,7 @@ foreach ($path in $possiblePaths) {
     try {
         $null = Get-Command $path -ErrorAction Stop
         $codeInsiders = $path
-        Write-Host "Found code-insiders at: $path" -ForegroundColor Green
+        Write-Host "Found code-insiders at: $path"
         break
     }
     catch {
@@ -24,7 +24,7 @@ foreach ($path in $possiblePaths) {
 }
 
 if (-not $codeInsiders) {
-    Write-Host "✗ code-insiders not found in PATH or standard locations" -ForegroundColor Red
+    Write-Host "X code-insiders not found in PATH or standard locations"
     exit 1
 }
 
@@ -38,20 +38,20 @@ $extensions = @(
 )
 
 foreach ($ext in $extensions) {
-    Write-Host "Installing $ext..." -ForegroundColor Yellow
+    Write-Host "Installing $ext..."
     try {
         $result = & $codeInsiders --install-extension $ext --force 2>&1
         if ($LASTEXITCODE -eq 0) {
-            Write-Host "✓ $ext installed successfully" -ForegroundColor Green
+            Write-Host "OK $ext installed successfully"
         }
         else {
-            Write-Host "✗ Failed to install $ext - Exit code: $LASTEXITCODE" -ForegroundColor Red
-            Write-Host "Output: $result" -ForegroundColor Gray
+            Write-Host "FAIL $ext - Exit code: $LASTEXITCODE"
+            Write-Host "Output: $result"
         }
     }
     catch {
-        Write-Host "✗ Exception installing $ext : $($_.Exception.Message)" -ForegroundColor Red
+        Write-Host "ERROR $ext : $($_.Exception.Message)"
     }
 }
 
-Write-Host "Extension installation completed!" -ForegroundColor Green
+Write-Host "Extension installation completed!"
