@@ -25,7 +25,7 @@ if (Test-Path "$dest\bin\az.cmd") {
     
     # npm install ausführen falls package.json vorhanden
     if (Test-Path "package.json") {
-        Write-Host "Packages werden aktualisiert..." -ForegroundColor Yellow
+        Write-Host "Packages werden aktualisiert..."
         npm install --silent
     }
 }
@@ -71,7 +71,7 @@ else {
     
     # npm install ausführen falls package.json vorhanden
     if (Test-Path "package.json") {
-        Write-Host "Packages werden aktualisiert..." -ForegroundColor Yellow
+        Write-Host "Packages werden aktualisiert..."
         npm install --silent
     }
 }
