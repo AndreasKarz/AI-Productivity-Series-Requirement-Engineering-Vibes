@@ -2,6 +2,27 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "Install Extensions",
+            "type": "shell",
+            "command": "code-insiders",
+            "args": [
+                "--install-extension",
+                "adamerose.markdown-wysiwyg"
+            ],
+            "group": "build",
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "presentation": {
+                "echo": false,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false
+            },
+            "problemMatcher": []
+        },
+        {
             "label": "ARE Auto Start",
             "type": "shell",
             "command": "powershell",
@@ -24,6 +45,10 @@
                 "showReuseMessage": false,
                 "clear": true
             },
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Install Extensions"
+            ],
             "problemMatcher": []
         },
         {
@@ -45,7 +70,36 @@
                 "panel": "shared"
             },
             "dependsOrder": "sequence",
-            "dependsOn": [],
+            "dependsOn": [
+                "ARE Auto Start"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Activate WYSYWYG",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-NoProfile",
+                "-ExecutionPolicy",
+                "Bypass",
+                "-Command",
+                "Start-Sleep -Seconds 2; code-insiders --command 'markdown-wysiwyg.toggle'"
+            ],
+            "group": "build",
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "presentation": {
+                "echo": false,
+                "reveal": "never",
+                "focus": false,
+                "panel": "shared"
+            },
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Open README"
+            ],
             "problemMatcher": []
         }
     ]
