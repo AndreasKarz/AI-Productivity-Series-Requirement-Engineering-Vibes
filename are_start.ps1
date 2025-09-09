@@ -35,7 +35,7 @@ foreach ($envVar in $envVarsToSet.GetEnumerator()) {
 if ($envVarsChanged) {
     Write-Host "Lade Umgebungsvariablen neu..."
     foreach ($envVar in $envVarsToSet.GetEnumerator()) {
-        $env:($envVar.Key) = $envVar.Value
+        Set-Item -Path "env:$($envVar.Key)" -Value $envVar.Value
     }
     Write-Host "Umgebungsvariablen aktualisiert!"
 }
@@ -46,7 +46,7 @@ else {
 # Repository zurücksetzen und aktualisieren
 Write-Host "Repository wird aktualisiert..."
 git reset --hard
-git pull --force
+git pull
 
 # Prüfen ob Azure CLI installiert ist
 $azCliPath = Join-Path $env:USERPROFILE 'Tools\azure-cli\bin\az.cmd'
