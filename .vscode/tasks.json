@@ -26,6 +26,34 @@
             "problemMatcher": []
         },
         {
+            "label": "Start MCP Servers",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-NoProfile",
+                "-ExecutionPolicy",
+                "Bypass",
+                "-Command",
+                "Write-Host 'Starte MCP Server...'; Write-Host '-> ADO MCP Server'; Start-Process -FilePath 'npx' -ArgumentList '-y', '@azure-devops/mcp@latest', 'swisslife' -WindowStyle Hidden; Write-Host '-> Sequential Thinking MCP Server'; Start-Process -FilePath 'npx' -ArgumentList '-y', '@modelcontextprotocol/server-sequential-thinking' -WindowStyle Hidden; Write-Host '-> Playwright MCP Server'; Start-Process -FilePath 'npx' -ArgumentList '@playwright/mcp@latest' -WindowStyle Hidden; Write-Host '-> Memory MCP Server'; $env:MEMORY_FILE_PATH = Join-Path $env:USERPROFILE '.vscode-insiders\\mcp-memory.json'; Start-Process -FilePath 'npx' -ArgumentList '-y', '@modelcontextprotocol/server-memory@latest' -WindowStyle Hidden; Write-Host '-> PDF2IMG MCP Server'; Set-Location '${workspaceFolder}'; Start-Process -FilePath 'node' -ArgumentList '.mcp\\pdf2img\\index.js' -WindowStyle Hidden; Write-Host '-> AsciiDoc MCP Server'; Start-Process -FilePath 'node' -ArgumentList '.mcp\\asciidoc\\index.js' -WindowStyle Hidden; Write-Host '[OK] Alle MCP Server gestartet'"
+            ],
+            "group": "build",
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false
+            },
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Install Extensions"
+            ],
+            "problemMatcher": []
+        },
+        {
             "label": "ARE Auto Start",
             "type": "shell",
             "command": "powershell",
@@ -50,7 +78,7 @@
             },
             "dependsOrder": "sequence",
             "dependsOn": [
-                "Install Extensions"
+                "Start MCP Servers"
             ],
             "problemMatcher": []
         },
@@ -76,6 +104,28 @@
             "dependsOn": [
                 "ARE Auto Start"
             ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Restart MCP Servers",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-NoProfile",
+                "-ExecutionPolicy",
+                "Bypass",
+                "-Command",
+                "Write-Host 'Stoppe alle MCP Server Prozesse...'; Get-Process | Where-Object { $_.ProcessName -eq 'node' -and ($_.CommandLine -like '*mcp*' -or $_.Path -like '*mcp*') } | Stop-Process -Force -ErrorAction SilentlyContinue; Get-Process | Where-Object { $_.ProcessName -eq 'npx' } | Stop-Process -Force -ErrorAction SilentlyContinue; Start-Sleep -Seconds 2; Write-Host 'Starte MCP Server neu...'; Write-Host '-> ADO MCP Server'; Start-Process -FilePath 'npx' -ArgumentList '-y', '@azure-devops/mcp@latest', 'swisslife' -WindowStyle Hidden; Write-Host '-> Sequential Thinking MCP Server'; Start-Process -FilePath 'npx' -ArgumentList '-y', '@modelcontextprotocol/server-sequential-thinking' -WindowStyle Hidden; Write-Host '-> Playwright MCP Server'; Start-Process -FilePath 'npx' -ArgumentList '@playwright/mcp@latest' -WindowStyle Hidden; Write-Host '-> Memory MCP Server'; $env:MEMORY_FILE_PATH = Join-Path $env:USERPROFILE '.vscode-insiders\\mcp-memory.json'; Start-Process -FilePath 'npx' -ArgumentList '-y', '@modelcontextprotocol/server-memory@latest' -WindowStyle Hidden; Write-Host '-> PDF2IMG MCP Server'; Set-Location '${workspaceFolder}'; Start-Process -FilePath 'node' -ArgumentList '.mcp\\pdf2img\\index.js' -WindowStyle Hidden; Write-Host '-> AsciiDoc MCP Server'; Start-Process -FilePath 'node' -ArgumentList '.mcp\\asciidoc\\index.js' -WindowStyle Hidden; Write-Host '[OK] Alle MCP Server neu gestartet'"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "new",
+                "showReuseMessage": false,
+                "clear": true
+            },
             "problemMatcher": []
         }
     ]
