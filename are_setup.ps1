@@ -1,12 +1,16 @@
 # =========================================================================
 # Entwicklungsumgebung Setup Script
-# Installiert: Git, Az Module, VS Code Insiders, Node.js
+# Installiert: Git, Az Module, VS Code Insiders, Node.js und Extensions
+# Erstellt: Desktop Icon
 # Autor: Andreas Karz
 # =========================================================================
 
 param(
     [string]$NodeVersion = "v22.18.0"
 )
+
+# Fehlerbehandlung aktivieren
+$ErrorActionPreference = 'Stop'
 
 function Write-Status {
     param([string]$Message, [string]$Status = "Info")
@@ -21,22 +25,21 @@ function Write-Status {
 Clear-Host
 Write-Host "========================================"
 Write-Host "  Entwicklungsumgebung Setup"
-Write-Host "========================================
+Write-Host "========================================"
 
-# 1. Git Installation prüfen und (portabel) installieren
+# 1. Git Installation prüfen oder auf Benutzerebene installieren
 Write-Status "Prüfe Git Installation..."
-$gitBasePath = Join-Path $env:USERPROFILE "Apps\Git\PortableGit"
+$gitBasePath = Join-Path $env:USERPROFILE "Apps\Git"
 if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
     Write-Status "Git nicht gefunden, lade und installiere PortableGit..." "Warning"
     try {
-        $downloadUrl = "https://github.com/git-for-windows/git/releases/latest/download/PortableGit-2.47.1-64-bit.zip"
-        $appsDir = Join-Path $env:USERPROFILE 'Apps\Git'
-        $zipFile = "$env:TEMP\git-portable.zip"
+        $gitUrl = "https://github.com/git-for-windows/git/releases/download/v2.42.0.windows.2/PortableGit-2.42.0.2-64-bit.7z.exe"
+        $gitInstaller = Join-Path $env:TEMP "git-portable.exe"
         
-        New-Item -ItemType Directory -Path $appsDir -Force | Out-Null
-        Invoke-WebRequest $downloadUrl -OutFile $zipFile -UseBasicParsing
-        Expand-Archive $zipFile $appsDir -Force
-        Remove-Item $zipFile
+        New-Item -ItemType Directory -Path $gitBasePath -Force | Out-Null
+        Invoke-WebRequest $gitUrl -OutFile $gitInstaller -UseBasicParsing
+        Start-Process $gitInstaller -ArgumentList "-o`"$gitBasePath`"", "-y" -Wait
+        Remove-Item $gitInstaller
         
         Write-Status "Git erfolgreich installiert" "Success"
 
@@ -53,31 +56,31 @@ if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
         else {
             Write-Status "Git Pfad bereits im USER PATH vorhanden" "Success"
         }
+        
     }
     catch {
         Write-Status "Git Installation fehlgeschlagen: $($_.Exception.Message)" "Error"
     }
 }
 else {
-    $gitVersion = git --version
+    $gitVersion = & git --version
     Write-Status "Git bereits installiert: $gitVersion" "Success"
 }
 
-# 2. Repository klonen
-$repoPath = Join-Path $env:USERPROFILE 'ARE'
+# 2. Repository klonen falls nicht vorhanden
+$repoPath = Join-Path $env:USERPROFILE "ARE"
 if (-not (Test-Path $repoPath)) {
     Write-Status "Repository nicht gefunden, klone in $repoPath..." "Warning"
-    git -c http.sslVerify=false clone https://github.com/AndreasKarz/AI-Productivity-Series-Requirement-Engineering-Vibes.git (Join-Path $env:USERPROFILE 'ARE')
+    git clone https://github.com/AndreasKarz/AI-Productivity-Series-Requirement-Engineering-Vibes.git $repoPath
     Write-Status "Repository erfolgreich geklont" "Success"
 }
 else {
     Write-Status "Repository bereits vorhanden: $repoPath" "Success"
 }
 
-
 # 3. Azure CLI auf Benutzerebene installieren
 Write-Status "Prüfe Azure CLI Installation..."
-$azDest = Join-Path $env:USERPROFILE 'Tools\azure-cli'
+$azDest = Join-Path $env:USERPROFILE "Tools\azure-cli"
 $azBinPath = Join-Path $azDest 'bin'
 $azCmdPath = Join-Path $azBinPath 'az.cmd'
 if (-not (Test-Path $azCmdPath)) {
@@ -95,7 +98,7 @@ if (-not (Test-Path $azCmdPath)) {
 
         # PATH fuer den Benutzer persistent ergaenzen
         $old = [Environment]::GetEnvironmentVariable('Path', 'User')
-        if (-not ($old -split ';' | ForEach-Object { $_.TrimEnd('\\') }) -contains $azBinPath) {
+        if (-not ($old -split ';' | ForEach-Object { $_.TrimEnd('\') }) -contains $azBinPath) {
             [Environment]::SetEnvironmentVariable('Path', "$old; $azBinPath", 'User')
         }
 
@@ -128,13 +131,13 @@ else {
     Write-Status "Azure CLI bereits installiert" "Success"
 }
 
-# Azure PowerShell Modul
+# 4. Azure PowerShell Modul prüfen
 Write-Status "Prüfe Azure PowerShell Modul..."
 try {
-    $azModule = Get-Module -ListAvailable -Name Az -ErrorAction SilentlyContinue
+    $azModule = Get-Module -ListAvailable -Name Az
     if (-not $azModule) {
         Write-Status "Az PowerShell Modul nicht gefunden, installiere..." "Warning"
-        Install-Module Az -Scope CurrentUser -Force -AllowClobber -Repository PSGallery
+        Install-Module -Name Az -Repository PSGallery -Force -AllowClobber -Scope CurrentUser
         Write-Status "Az PowerShell Modul erfolgreich installiert" "Success"
     }
     else {
@@ -142,26 +145,7 @@ try {
     }
 }
 catch {
-    Write-Status "Az PowerShell Modul Installation fehlgeschlagen: $($_.Exception.Message)" "Error"
-}
-
-# 4. Visual Studio Code Insiders
-Write-Status "Prüfe VS Code Insiders..."
-$vsCodePath = Join-Path $env:LOCALAPPDATA 'Programs\Microsoft VS Code Insiders'
-$vsCodeExists = (Test-Path $vsCodePath) -or (Get-Command code-insiders -ErrorAction SilentlyContinue)
-
-if (-not $vsCodeExists) {
-    Write-Status "VS Code Insiders nicht gefunden, installiere..." "Warning"
-    try {
-        winget install Microsoft.VisualStudioCode.Insiders --scope user --silent
-        Write-Status "VS Code Insiders erfolgreich installiert" "Success"
-    }
-    catch {
-        Write-Status "VS Code Insiders Installation fehlgeschlagen: $($_.Exception.Message)" "Error"
-    }
-}
-else {
-    Write-Status "VS Code Insiders bereits installiert" "Success"
+    Write-Status "Fehler beim Azure PowerShell Modul: $($_.Exception.Message)" "Error"
 }
 
 # 5. Node.js Installation
@@ -192,6 +176,8 @@ if (-not (Get-Command node -ErrorAction SilentlyContinue)) {
         else {
             Write-Status "Node.js Pfad bereits im USER PATH vorhanden" "Success"
         }
+        
+        # PATH für aktuelle Session laden
         $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + "; " + [System.Environment]::GetEnvironmentVariable("Path", "User")
     }
     catch {
@@ -202,17 +188,40 @@ else {
     Write-Status "Node.js bereits vorhanden: $nodeBasePath" "Success"
 }
 
-# 6. Azure Login (optional, kann übersprungen werden)
-Write-Status "Starte Azure Login (kann mit Ctrl+C übersprungen werden)..."
+# 6. NPM Packages installieren
+Write-Status "Installiere NPM Packages..."
 try {
-    az login --allow-no-subscriptions
-    Write-Status "Azure Login erfolgreich" "Success"
+    Set-Location $repoPath
+    npm install
+    Write-Status "NPM Packages erfolgreich installiert" "Success"
 }
 catch {
-    Write-Status "Azure Login übersprungen oder fehlgeschlagen" "Warning"
+    Write-Status "NPM Installation fehlgeschlagen: $($_.Exception.Message)" "Error"
 }
 
-# 7. Desktop Shortcut für VS Code Insiders erstellen
+# 7. VS Code Insiders prüfen und installieren falls nötig
+Write-Status "Prüfe VS Code Insiders Installation..."
+if (-not (Get-Command code-insiders -ErrorAction SilentlyContinue)) {
+    Write-Status "VS Code Insiders nicht gefunden, lade und installiere..." "Warning"
+    try {
+        $vscodeUrl = "https://update.code.visualstudio.com/latest/win32-x64-user/insider"
+        $vscodeInstaller = Join-Path $env:TEMP "vscode-insiders.exe"
+        
+        Invoke-WebRequest $vscodeUrl -OutFile $vscodeInstaller -UseBasicParsing
+        Start-Process $vscodeInstaller -ArgumentList "/verysilent", "/mergetasks=!runcode" -Wait
+        Remove-Item $vscodeInstaller
+        
+        Write-Status "VS Code Insiders erfolgreich installiert" "Success"
+    }
+    catch {
+        Write-Status "VS Code Insiders Installation fehlgeschlagen: $($_.Exception.Message)" "Error"
+    }
+}
+else {
+    Write-Status "VS Code Insiders bereits installiert" "Success"
+}
+
+# 8. Desktop Shortcut erstellen
 Write-Status "Erstelle Desktop Shortcut für VS Code Insiders..."
 try {
     $desktopPath = [Environment]::GetFolderPath("Desktop")
@@ -230,7 +239,7 @@ try {
         $WScriptShell = New-Object -ComObject WScript.Shell
         $shortcut = $WScriptShell.CreateShortcut($shortcutPath)
         $shortcut.TargetPath = $vscodeExe
-        $shortcut.Arguments = "-r `"$targetPath`" `"$targetPath\.vscode\mcp.json`" -g --command workbench.action.terminal.toggleTerminal -r"
+        # $shortcut.Arguments = "-r `"$targetPath`" `"$targetPath\.vscode\mcp.json`" -g --command workbench.action.terminal.toggleTerminal -r"
         $shortcut.WorkingDirectory = $targetPath
         $shortcut.Description = "VS Code Insiders - ARE Projekt"
         $shortcut.Save()
@@ -241,7 +250,7 @@ catch {
     Write-Status "Fehler beim Erstellen des Desktop Shortcuts: $($_.Exception.Message)" "Error"
 }
 
-# 8. Abschluss-Hinweise
+# 9. Abschluss-Hinweise
 Write-Host "========================================"
 Write-Host "Hinweise:"
 Write-Host "- Für neue Terminal-Sessions ist Node.js über 'node' und 'npm' verfügbar"
@@ -260,4 +269,5 @@ try {
 }
 catch {
     Write-Status "VS Code Insiders konnte nicht gestartet werden: $($_.Exception.Message)" "Warning"
+    Write-Status "VS Code Insiders gestartet im Repository-Verzeichnis" "Success"
 }
