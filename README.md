@@ -147,6 +147,14 @@ Selbstentwickelter MCP Server, damit GitHub Copilot mit PDF umgehen kann. Macht 
 
 Selbstentwickelter MCP Server, welcher aus PDFs neue AsciiDocs erstellen kann, inkl. Grafiken und Bilder.
 
+## Elastic Search MCP
+
+Comming soon...
+
+### Ressourcen
+
+[https://www.elastic.co/search-labs/blog/model-context-protocol-elasticsearch](https://www.elastic.co/search-labs/blog/model-context-protocol-elasticsearch) 
+
 ## Brave Web Search
 
 Comming soon...
