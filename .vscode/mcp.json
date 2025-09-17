@@ -50,7 +50,10 @@
         "-y",
         "mongodb-mcp-server@latest",
         "--readOnly"
-      ]
+      ],
+      "env": {
+        "MONGODB_CONNECTION_STRING": "${env:MDB_MCP_CONNECTION_STRING}"
+      }
     },
     "pdf2img": {
       "type": "stdio",
