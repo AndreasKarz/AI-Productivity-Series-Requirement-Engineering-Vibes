@@ -16,6 +16,12 @@ Stell dir vor, Du sparst wertvolle Zeit und hebst gleichzeitig die Qualität Dei
 
 > 👉🏻 Wenn Du im Copilot im `**Agent**` Mode bist, kannst Du die folgenden Prompts einfach aufrufen, in dem Du die Anweisung mit `**/**` beginnst und dann den Namen des Prompts zu schreiben beginnst .
 
+### **/business\_conclusion** `**WorkItem ID**`
+
+Analysiert das Work Item und alles, was daran hängt und erstellt daraus ein **Management Summary**.
+
+`_/business_conclusion 783464_`
+
 ### **/analyze\_workitem** `**WorkItem ID**`
 
 Analysiert ein WorkItem in **Azure DevOps (ADO)** nach IREB®, ISTQB®, CTRM, OKR und FlightLevels. Gibt danach eine **Zusammenfassung** der Analyse mit **Vorschlägen** aus. Diese können **im Dialog noch angepasst** werden und werden danach vom Copilot **auf Wunsch direkt ins WorkItem** übernommen.
