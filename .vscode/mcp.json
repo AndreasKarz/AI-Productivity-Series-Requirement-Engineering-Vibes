@@ -52,7 +52,7 @@
         "--readOnly"
       ],
       "env": {
-        "MDB_MCP_CONNECTION_STRING": "${env:MDB_MCP_CONNECTION_STRING}"
+        "MDB_MCP_CONNECTION_STRING": "mongodb+srv://dev:FtI9rZub4RX7c8tNjQvpH8SPUFFwqOr1@cluster-01-c3edb.azure.mongodb.net/?authSource=admin"
       }
     },
     "pdf2img": {
