@@ -48,11 +48,10 @@
       "command": "npx",
       "args": [
         "-y",
-        "mongodb-mcp-server@latest"
-      ],
-      "env": {
-        "MDB_MCP_CONNECTION_STRING": "${env:MDB_MCP_CONNECTION_STRING}"
-      }
+        "mongodb-mcp-server@latest",
+        "--connectionString",
+        "${env:MDB_MCP_CONNECTION_STRING}"
+      ]
     },
     "pdf2img": {
       "type": "stdio",
