@@ -87,7 +87,41 @@ Dies ist die Reihenfolge, in der die Anweisungen und Prompts verarbeitet werden.
 *   `.github/instructions/user.copilot.instructions.md`: Benutzerdefinierte Anweisungen für GitHub Copilot.
 *   `.github/prompts/`: Enthält die vorgefertigten Prompts für die Nutzung mit GitHub Copilot.
 
-## Weitere Ressourcen
+# Installierte MCP Server
+
+## Sequential-Thinking
+
+...
+
+## ADO
+
+Erlaubt den Zugriff auf Azure DevOps zur Analyse von WorkItems, WIKIs, Dokumentationen und Source Code.
+
+## MongoDB
+
+Zugriff auf MongoDB Instanzen als Sourcen für den Copilot. Connectionstring muss als Umgebungsvariable `MDB_MCP_CONNECTION_STRING` gesetzt sein. 
+
+## Playwright
+
+...
+
+## microsoft-docs
+
+...
+
+## memory
+
+...
+
+## PDF2Img
+
+...
+
+## AsciiDoc
+
+....
+
+# Weitere Ressourcen
 
 *   [Dokumentation Prompt Files](https://code.visualstudio.com/docs/copilot/copilot-customization#_prompt-files-experimental)
 *   [AI Engineer Perplexity Space](https://www.perplexity.ai/spaces/the-ai-engineer-UslyhxrNTriahp77tvqP2g)
