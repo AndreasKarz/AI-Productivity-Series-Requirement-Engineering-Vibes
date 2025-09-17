@@ -91,35 +91,77 @@ Dies ist die Reihenfolge, in der die Anweisungen und Prompts verarbeitet werden.
 
 ## Sequential-Thinking
 
-...
+Eine MCP-Server-Implementierung, die ein Tool für dynamische und reflektierende Problemlösung durch einen strukturierten Denkprozess bereitstellt. Zerlegt komplexe Anweisungen und einzelne Steps für zuverlässigere Antworten.
+
+### Ressourcen
+
+[https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking](https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking) 
 
 ## ADO
 
-Erlaubt den Zugriff auf Azure DevOps zur Analyse von WorkItems, WIKIs, Dokumentationen und Source Code.
+Erlaubt den Zugriff auf Azure DevOps zur Analyse von WorkItems, WIKIs, Dokumentationen und Source Code. Kann auch WorktItems und TestCases erstellen.
+
+### Ressourcen
+
+[https://www.youtube.com/watch?v=QAwTYXNLW4w](https://www.youtube.com/watch?v=QAwTYXNLW4w) 
 
 ## MongoDB
 
 Zugriff auf MongoDB Instanzen als Sourcen für den Copilot. Connectionstring muss als Umgebungsvariable `MDB_MCP_CONNECTION_STRING` gesetzt sein. 
 
+### Ressourcen
+
+[https://dev.to/edudeveloper/set-up-a-mongodb-mcp-server-in-vs-code-like-a-pro-pb7](https://dev.to/edudeveloper/set-up-a-mongodb-mcp-server-in-vs-code-like-a-pro-pb7)   
+[https://www.npmjs.com/package/mongodb-mcp-server](https://www.npmjs.com/package/mongodb-mcp-server)   
+[https://github.com/mongodb-js/mongodb-mcp-server](https://github.com/mongodb-js/mongodb-mcp-server) 
+
 ## Playwright
 
-...
+Der Playwright MCP ist ein leistungsstarker MCP-Server, der einem KI-Agenten die Kontrolle über einen Webbrowser ermöglicht. Er basiert auf Playwright, derselben Technologie, die auch unser zuverlässiges Test- und Automatisierungsframework unterstützt.
+
+### Ressourcen
+
+[https://playwright.dev/agents](https://playwright.dev/agents) 
 
 ## microsoft-docs
 
-...
+Der Microsoft Learn MCP Server ist ein Model Context Protocol-Server, der vertrauenswürdige und aktuelle Learn-Inhalte als Kontext zu Sprachmodellen hinzufügt.
+
+### Ressourcen
+
+[https://learn.microsoft.com/en-us/training/support/mcp](https://learn.microsoft.com/en-us/training/support/mcp) 
 
 ## memory
 
-...
+Eine grundlegende Implementierung von persistenter Speicherung unter Verwendung eines lokalen Wissensgraphen. Dadurch kann ARE Informationen über den Benutzer über mehrere Chats hinweg speichern.
+
+### Ressourcen
+
+[https://github.com/modelcontextprotocol/servers/tree/main/src/memory](https://github.com/modelcontextprotocol/servers/tree/main/src/memory) 
 
 ## PDF2Img
 
-...
+Selbstentwickelter MCP Server, damit GitHub Copilot mit PDF umgehen kann. Macht einen Umweg über Images, auf welche dann vom Copilot mit OCR eingelesen werden kann.
 
 ## AsciiDoc
 
-....
+Selbstentwickelter MCP Server, welcher aus PDFs neue AsciiDocs erstellen kann, inkl. Grafiken und Bilder.
+
+## Brave Web Search
+
+Comming soon...
+
+### Ressourcen
+
+[https://github.com/brave/brave-search-mcp-server](https://github.com/brave/brave-search-mcp-server) 
+
+## GitHub MCP
+
+Comming soon...
+
+### Ressourcen
+
+[https://github.com/github/github-mcp-server](https://github.com/github/github-mcp-server) 
 
 # Weitere Ressourcen
 
