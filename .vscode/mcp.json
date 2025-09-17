@@ -48,8 +48,7 @@
       "command": "npx",
       "args": [
         "-y",
-        "mongodb-mcp-server@latest",
-        "--readOnly"
+        "mongodb-mcp-server@latest"
       ],
       "env": {
         "MDB_MCP_CONNECTION_STRING": "${env:MDB_MCP_CONNECTION_STRING}"
