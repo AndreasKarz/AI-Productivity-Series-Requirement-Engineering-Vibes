@@ -52,7 +52,7 @@
         "--readOnly"
       ],
       "env": {
-        "MONGODB_CONNECTION_STRING": "${env:MDB_MCP_CONNECTION_STRING}"
+        "MDB_MCP_CONNECTION_STRING": "${env:MDB_MCP_CONNECTION_STRING}"
       }
     },
     "pdf2img": {
