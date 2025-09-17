@@ -44,6 +44,14 @@
         "MEMORY_FILE_PATH": "${env:USERPROFILE}\\.vscode-insiders\\mcp-memory.json"
       }
     },
+    "MongoDB": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mongodb-mcp-server@latest",
+        "--readOnly"
+      ]
+    },
     "pdf2img": {
       "type": "stdio",
       "command": "node",

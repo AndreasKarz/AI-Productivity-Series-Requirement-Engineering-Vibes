@@ -21,19 +21,20 @@
     },
     "dependencies": {
         "@modelcontextprotocol/sdk": "^1.17.5",
-        "pdf-poppler": "^0.2.1",
-        "jimp": "^0.22.12",
-        "fs-extra": "^11.3.1",
-        "uuid": "^13.0.0",
         "canvas": "^3.2.0",
+        "fs-extra": "^11.3.1",
+        "jimp": "^0.22.12",
+        "mongodb-mcp-server": "^1.0.0",
         "path": "^0.12.7",
         "pdf-lib": "^1.17.1",
         "pdf-parse": "^1.1.1",
+        "pdf-poppler": "^0.2.1",
         "pdf2json": "^3.2.0",
         "pdf2pic": "^3.2.0",
         "pdfjs-dist": "^5.4.149",
         "puppeteer": "^24.19.0",
-        "sharp": "^0.34.3"
+        "sharp": "^0.34.3",
+        "uuid": "^13.0.0"
     },
     "engines": {
         "node": ">=18"
