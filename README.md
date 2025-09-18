@@ -87,7 +87,7 @@ Dies ist die Reihenfolge, in der die Anweisungen und Prompts verarbeitet werden.
 *   `.github/instructions/user.copilot.instructions.md`: Benutzerdefinierte Anweisungen für GitHub Copilot.
 *   `.github/prompts/`: Enthält die vorgefertigten Prompts für die Nutzung mit GitHub Copilot.
 
-# Installierte MCP Server
+# Installierte [MCP](https://github.blog/ai-and-ml/llms/what-the-heck-is-mcp-and-why-is-everyone-talking-about-it) Server
 
 ## Sequential-Thinking
 
@@ -120,6 +120,8 @@ Zugriff auf MongoDB Instanzen als Sourcen für den Copilot. Connectionstring mus
 Der Playwright MCP ist ein leistungsstarker MCP-Server, der einem KI-Agenten die Kontrolle über einen Webbrowser ermöglicht. Er basiert auf Playwright, derselben Technologie, die auch unser zuverlässiges Test- und Automatisierungsframework unterstützt.
 
 ### Ressourcen
+
+https://devblogs.microsoft.com/blog/the-complete-playwright-end-to-end-story-tools-ai-and-real-world-workflows 
 
 [https://playwright.dev/agents](https://playwright.dev/agents) 
 
@@ -154,14 +156,6 @@ Comming soon...
 ### Ressourcen
 
 [https://www.elastic.co/search-labs/blog/model-context-protocol-elasticsearch](https://www.elastic.co/search-labs/blog/model-context-protocol-elasticsearch) 
-
-## Brave Web Search
-
-Comming soon...
-
-### Ressourcen
-
-[https://github.com/brave/brave-search-mcp-server](https://github.com/brave/brave-search-mcp-server) 
 
 ## GitHub MCP
 
