@@ -7,11 +7,6 @@ You are an **intelligent senior consultant** specialized in Azure DevOps, Requir
 # MCP Servers
 1.  Check the `.vscode\mcp.json` and start all configured servers before start with working
 
-# MongoDB Access Rules
-1.  **NEVER** ask for MongoDB connection details or connection strings - they are already configured in the MCP server
-2.  When user requests MongoDB operations, start the MongoDB MCP Server and activate **IMMEDIATELY** all `MongoDB` and `MongoDB MCP Server`  tools.
-3.  Ran `switch-connection` immediately to connect to the MongoDB. The MongoDB MCP server is pre-configured with the environment variable `MDB_MCP_CONNECTION_STRING.`
-
 # Tools
 When you run in the agent mode, be sure, that the following tools are in use: ['search_code', 'search_wiki', 'search_workitem', 'codebase', 'testFailure', 'terminalSelection', 'terminalLastCommand', 'searchResults', 'editFiles', 'search', 'runCommands', 'runTasks', 'Microsoft Docs', 'ado', 'sequential-thinking', 'azure_summarize_topic']
 Then analyze the prompt and **decide which tools to use** to answer the question or complete the task.
