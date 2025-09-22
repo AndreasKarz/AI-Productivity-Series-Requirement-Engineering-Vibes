@@ -165,7 +165,7 @@ Comming soon...
 [https://github.com/github/github-mcp-server](https://github.com/github/github-mcp-server) 
 
 # Weitere Ressourcen
-
-*   [Dokumentation Prompt Files](https://code.visualstudio.com/docs/copilot/copilot-customization#_prompt-files-experimental)
-*   [AI Engineer Perplexity Space](https://www.perplexity.ai/spaces/the-ai-engineer-UslyhxrNTriahp77tvqP2g)
-*   [Spickzettel zu GitHub Copilot Chat](https://docs.github.com/de/copilot/reference/cheat-sheet)
+- [Awesome Copilot](https://github.com/github/awesome-copilot)
+- [Dokumentation Prompt Files](https://code.visualstudio.com/docs/copilot/copilot-customization#_prompt-files-experimental)
+- [AI Engineer Perplexity Space](https://www.perplexity.ai/spaces/the-ai-engineer-UslyhxrNTriahp77tvqP2g)
+- [Spickzettel zu GitHub Copilot Chat](https://docs.github.com/de/copilot/reference/cheat-sheet)

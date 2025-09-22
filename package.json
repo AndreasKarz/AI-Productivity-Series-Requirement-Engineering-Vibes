@@ -33,7 +33,8 @@
         "pdfjs-dist": "^5.4.149",
         "puppeteer": "^24.19.0",
         "sharp": "^0.34.3",
-        "uuid": "^13.0.0"
+        "uuid": "^13.0.0",
+        "mongodb-mcp-server": "^1.0.0"
     },
     "engines": {
         "node": ">=18"
