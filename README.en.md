@@ -97,7 +97,6 @@ Familiarize yourself with the directory structure. Here you'll find all importan
     *   🤐 create a new file `user.copilot.instructions.md` in this folder for your own instructions.
 *   🔄️ `.github/prompts/`: Contains pre-built prompts for use with GitHub Copilot.
 *   🤐 `.github/userprompts/`: Here you can save your own prompts. Only the template is versioned.
-*   🤐 `.specstory/`: Settings and history of SpecStory.
 *   🔄️ `Root Directory`: Is versioned.
 
 ## Hierarchy of instructions and prompts

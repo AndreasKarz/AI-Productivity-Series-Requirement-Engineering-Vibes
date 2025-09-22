@@ -75,7 +75,6 @@ Mach Dich mit der Verzeichnisstruktur vertraut. Hier findest Du alle wichtigen D
     *   🤐 für eigene Instruktionen in diesem Ordner eine neue Datei `user.copilot.instructions.md` erstellen.
 *   🔄️ `.github/prompts/`: Enthält die vorgefertigten Prompts für die Nutzung mit GitHub Copilot.
 *   🤐 `.github/userprompts/`: Hier kannst Du Deine eigenen Prompts speichern. Es wird nur das Template versioniert.
-*   🤐 `.specstory/`: Einstellungen und History von SpecStory.
 *   🔄️ `Root Verzeichnis`: Wird versioniert.
 
 ## Hierarchie der Instruktionen und Prompts
