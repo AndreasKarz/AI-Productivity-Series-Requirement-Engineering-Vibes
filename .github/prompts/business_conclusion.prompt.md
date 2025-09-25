@@ -1,3 +1,4 @@
+---
 mode: 'agent'
 model: 'Claude Sonnet 4'
 tools: [
@@ -18,11 +19,7 @@ tools: [
   'sequential-thinking',
   'azure_summarize_topic'
 ]
-description:
-  Analyze and improve an Azure DevOps Work Item  
-  from a Business Analyst perspective. Execute comprehensive work item analysis including 
-  linked items, acceptance criteria validation, and IREB-compliant assessment.
-
+description: Analyze and improve an Azure DevOps Work Item from a Business Analyst perspective. Execute comprehensive work item analysis including linked items, acceptance criteria validation, and IREB-compliant assessment.
 ---
 parameters:
   - name: workItemId
