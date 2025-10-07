@@ -1,6 +1,6 @@
 ---
 mode: 'agent'
-model: 'Claude Sonnet 4'
+model: 'GPT-5-Codex (Preview)'
 tools: ['search_code', 'search_wiki', 'search_workitem', 'codebase', 'usages', 'vscodeAPI', 'problems', 'changes', 'testFailure', 'openSimpleBrowser', 'fetch', 'findTestFiles', 'searchResults', 'githubRepo', 'extensions', 'todos', 'editFiles', 'search', 'new', 'runCommands', 'runTasks', 'Microsoft Docs', 'ado', 'sequential-thinking', 'playwright', 'azure_summarize_topic']
 description: 'Playwright Test Generator'
 ---

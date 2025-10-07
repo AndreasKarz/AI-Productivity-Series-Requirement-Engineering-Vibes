@@ -1,6 +1,6 @@
 ---
 mode: 'agent'
-model: 'Claude Sonnet 4'
+model: 'Claude Sonnet 4.5 (Preview)'
 tools: ['edit', 'notebooks', 'search', 'new', 'runCommands', 'runTasks', 'usages', 'vscodeAPI', 'problems', 'changes', 'testFailure', 'openSimpleBrowser', 'fetch', 'githubRepo', 'extensions', 'todos', 'runTests', 'memory', 'sequential-thinking', 'pdf2img']
 description: 'Playwright Test Generator'
 ---

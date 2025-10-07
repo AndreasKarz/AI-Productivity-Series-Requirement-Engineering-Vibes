@@ -1,6 +1,6 @@
 ---
 mode: 'agent'
-model: 'Claude Sonnet 4'
+model: 'Claude Sonnet 4.5 (Preview)'
 tools: [
   'search_code',
   'search_wiki', 
