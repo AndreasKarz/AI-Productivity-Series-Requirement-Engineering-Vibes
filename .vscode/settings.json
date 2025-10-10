@@ -1,4 +1,27 @@
 {
+    "files.associations": {
+        "*.mongo.json": "mongo",
+        "*.mongodb": "mongo",
+        "*.bson": "mongo",
+        "*.mongodb.js": "mongo"
+    },
+    "[mongo]": {
+        "editor.defaultFormatter": "vscode.json-language-features",
+        "editor.formatOnSave": true,
+        "editor.suggest.showSnippets": true,
+        "editor.suggestSelection": "first",
+        "editor.tabSize": 2,
+        "editor.wordBasedSuggestions": "currentDocument",
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        },
+        "editor.autoClosingBrackets": "always",
+        "editor.autoClosingQuotes": "always",
+        "editor.autoSurround": "languageDefined",
+        "editor.formatOnType": true
+    },
     "chat.promptFiles": true,
     "chat.promptFilesLocations": {
         ".github/userprompts": true
