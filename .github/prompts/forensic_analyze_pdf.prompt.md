@@ -1,8 +1,8 @@
 ---
-mode: 'agent'
-model: 'Claude Sonnet 4.5 (Preview)'
-tools: ['edit', 'notebooks', 'search', 'new', 'runCommands', 'runTasks', 'usages', 'vscodeAPI', 'problems', 'changes', 'testFailure', 'openSimpleBrowser', 'fetch', 'githubRepo', 'extensions', 'todos', 'runTests', 'memory', 'sequential-thinking', 'pdf2img']
-description: 'Playwright Test Generator'
+agent: 'agent'
+model: 'Claude Sonnet 4.5'
+tools: ['edit', 'runNotebooks', 'search', 'new', 'runCommands', 'runTasks', 'Azure MCP/bestpractices', 'Azure MCP/documentation', 'memory/*', 'pdf2img/*', 'sequential-thinking/*', 'runSubagent', 'usages', 'vscodeAPI', 'problems', 'changes', 'testFailure', 'openSimpleBrowser', 'fetch', 'githubRepo', 'ms-python.python/getPythonEnvironmentInfo', 'ms-python.python/getPythonExecutableCommand', 'ms-python.python/installPythonPackage', 'ms-python.python/configurePythonEnvironment', 'ms-toolsai.jupyter/configureNotebook', 'ms-toolsai.jupyter/listNotebookPackages', 'ms-toolsai.jupyter/installNotebookPackages', 'extensions', 'todos', 'runTests']
+description: 'Analyze PDF for manipulations and perform forensic signature examination'
 ---
 parameters:
   - name: PDF document

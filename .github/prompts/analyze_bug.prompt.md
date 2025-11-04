@@ -1,7 +1,7 @@
 ---
-mode: 'agent'
-model: 'GPT-5-Codex (Preview)'
-tools: ['search_code', 'search_wiki', 'search_workitem', 'codebase', 'testFailure', 'terminalSelection', 'terminalLastCommand', 'searchResults', 'editFiles', 'search', 'runCommands', 'runTasks', 'Microsoft Docs', 'ado', 'sequential-thinking', 'azure_summarize_topic']
+agent: 'agent'
+model: 'Claude Sonnet 4.5'
+tools: ['ado/search_code', 'ado/search_wiki', 'ado/search_workitem', 'search/codebase', 'testFailure', 'runCommands/terminalSelection', 'runCommands/terminalLastCommand', 'search/searchResults', 'edit/editFiles', 'search', 'runCommands', 'runTasks', 'Microsoft Docs/*', 'ado/*', 'sequential-thinking/*']
 description: Analyze and improve Azure DevOps Bug Work Items via MCP tools (ado, sequential-thinking) following IREB/ISTQB standards, with interactive step-by-step dialog and confirmation before changes.
 ---
 parameters:

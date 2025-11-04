@@ -1,7 +1,7 @@
 ---
-mode: 'agent'
-model: 'GPT-5-Codex (Preview)'
-tools: ['search_code', 'search_wiki', 'search_workitem', 'codebase', 'testFailure', 'terminalSelection', 'terminalLastCommand', 'searchResults', 'editFiles', 'search', 'runCommands', 'runTasks', 'Microsoft Docs', 'ado', 'sequential-thinking', 'azure_summarize_topic']
+agent: 'agent'
+model: 'Claude Sonnet 4.5'
+tools: ['ado/search_code', 'ado/search_wiki', 'ado/search_workitem', 'search/codebase', 'testFailure', 'runCommands/terminalSelection', 'runCommands/terminalLastCommand', 'search/searchResults', 'edit/editFiles', 'search', 'runCommands', 'runTasks', 'Microsoft Docs/*', 'ado/*', 'sequential-thinking/*']
 description: End-to-end Property Lineage Discovery across Azure DevOps Repositories with CTRM Work Item Linkage and Comprehensive Documentation
 ---
 parameters:

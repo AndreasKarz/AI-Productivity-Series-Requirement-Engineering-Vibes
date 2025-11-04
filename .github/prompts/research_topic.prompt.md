@@ -1,7 +1,7 @@
 ---
-mode: 'agent'
-model: 'Claude Sonnet 4.5 (Preview)'
-tools: ['search_code', 'search_wiki', 'search_workitem', 'codebase', 'testFailure', 'terminalSelection', 'terminalLastCommand', 'searchResults', 'editFiles', 'search', 'runCommands', 'runTasks', 'Microsoft Docs', 'ado', 'sequential-thinking', 'azure_summarize_topic']
+agent: 'agent'
+model: 'Claude Sonnet 4.5'
+tools: ['edit', 'search', 'runCommands', 'runTasks', 'Microsoft Docs/*', 'Azure MCP/appconfig', 'Azure MCP/bicepschema', 'Azure MCP/cloudarchitect', 'Azure MCP/datadog', 'Azure MCP/extension_az', 'Azure MCP/extension_azd', 'Azure MCP/grafana', 'Azure MCP/group', 'Azure MCP/keyvault', 'Azure MCP/monitor', 'Azure MCP/redis', 'Azure MCP/search', 'Azure MCP/servicebus', 'Azure MCP/sql', 'Azure MCP/storage', 'Azure MCP/subscription', 'Azure MCP/workbooks', 'ado/*', 'memory/*', 'sequential-thinking/*', 'githubRepo', 'ms-azuretools.vscode-azureresourcegroups/azureActivityLog']
 description: Unified Wiki & Documentation Topic Consolidation with Conflict Resolution, CTRM Work Item Evidence, and Source Metadata
 ---
 parameters:

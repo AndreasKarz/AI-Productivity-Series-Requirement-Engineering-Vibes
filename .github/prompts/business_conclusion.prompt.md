@@ -1,23 +1,12 @@
 ---
-mode: 'agent'
-model: 'Claude Sonnet 4.5 (Preview)'
+agent: 'agent'
+model: 'Claude Sonnet 4.5'
 tools: [
-  'search_code',
-  'search_wiki', 
-  'search_workitem',
-  'codebase',
-  'testFailure',
-  'terminalSelection',
-  'terminalLastCommand',
-  'searchResults',
-  'editFiles',
+  'ado/*',
+  'edit/editFiles',
   'search',
-  'runCommands',
-  'runTasks',
-  'Microsoft Docs',
-  'ado',
-  'sequential-thinking',
-  'azure_summarize_topic'
+  'Microsoft Docs/*',
+  'sequential-thinking/*'
 ]
 description: Analyze and improve an Azure DevOps Work Item from a Business Analyst perspective. Execute comprehensive work item analysis including linked items, acceptance criteria validation, and IREB-compliant assessment.
 ---
