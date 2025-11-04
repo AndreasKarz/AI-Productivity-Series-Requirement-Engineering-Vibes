@@ -41,16 +41,9 @@ Write-Host "Repository wird aktualisiert..."
 git reset --hard
 git pull
 
-# Prüfen ob Azure CLI installiert ist
-$azCliPath = Join-Path $env:USERPROFILE 'Tools\azure-cli\bin\az.cmd'
-if (-not (Test-Path $azCliPath)) {
-    Write-Host "Lokales Azure CLI nicht gefunden, führe Installation und Login aus..."
-    .\azl.ps1
-}
-else {
-    Write-Host "Azure CLI gefunden, führe Login aus..."
-    Write-Output "" | & az login --allow-no-subscriptions
-}
+# Bei Azure anmelden
+Write-Output "" | & az login --allow-no-subscriptions
+
 
 # Packages aktualisieren
 Write-Host "Packages werden aktualisiert..."
