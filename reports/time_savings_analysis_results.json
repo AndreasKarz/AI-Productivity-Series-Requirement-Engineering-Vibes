@@ -1,0 +1,32 @@
+{
+  "total_items": 675,
+  "by_type": {
+    "Test Case": {
+      "count": 303,
+      "baseline_minutes": 6817.5,
+      "saved_minutes": 3067.875
+    },
+    "Product Backlog Item": {
+      "count": 168,
+      "baseline_minutes": 20160,
+      "saved_minutes": 9072.0
+    },
+    "Feature": {
+      "count": 67,
+      "baseline_minutes": 20100,
+      "saved_minutes": 9045.0
+    },
+    "Bug": {
+      "count": 67,
+      "baseline_minutes": 2010,
+      "saved_minutes": 904.5
+    },
+    "Task": {
+      "count": 67,
+      "baseline_minutes": 3015,
+      "saved_minutes": 1356.75
+    }
+  },
+  "total_saved_minutes": 23446.125,
+  "total_baseline_minutes": 52102.5
+}
