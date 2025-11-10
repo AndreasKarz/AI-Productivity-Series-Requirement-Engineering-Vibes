@@ -68,6 +68,18 @@
         ".mcp\\asciidoc\\index.js"
       ],
       "cwd": "${workspaceFolder}"
+    },
+    "mssql": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mssql-mcp-server@latest",
+        "${env:MSSQL_MCP_CONNECTION_STRING}"
+      ],
+      "type": "stdio",
+      "env": {
+        "MSSQL_CONNECTION_STRING": "${env:MSSQL_MCP_CONNECTION_STRING}"
+      }
     }
   }
 }
