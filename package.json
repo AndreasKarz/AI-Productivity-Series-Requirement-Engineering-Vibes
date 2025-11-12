@@ -16,10 +16,10 @@
     },
     "devDependencies": {
         "@playwright/test": "^1.56.1",
-        "@types/node": "^24.10.0",
+        "@types/node": "^24.10.1",
         "typescript": "^5.9.3",
         "@azure-devops/mcp": "2.2.2",
-        "@azure/msal-node": "3.8.1"
+        "@azure/msal-node": "3.8.2"
     },
     "dependencies": {
         "@modelcontextprotocol/sdk": "^1.21.1",
@@ -27,6 +27,7 @@
         "canvas": "^3.2.0",
         "fs-extra": "^11.3.2",
         "jimp": "^1.6.0",
+        "mssql-mcp-server": "^1.2.2",
         "mongodb-mcp-server": "^1.2.0",
         "path": "^0.12.7",
         "pdf-lib": "^1.17.1",
