@@ -13,7 +13,9 @@
       "args": [
         "-y",
         "@azure-devops/mcp@latest",
-        "${input:ado_org}"
+        "${input:ado_org}",
+        "--authentication",
+        "azcli"
       ]
     },
     "sequential-thinking": {
