@@ -133,34 +133,118 @@ tests/
 
 ## Selector Strategy Best Practices
 
+### CRITICAL: Accuracy First
+**Selectors MUST work accurately and reliably. Every selector must be tested and verified.**
+
+### Absolute Prohibition: NEVER Use Regex
+- ❌ **NEVER use regex patterns** in selectors: `{ name: /submit/i }`, `{ name: /login.*button/ }`
+- ❌ **NEVER use partial text matching** with regex-like patterns
+- ✅ **ALWAYS use exact matching** or Playwright's built-in text matching options
+
+**WHY:** Regex selectors are brittle, fail unpredictably, and cause flaky tests. They match unintended elements and break when content changes slightly.
+
 ### Priority Order (most to least preferred):
 1. **data-testid attributes**: `page.getByTestId('submit-button')`
-2. **Role-based selectors**: `page.getByRole('button', { name: 'Submit' })`
-3. **Label text**: `page.getByLabel('Email')`
-4. **Placeholder**: `page.getByPlaceholder('Enter email')`
-5. **Text content**: `page.getByText('Welcome')`
-6. **CSS selectors**: Only as last resort, and make them semantic
+   - Most stable, designed for testing
+   - Explicitly set by developers for test automation
+   
+2. **data-test-id attributes**: `page.locator('[data-test-id="login-button"]')`
+   - Alternative naming convention for test IDs
+   - Equally stable as data-testid
 
-### Selector Anti-Patterns (AVOID):
-- ❌ Class names that may change: `.btn-primary-v2`
-- ❌ Auto-generated IDs: `#element-1234567`
-- ❌ Deep CSS paths: `.container > div > div > button:nth-child(3)`
-- ❌ XPath unless absolutely necessary
+3. **data-scope attributes**: `page.locator('[data-scope="user-profile"]')`
+   - Component scope identifiers
+   - Useful for locating specific component instances
 
-### Robust Selector Patterns:
+4. **Static IDs**: `page.locator('#user-profile-form')`
+   - Only if IDs are guaranteed to be static (not auto-generated)
+   - Verify ID stability across deployments
+
+5. **Role-based selectors with EXACT text**: `page.getByRole('button', { name: 'Submit', exact: true })`
+   - Accessible and semantic
+   - **Always use `exact: true`** for precision
+   - Avoid regex or partial matches
+
+6. **Label text with EXACT matching**: `page.getByLabel('Email Address', { exact: true })`
+   - Use `exact: true` to prevent false matches
+
+7. **Placeholder text**: `page.getByPlaceholder('Enter your email address')`
+   - Use full, exact placeholder text
+
+8. **Unique text content**: `page.getByText('Welcome to Dashboard', { exact: true })`
+   - Only for unique, stable text
+   - Always verify text is truly unique on the page
+
+9. **Semantic CSS selectors**: Only as last resort, and make them stable
+   - Use semantic HTML elements: `page.locator('nav button[type="submit"]')`
+   - Avoid classes, prefer attributes
+
+### Selector Anti-Patterns (STRICTLY AVOID):
+- ❌ **Regex patterns**: `{ name: /submit/i }`, `{ name: /.*button/ }` - **FORBIDDEN**
+- ❌ **Partial text without verification**: May match multiple elements
+- ❌ **Class names that may change**: `.btn-primary-v2`, `.css-abc123`
+- ❌ **Auto-generated IDs**: `#element-1234567`, `#react-id-8472`
+- ❌ **Deep CSS paths**: `.container > div > div > button:nth-child(3)`
+- ❌ **nth-child/nth-of-type**: Breaks when DOM order changes
+- ❌ **XPath**: Only if absolutely no other option exists
+
+### Accurate Selector Patterns:
 ```typescript
-// ✅ Good - Uses test ID
+// ✅ BEST - Test-specific attributes
 await page.getByTestId('login-form-submit').click();
+await page.locator('[data-test-id="user-menu-toggle"]').click();
+await page.locator('[data-scope="checkout-form"]').fill('...');
 
-// ✅ Good - Role + accessible name
-await page.getByRole('button', { name: 'Sign In' }).click();
+// ✅ EXCELLENT - Static IDs (verified stable)
+await page.locator('#user-profile-form').fill('...');
 
-// ✅ Good - Semantic locator
-await page.getByLabel('Email Address').fill('user@example.com');
+// ✅ GOOD - Role with EXACT text (no regex)
+await page.getByRole('button', { name: 'Sign In', exact: true }).click();
+await page.getByRole('link', { name: 'View Profile', exact: true }).click();
 
-// ❌ Bad - Brittle class selector
+// ✅ GOOD - Label with exact matching
+await page.getByLabel('Email Address', { exact: true }).fill('user@example.com');
+
+// ✅ ACCEPTABLE - Semantic CSS with attributes
+await page.locator('nav button[type="submit"]').click();
+await page.locator('form[name="login"] input[type="email"]').fill('...');
+
+// ⚠️ USE WITH CAUTION - Verify uniqueness first
+await page.getByText('Welcome to Dashboard', { exact: true }).isVisible();
+
+// ❌ FORBIDDEN - Regex patterns
+await page.getByRole('button', { name: /submit/i }).click(); // NO!
+await page.getByText(/welcome/i).click(); // NO!
+
+// ❌ BAD - Brittle class selector
 await page.locator('.btn.btn-primary.mt-3').click();
+
+// ❌ BAD - Auto-generated ID
+await page.locator('#element-1234567').click();
+
+// ❌ BAD - Deep path with nth-child
+await page.locator('.container > div:nth-child(2) > button').click();
 ```
+
+### Selector Verification Protocol:
+Before implementing any selector:
+1. **Test in browser**: Use Playwright Inspector or browser DevTools
+2. **Verify uniqueness**: Ensure selector matches ONLY the intended element
+3. **Check stability**: Confirm selector works across page reloads
+4. **Validate accuracy**: Element found is exactly the one needed
+5. **No false positives**: Selector never matches unintended elements
+
+### When Element Has No Good Selector:
+1. **Request data-testid**: Ask developers to add test-specific attributes
+2. **Use combination**: Combine multiple stable attributes
+   ```typescript
+   page.locator('button[type="submit"][aria-label="Submit form"]')
+   ```
+3. **Use containment**: Find stable parent, then relative child
+   ```typescript
+   page.locator('[data-testid="login-form"]').locator('button[type="submit"]')
+   ```
+4. **Document workaround**: Explain why selector is complex, plan for improvement
 
 ## Communication Style
 - **Collegial but Meticulous**: Balance friendly support with rigorous standards
