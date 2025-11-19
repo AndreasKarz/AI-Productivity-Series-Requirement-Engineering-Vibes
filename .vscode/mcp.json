@@ -1,11 +1,4 @@
 {
-  "inputs": [
-    {
-      "id": "ado_org",
-      "type": "promptString",
-      "description": "Azure DevOps organization name  (e.g. 'contoso')"
-    }
-  ],
   "servers": {
     "ado": {
       "type": "stdio",
@@ -13,7 +6,7 @@
       "args": [
         "-y",
         "@azure-devops/mcp@latest",
-        "${input:ado_org}",
+        "swisslife",
         "--authentication",
         "azcli"
       ]
