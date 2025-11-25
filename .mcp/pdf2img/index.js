@@ -187,8 +187,8 @@ class PDF2ImgMCP {
 
                 const result = await execAsync(cmd);
 
-                // pdftocairo uses a running counter: page-1-01.png, page-2-02.png, etc.
-                const actualOutputFile = `${outputPrefix}-${pageNum.toString().padStart(2, '0')}.png`;
+                // pdftocairo uses a running counter: page-1-1.png, page-2-2.png, etc.
+                const actualOutputFile = `${outputPrefix}-${pageNum}.png`;
 
                 // Read the generated image
                 const image = await Jimp.read(actualOutputFile);
@@ -359,8 +359,8 @@ class PDF2ImgMCP {
 
             const result = await execAsync(cmd);
 
-            // The file will have the format page-X-XX.png where XX is the page number padded
-            const actualOutputFile = `${outputPrefix}-${pageNumber.toString().padStart(2, '0')}.png`;
+            // The file will have the format page-X-X.png where X is the page number
+            const actualOutputFile = `${outputPrefix}-${pageNumber}.png`;
 
             if (!await fs.pathExists(actualOutputFile)) {
                 throw new Error(`Failed to create page image: ${actualOutputFile}`);
