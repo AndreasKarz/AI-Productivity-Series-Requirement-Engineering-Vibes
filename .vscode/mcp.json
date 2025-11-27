@@ -2,7 +2,7 @@
   "servers": {
     "ado": {
       "type": "stdio",
-      "command": "npx",
+      "command": "npx.cmd",
       "args": [
         "-y",
         "@azure-devops/mcp@latest",
@@ -12,14 +12,14 @@
       ]
     },
     "sequential-thinking": {
-      "command": "npx",
+      "command": "npx.cmd",
       "args": [
         "-y",
         "@modelcontextprotocol/server-sequential-thinking"
       ]
     },
     "playwright": {
-      "command": "npx",
+      "command": "npx.cmd",
       "args": [
         "@playwright/mcp@latest"
       ],
@@ -30,7 +30,7 @@
       "url": "https://learn.microsoft.com/api/mcp"
     },
     "memory": {
-      "command": "npx",
+      "command": "npx.cmd",
       "args": [
         "-y",
         "@modelcontextprotocol/server-memory@latest"
@@ -40,7 +40,7 @@
       }
     },
     "MongoDB": {
-      "command": "npx",
+      "command": "npx.cmd",
       "args": [
         "-y",
         "mongodb-mcp-server@latest",
@@ -65,7 +65,7 @@
       "cwd": "${workspaceFolder}"
     },
     "mssql": {
-      "command": "npx",
+      "command": "npx.cmd",
       "args": [
         "-y",
         "mssql-mcp-server@latest",
