@@ -4,6 +4,30 @@
 # Ins ARE Verzeichnis wechseln
 Set-Location (Join-Path $env:USERPROFILE 'ARE')
 
+# Node.js PATH bereinigen (Dubletten entfernen und korrekten Pfad setzen)
+Write-Host "Bereinige Node.js PATH..."
+$nodeVersion = "v22.18.0"
+$nodeBasePath = Join-Path $env:USERPROFILE "Apps\Node\node-$nodeVersion-win-x64"
+$npmBasePath = Join-Path $nodeBasePath "node_modules\npm\bin"
+$pathsToAdd = @($nodeBasePath, $npmBasePath)
+
+# Entferne alle existierenden Node.js-Pfade aus User PATH um Dubletten zu vermeiden
+$currentUserPath = [Environment]::GetEnvironmentVariable('Path', 'User')
+$pathEntries = $currentUserPath -split ';' | Where-Object { $_.Trim() -ne '' }
+$cleanedEntries = $pathEntries | Where-Object { 
+    $entry = $_.Trim().TrimEnd('\').ToLower()
+    -not ($entry -like '*\node\*' -or $entry -like '*\node')
+}
+$cleanedPath = ($cleanedEntries -join ';')
+
+# Füge die korrekten Node.js-Pfade hinzu
+$newPath = "$cleanedPath;$($pathsToAdd -join ';')"
+[Environment]::SetEnvironmentVariable('Path', $newPath, 'User')
+
+# Aktualisiere auch die aktuelle Session
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + $newPath
+Write-Host "Node.js PATH bereinigt: $($pathsToAdd -join '; ')"
+
 # CA-Zertifikat Umgebungsvariablen konfigurieren
 Write-Host "Konfiguriere CA-Zertifikat Umgebungsvariablen..."
 
