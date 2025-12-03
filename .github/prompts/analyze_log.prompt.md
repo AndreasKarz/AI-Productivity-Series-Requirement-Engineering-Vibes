@@ -1,7 +1,7 @@
 ---
 agent: 'agent'
-model: 'Claude Sonnet 4.5'
-tools: ['ado/search_code', 'ado/search_wiki', 'ado/search_workitem', 'search/codebase', 'testFailure', 'runCommands/terminalSelection', 'runCommands/terminalLastCommand', 'search/searchResults', 'edit/editFiles', 'search', 'runCommands', 'runTasks', 'Microsoft Docs/*', 'ado/*', 'sequential-thinking/*']
+model: 'Claude Opus 4.5 (Preview)'
+tools: ['execute/testFailure', 'execute/getTerminalOutput', 'execute/runTask', 'execute/getTaskOutput', 'execute/createAndRunTask', 'execute/runInTerminal', 'read/readFile', 'read/terminalSelection', 'read/terminalLastCommand', 'edit/editFiles', 'search', 'azure-mcp/appconfig', 'azure-mcp/azd', 'azure-mcp/cloudarchitect', 'azure-mcp/deploy', 'azure-mcp/documentation', 'azure-mcp/eventgrid', 'azure-mcp/eventhubs', 'azure-mcp/extension_azqr', 'azure-mcp/get_bestpractices', 'azure-mcp/keyvault', 'azure-mcp/search', 'azure-mcp/servicebus', 'ado/*', 'microsoft-docs/*', 'mongodb/aggregate', 'mongodb/atlas-local-connect-deployment', 'mongodb/collection-indexes', 'mongodb/collection-schema', 'mongodb/collection-storage-size', 'mongodb/count', 'mongodb/db-stats', 'mongodb/delete-many', 'mongodb/explain', 'mongodb/find', 'mongodb/insert-many', 'mongodb/list-collections', 'mongodb/list-databases', 'mongodb/update-many', 'mongodb/switch-connection', 'sequential-thinking/*']
 description: Analyze log files by understanding source code, dependencies, and relationships through comprehensive codebase exploration and documentation review, providing root cause analysis and actionable recommendations.
 ---
 parameters:
