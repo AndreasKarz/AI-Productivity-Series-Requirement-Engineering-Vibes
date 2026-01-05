@@ -63,8 +63,8 @@ Write-Host "Umgebungsvariablen aktualisiert!"
 # Repository zurücksetzen und aktualisieren
 Write-Host "Repository wird aktualisiert..."
 git remote set-url origin https://dev.azure.com/swisslife/F2C/_git/ARE
-git reset --hard
-git pull
+git fetch origin
+git reset --hard origin/HEAD
 
 # Bei Azure anmelden
 Write-Output "" | & az login --allow-no-subscriptions
