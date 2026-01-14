@@ -62,10 +62,10 @@ Write-Host "Umgebungsvariablen aktualisiert!"
 
 # Repository zurücksetzen und aktualisieren
 Write-Host "Repository wird aktualisiert..."
-git remote set-url origin https://dev.azure.com/swisslife/F2C/_git/ARE
+git remote set-url origin https://github.com/AndreasKarz/AI-Productivity-Series-Requirement-Engineering-Vibes
 git fetch origin
-git checkout master 2>$null
-git reset --hard origin/master
+git checkout main 2>$null
+git reset --hard origin/main
 git pull --force
 
 # Bei Azure anmelden
