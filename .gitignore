@@ -421,9 +421,13 @@ FodyWeavers.xsd
 **/package-lock.json
 /.github/userprompts/*
 !/.github/userprompts/template_say_funky_monkey.prompt.md
-/.assets/*
+/.assets/**
 !/.assets/README.md
 !/.assets/Prompt Template.md
+!/.assets/context/
+!/.assets/context/Fiantec/
+!/.assets/context/Fiantec/digest/
+!/.assets/context/Fiantec/digest/**
 /.github/instructions/project.copilot.instructions.md
 /.github/instructions/user.copilot.instructions.md
 /scripts
