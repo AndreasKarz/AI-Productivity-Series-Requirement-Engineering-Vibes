@@ -430,8 +430,8 @@ FodyWeavers.xsd
 !/.assets/context/Fiantec/digest/**
 /.github/instructions/project.copilot.instructions.md
 /.github/instructions/user.copilot.instructions.md
+/.github/instructions/fiantec.project.copilot.instructions.md
 /scripts
 /test-results
 /playwright-report
 /tests
-/.github/instructions/fiantec.project.copilot.instructions.md
