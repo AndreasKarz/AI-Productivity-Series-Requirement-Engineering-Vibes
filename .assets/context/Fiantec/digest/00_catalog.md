@@ -22,6 +22,7 @@
 | 01_Handbücher | Manuals & Guides | [→](20_folders/01_Handbücher.digest.md) |
 | 02_Change Management | Releases & Changes | [→](20_folders/02_Change_Management.digest.md) |
 | 04_Testmanagement | Testing Documentation | [→](20_folders/04_Testmanagement.digest.md) |
+| **FiANTEC v4 Handbuch** | **Official User Manual (HTML)** | [→](20_folders/05_FiANTEC_v4_Handbuch.digest.md) |
 
 ### By Topic
 
@@ -30,6 +31,7 @@
 - [Testmanagement (Quality Assurance & Testing)](10_topics/Testmanagement.md)
 - [Releases & Version Management](10_topics/Releases.md)
 - [Fachprozesse (Business Processes)](10_topics/Prozesse.md)
+- [**FiANTEC v4 Handbuch (Official User Manual)**](10_topics/FiANTEC_v4_Handbuch.md) ⭐ NEW
 
 ### Reference
 

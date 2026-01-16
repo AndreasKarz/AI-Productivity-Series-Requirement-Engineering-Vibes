@@ -24,6 +24,27 @@
 | **CR** | Change Request - Formal change request document |
 | **CRA** | Change Request Approved - Approved change request |
 | **RACA** | Risk Assessment and Control Analysis |
+| **GeVo** | Geschäftsvorfall - Business Transaction (z.B. Provision, Zahlung) |
+| **VORP** | Vertriebsorganisationsplanung - Sales Organization Planning |
+
+## FiANTEC v4 Kernbegriffe (aus Handbuch)
+
+| Term | Definition |
+|------|------------|
+| **Zeitscheibe** | Fachliche Gültigkeit - Stammdaten-Änderungen mit zeitlicher Gültigkeit (Historisierung) |
+| **Vergütungsvertrag** | Vertrag zwischen Vermittler und Unternehmen über Provisionsansprüche |
+| **Vergütungsregel** | Konkrete Regel innerhalb eines Vergütungsvertrags mit Provisionsart und Staffel |
+| **Vergütungselement** | Atomare Berechnungseinheit für Provisionen |
+| **Prov.art-Konfig** | Provisionsart-Konfiguration - Definiert Zeitfaktoren, Bewertung, Vergütung |
+| **Provisionsstaffel** | Staffeldefinition für mengenabhängige Provisionssätze |
+| **Superprovision** | Übergeordnete Provision (z.B. für Führungskräfte/Teamleiter) |
+| **Jobmonitor** | Batch-Job-Überwachung in FiANTEC v4 |
+| **Recherche** | Datenabfrage in FiANTEC (Listen-, System-, Anwenderrecherche) |
+| **Recherchedesigner** | Tool zum Erstellen eigener Recherchen (Lizenzerweiterung) |
+| **Reportdesigner** | Tool zum Erstellen eigener Reports |
+| **Aufbauorga** | Aufbauorganisation - Hierarchische Struktur der Vertriebsorganisation |
+| **Gebietselement** | Geografisches Element in VORP (Orte, Strassen, PLZ) |
+| **Bündelbearbeitung** | Massenänderung mehrerer Datensätze gleichzeitig |
 
 ## Testing
 
