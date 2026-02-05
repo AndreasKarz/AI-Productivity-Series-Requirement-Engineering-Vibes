@@ -63,7 +63,54 @@ If you find a reference to a SharePoint resource, **use the Playwright MCP Serve
 
 ### Example SharePoint Sites:
 - Committee of Architects: `https://swisslife.sharepoint.com/sites/CommiteeofArchitectsCoA/SitePages/ProjectHome.aspx`
+
 - CTRM Wiki: Available via Azure DevOps `ado` MCP Server
+
+## ADoIT Resources
+If you find a reference to ADoIT resources, **use the Playwright MCP Server** to access the ADoIT platform and retrieve the information.
+
+### ADoIT Access Workflow:
+1. **Activate Playwright Tools** before accessing ADoIT
+   ```
+   activate_web_interaction_tools
+   activate_page_capture_tools
+   ```
+
+2. **Navigate to ADoIT URL**
+   ```
+   mcp_playwright_browser_navigate to https://swisslife-pp1010062.boc-cloud.com/
+   ```
+
+3. **Handle SAML Login automatically**
+   - ADoIT uses SAML authentication via Microsoft Identity
+   - After navigation, wait for redirect to Microsoft login page
+   - Use `mcp_playwright_browser_snapshot` to identify login options
+   - Search for account buttons containing `@swisslife.ch` email
+   - Click the appropriate account to authenticate via SAML
+   - Wait for ADoIT application to load completely
+
+4. **Navigate to Specific Resources**
+   - Use navigation elements to access specific models or views
+   - Common sections: Models, Documents, Repositories
+   - Use `mcp_playwright_browser_snapshot` to understand the current view
+
+5. **Extract Content**
+   - Capture diagrams via `mcp_playwright_browser_take_screenshot`
+   - Extract model information and metadata
+   - Document relationships between architectural elements
+   - Summarize findings in structured format
+
+6. **Best Practices**
+   - ADoIT models are visual - screenshots are essential
+   - Include model names, types, and hierarchies in summaries
+   - Link ADoIT content back to SharePoint or Azure DevOps documentation
+   - If accessing fails, refer to ADoIT documentation on SharePoint
+
+### ADoIT Platform Details:
+- **URL:** `https://swisslife-pp1010062.boc-cloud.com/`
+- **Authentication:** SAML via Microsoft Identity Platform
+- **Purpose:** Enterprise Architecture modeling and documentation
+- **Related:** See SharePoint CoA > Dokumentation > ADoIT for guidelines
 
 # Memory Retrieval:
 1.  Always begin your chat by saying only "Remembering..." and retrieve all relevant information from your knowledge graph
