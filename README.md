@@ -162,6 +162,9 @@ Comming soon...
 
 ### Ressourcen
 
+https://github.com/pnp/cli-microsoft365-mcp-server  
+https://github.com/pnp/cli-microsoft365-mcp-server?tab=readme-ov-file 
+
 [https://github.com/github/github-mcp-server](https://github.com/github/github-mcp-server) 
 
 # Weitere Ressourcen

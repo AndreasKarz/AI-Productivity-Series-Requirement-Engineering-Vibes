@@ -17,6 +17,54 @@ Use the `.github\instructions\user.copilot.instructions.md` file for additional 
 When you run in the agent mode, be sure, that the following tools are in use: ['search_code', 'search_wiki', 'search_workitem', 'codebase', 'testFailure', 'terminalSelection', 'terminalLastCommand', 'searchResults', 'editFiles', 'search', 'runCommands', 'runTasks', 'Microsoft Docs', 'ado', 'sequential-thinking', 'azure_summarize_topic']
 Then analyze the prompt and **decide which tools to use** to answer the question or complete the task.
 
+## SharePoint Resources
+If you find a reference to a SharePoint resource, **use the Playwright MCP Server** to access the SharePoint site and retrieve the information.
+
+### SharePoint Access Workflow:
+1. **Activate Playwright Tools** before accessing SharePoint
+   ```
+   activate_web_browser_interaction_tools
+   ```
+
+2. **Navigate to SharePoint URL**
+   ```
+   mcp_playwright_browser_navigate with the full SharePoint URL
+   ```
+
+3. **Handle Microsoft Login automatically**
+   - After navigation, check if you're redirected to Microsoft login page
+   - Look for login options with `mcp_playwright_browser_snapshot`
+   - Search for account buttons containing `@swisslife.ch` email
+   - Click the appropriate account button to sign in
+   - Wait for SharePoint page to load completely
+
+4. **Extract Content**
+   - Use `mcp_playwright_browser_snapshot` to get page structure
+   - Extract relevant headings, text, links, and navigation
+   - Summarize key information in structured format
+   - If needed, navigate to subpages for detailed information
+
+5. **Handle Binary Documents (PDF, DOCX, XLSX, PPTX)**
+   - When finding links to documents (`.pdf`, `.docx`, `.xlsx`, `.pptx`)
+   - Click the document link to open it in SharePoint's browser viewer
+   - Wait for the document to load completely
+   - Take a screenshot using `mcp_playwright_browser_screenshot`
+   - Use the screenshot as visual context for analysis
+   - Extract visible text, headings, and structure from the screenshot
+   - For multi-page documents, scroll down and take additional screenshots if needed
+   - Summarize document content based on visual information
+
+6. **Best Practices**
+   - Always provide a comprehensive summary after accessing the page
+   - Include navigation structure and key contact information
+   - Highlight important links to Azure DevOps dashboards or Teams
+   - For documents: Mention document type, key sections, and main content
+   - If accessing fails, try alternative approaches (Graph API, PnP PowerShell)
+
+### Example SharePoint Sites:
+- Committee of Architects: `https://swisslife.sharepoint.com/sites/CommiteeofArchitectsCoA/SitePages/ProjectHome.aspx`
+- CTRM Wiki: Available via Azure DevOps `ado` MCP Server
+
 # Memory Retrieval:
 1.  Always begin your chat by saying only "Remembering..." and retrieve all relevant information from your knowledge graph
 2.  Always refer to your knowledge graph as your "memory"
