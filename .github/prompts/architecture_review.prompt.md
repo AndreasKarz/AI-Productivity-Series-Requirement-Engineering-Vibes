@@ -69,24 +69,72 @@ Bestimme den **Input-Typ** und wähle die passende **Zugriffsmethode**:
 3. **Vollständige Extraktion:** Alle Architektur-relevanten Informationen erfassen
 4. **Scope definieren:** Gesamtsystem, Subsystem, Schnittstellen identifizieren
 
-### Phase 2: SHERPA-Kontext laden
-Lade relevanten Governance-Kontext aus den Swiss Life Quellen:
+### Phase 2: SHERPA-Kontext laden (OBLIGATORISCH!)
 
-**CoA SharePoint** (via Playwright):
-```
-https://swisslife.sharepoint.com/sites/CommiteeofArchitectsCoA/
-```
-- Aktuelle SEAL-Vorgaben
-- Geltende CoA-Entscheidungen
-- Architektur-Prinzipien
+> ⚠️ **KRITISCH:** Du MUSST alle 5 Wissensquellen aktiv abrufen, bevor du den Report erstellst!
+> Ein Review ohne Quellenvalidierung ist unvollständig.
 
-**ADO Standards-Wiki** (via MCP):
+#### 📋 Quellen-Checkliste (alle abhaken!)
+
+| # | Quelle | URL | Zugriff | Abzurufen | Status |
+|---|--------|-----|---------|-----------|--------|
+| 1 | **CoA SharePoint** | `https://swisslife.sharepoint.com/sites/CommiteeofArchitectsCoA/` | Playwright | SEAL-Vorgaben, CoA-Entscheidungen, Architektur-Prinzipien | ⬜ |
+| 2 | **ADoIT** | `https://swisslife-pp1010062.boc-cloud.com/` | Playwright | Applikation in Landschaft suchen, Capability-Zuordnung, Datenflüsse | ⬜ |
+| 3 | **ADO Standards-Wiki** | `https://dev.azure.com/swisslife/CTRM/_wiki/wikis/CTRM.wiki/12465/02-Standards` | ADO MCP | Technologie-Standards, Security Patterns, Integration Guidelines | ⬜ |
+| 4 | **ADO CTRM-Wiki** | `mcp_ado_search_wiki` mit Systemname | ADO MCP | Systemdokumentation, ADRs, Schnittstellendoku | ⬜ |
+| 5 | **sl-ch-nexus** | `https://github.com/sl-ch-ops/sl-ch-nexus` | fetch_webpage | IaC Templates, Azure Landing Zone Patterns | ⬜ |
+
+#### Zugriffs-Workflows für SHERPA-Quellen
+
+**1️⃣ CoA SharePoint abrufen:**
 ```
-https://dev.azure.com/swisslife/CTRM/_wiki/wikis/CTRM.wiki/12465/02-Standards-(archiviert)
+1. mcp_playwright_browser_navigate → https://swisslife.sharepoint.com/sites/CommiteeofArchitectsCoA/
+2. mcp_playwright_browser_wait_for → Warten auf SAML-Login
+3. mcp_playwright_browser_snapshot → Navigation erfassen
+4. Navigiere zu: "Dokumentation" → "Standards" oder "CoA-Entscheidungen"
+5. mcp_playwright_browser_take_screenshot → Relevante Standards dokumentieren
 ```
-- Technologie-Standards
-- Security Patterns
-- Integration Guidelines
+
+**2️⃣ ADoIT Applikationslandschaft prüfen:**
+```
+1. mcp_playwright_browser_navigate → https://swisslife-pp1010062.boc-cloud.com/
+2. mcp_playwright_browser_wait_for → Warten auf SAML-Login
+3. Suche nach dem System (z.B. "COPS") in der Applikationslandschaft
+4. mcp_playwright_browser_take_screenshot → Modell-Screenshot sichern
+5. Prüfe: Capability-Zuordnung, Schnittstellen, Datenflüsse
+```
+
+**3️⃣ ADO Standards-Wiki laden:**
+```
+1. mcp_ado_wiki_get_page_content → Standards-Seite laden
+2. Relevante Standards identifizieren:
+   - API-Standards
+   - Security Baseline
+   - Cloud/Azure Standards
+   - Integration Patterns
+```
+
+**4️⃣ ADO CTRM-Wiki durchsuchen:**
+```
+1. mcp_ado_search_wiki → Nach Systemname + "Architektur" suchen
+2. mcp_ado_search_wiki → Nach Systemname + "ADR" suchen
+3. mcp_ado_wiki_get_page_content → Relevante Seiten laden
+```
+
+**5️⃣ sl-ch-nexus prüfen (optional bei Cloud-Systemen):**
+```
+1. fetch_webpage → https://github.com/sl-ch-ops/sl-ch-nexus
+2. Prüfe: Werden Standard-IaC-Templates verwendet?
+3. Vergleiche: Landing Zone Compliance
+```
+
+#### Validierung vor Report-Erstellung
+
+Bevor du den Report generierst, stelle sicher:
+- [ ] Mindestens 3 von 5 Quellen wurden erfolgreich abgerufen
+- [ ] CoA SharePoint ODER ADO Standards-Wiki wurde geladen (für SHERPA-Compliance)
+- [ ] Systemspezifische Doku im CTRM-Wiki wurde gefunden
+- [ ] Bei Nicht-Erreichbarkeit: Explizit im Report dokumentieren
 
 ### Phase 3: Qualitätsprüfung nach ISO/IEC 25010
 Bewerte systematisch gegen diese Qualitätsmerkmale:
@@ -256,7 +304,16 @@ Gibt eine klare Handlungsempfehlung für das weitere Vorgehen.]
 
 ## 10. Anhang
 
-### A. Verwendete SHERPA-Referenzen
+### A. SHERPA-Quellenvalidierung
+| Quelle | Abgerufen | Relevante Findings | Link/Screenshot |
+|--------|-----------|-------------------|-----------------|
+| CoA SharePoint | ✔/✖ | | |
+| ADoIT | ✔/✖ | | |
+| ADO Standards-Wiki | ✔/✖ | | |
+| ADO CTRM-Wiki | ✔/✖ | | |
+| sl-ch-nexus | ✔/✖ | | |
+
+### B. Verwendete SHERPA-Referenzen
 - [Link zu CoA-Dokument/Entscheidung]
 - [Link zu Standard im ADO Wiki]
 - [Link zu ADoIT-Modell falls verfügbar]
@@ -275,11 +332,13 @@ Dieses Review wurde durchgeführt nach:
 
 ## Zusätzliche Regeln
 
-1. **Keine Annahmen:** Was nicht in der Dokumentation steht, wird als "nicht dokumentiert" markiert (❓)
-2. **Quellenangaben:** Jede SHERPA-Referenz mit Link belegen
-3. **Klartext:** Im Fazit keine diplomatischen Formulierungen - direkte Aussagen
-4. **Priorisierung:** Empfehlungen nach Business Impact sortieren
-5. **Actionable:** Jede Empfehlung muss umsetzbar formuliert sein
+1. **Quellenpflicht:** SHERPA-Compliance-Aussagen MÜSSEN durch mindestens eine der 5 Wissensquellen belegt sein
+2. **Keine Annahmen:** Was nicht in der Dokumentation steht, wird als "nicht dokumentiert" markiert (❓)
+3. **Quellenangaben:** Jede SHERPA-Referenz mit Link belegen
+4. **Klartext:** Im Fazit keine diplomatischen Formulierungen - direkte Aussagen
+5. **Priorisierung:** Empfehlungen nach Business Impact sortieren
+6. **Actionable:** Jede Empfehlung muss umsetzbar formuliert sein
+7. **Transparenz:** Nicht erreichbare Quellen explizit im Anhang dokumentieren
 
 ## Bei unvollständiger Dokumentation
 
