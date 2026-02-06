@@ -159,6 +159,7 @@ Comming soon...
 ## GitHub MCP
 
 Comming soon...
+https://github.com/kuzudb/kuzu-mcp-server 
 
 ### Ressourcen
 
