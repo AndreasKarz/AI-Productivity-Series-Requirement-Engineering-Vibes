@@ -1,0 +1,46 @@
+{
+    "name": "node-playwright-setup",
+    "version": "1.0.0",
+    "type": "module",
+    "description": "ARE Setup",
+    "scripts": {
+        "test": "playwright test",
+        "test:headed": "playwright test --headed",
+        "test:ui": "playwright test --ui",
+        "test:debug": "playwright test --debug",
+        "report": "playwright show-report",
+        "setup:pdf2img": "cd .mcp/pdf2img && npm install",
+        "setup:asciidoc": "cd .mcp/asciidoc && npm install",
+        "setup:all": "npm run setup:pdf2img && npm run setup:asciidoc",
+        "postinstall": "npm run setup:all"
+    },
+    "devDependencies": {
+        "@playwright/test": "^1.56.1",
+        "@types/node": "^24.10.1",
+        "typescript": "^5.9.3",
+        "@azure-devops/mcp": "2.2.2",
+        "@azure/msal-node": "3.8.2"
+    },
+    "dependencies": {
+        "@modelcontextprotocol/sdk": "^1.21.1",
+        "@modelcontextprotocol/server-sequential-thinking": "^2025.7.1",
+        "canvas": "^3.2.0",
+        "fs-extra": "^11.3.2",
+        "jimp": "^1.6.0",
+        "mssql-mcp-server": "^1.2.2",
+        "mongodb-mcp-server": "^1.2.0",
+        "path": "^0.12.7",
+        "pdf-lib": "^1.17.1",
+        "pdf-parse": "^2.4.5",
+        "pdf-poppler": "^0.2.3",
+        "pdf2json": "^4.0.0",
+        "pdf2pic": "^3.2.0",
+        "pdfjs-dist": "^5.4.394",
+        "puppeteer": "^24.29.1",
+        "sharp": "^0.34.5",
+        "uuid": "^13.0.0"
+    },
+    "engines": {
+        "node": ">=18"
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "name": "asciidoc-mcp-server",
+    "version": "2.0.0",
+    "description": "Professional MCP Server for converting PDF documents to AsciiDoc format with intelligent text extraction and asset linking",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "start": "node index.js",
+        "test": "node test-professional.js"
+    },
+    "dependencies": {
+        "@modelcontextprotocol/sdk": "^1.0.4",
+        "canvas": "^3.2.0",
+        "fs-extra": "^11.2.0",
+        "path": "^0.12.7",
+        "pdf-lib": "^1.17.1",
+        "pdf-parse": "^1.1.1",
+        "pdf-poppler": "^0.2.1",
+        "pdf2json": "^3.2.0",
+        "pdf2pic": "^3.2.0",
+        "pdfjs-dist": "^5.4.149",
+        "puppeteer": "^24.18.0",
+        "sharp": "^0.33.5"
+    },
+    "keywords": [
+        "mcp",
+        "pdf",
+        "asciidoc",
+        "conversion",
+        "documentation",
+        "professional",
+        "intelligent"
+    ],
+    "author": "Andreas Karz",
+    "license": "MIT"
+}

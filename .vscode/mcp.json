@@ -1,0 +1,87 @@
+{
+  "inputs": [
+    {
+      "id": "adoOrganization",
+      "type": "promptString",
+      "description": "Azure DevOps Organisation URL (e.g. https://dev.azure.com/yourorganization)"
+    }
+  ],
+  "servers": {
+    "ado": {
+      "type": "stdio",
+      "command": "npx.cmd",
+      "args": [
+        "-y",
+        "@azure-devops/mcp@latest",
+        "${input:adoOrganization}",
+        "--authentication",
+        "azcli"
+      ]
+    },
+    "sequential-thinking": {
+      "command": "npx.cmd",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
+    },
+    "playwright": {
+      "command": "npx.cmd",
+      "args": [
+        "@playwright/mcp@latest"
+      ],
+      "type": "stdio"
+    },
+    "microsoft-docs": {
+      "type": "http",
+      "url": "https://learn.microsoft.com/api/mcp"
+    },
+    "memory": {
+      "command": "npx.cmd",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory@latest"
+      ],
+      "env": {
+        "MEMORY_FILE_PATH": "${env:USERPROFILE}\\.vscode-insiders\\mcp-memory.json"
+      }
+    },
+    "MongoDB": {
+      "command": "npx.cmd",
+      "args": [
+        "-y",
+        "mongodb-mcp-server@latest",
+        "--connectionString",
+        "${env:MDB_MCP_CONNECTION_STRING}"
+      ]
+    },
+    "pdf2img": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        ".mcp\\pdf2img\\index.js"
+      ],
+      "cwd": "${workspaceFolder}"
+    },
+    "asciidoc": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        ".mcp\\asciidoc\\index.js"
+      ],
+      "cwd": "${workspaceFolder}"
+    },
+    "mssql": {
+      "command": "npx.cmd",
+      "args": [
+        "-y",
+        "mssql-mcp-server@latest",
+        "${env:MSSQL_MCP_CONNECTION_STRING}"
+      ],
+      "type": "stdio",
+      "env": {
+        "MSSQL_CONNECTION_STRING": "${env:MSSQL_MCP_CONNECTION_STRING}"
+      }
+    }
+  }
+}
