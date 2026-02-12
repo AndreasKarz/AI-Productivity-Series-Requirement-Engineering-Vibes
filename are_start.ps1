@@ -62,6 +62,13 @@ Write-Host "Umgebungsvariablen aktualisiert!"
 
 # Repository aktualisieren
 Write-Host "Repository wird aktualisiert..."
+git config --global --unset credential.helper
+git config --global --unset credential.usehttppath
+git config --global --unset credential.guiprompt
+git config --global --unset credential.githubauthmodes
+git config --global --unset credential.msauthflow
+git config --global --unset credential.interactivemode
+
 git remote set-url origin https://github.com/AndreasKarz/AI-Productivity-Series-Requirement-Engineering-Vibes
 git fetch origin
 git checkout main 2>$null
