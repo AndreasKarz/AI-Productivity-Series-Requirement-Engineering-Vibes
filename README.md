@@ -14,51 +14,51 @@ Stell dir vor, Du sparst wertvolle Zeit und hebst gleichzeitig die Qualität Dei
 
 > 👉🏻 Wenn Du im Copilot im `**Agent**` Mode bist, kannst Du die folgenden Prompts einfach aufrufen, in dem Du die Anweisung mit `**/**` beginnst und dann den Namen des Prompts zu schreiben beginnst .
 
-### **/business\_conclusion** `**WorkItem ID**`
+### **/business_conclusion** `**WorkItem ID**`
 
 Analysiert das Work Item und alles, was daran hängt und erstellt daraus ein **Management Summary**.
 
 `_/business_conclusion 783464_`
 
-### **/analyze\_workitem** `**WorkItem ID**`
+### **/analyze_workitem** `**WorkItem ID**`
 
 Analysiert ein WorkItem in **Azure DevOps (ADO)** nach IREB®, ISTQB®, CTRM, OKR und FlightLevels. Gibt danach eine **Zusammenfassung** der Analyse mit **Vorschlägen** aus. Diese können **im Dialog noch angepasst** werden und werden danach vom Copilot **auf Wunsch direkt ins WorkItem** übernommen.
 
-### **/create\_test\_cases** `**WorkItem ID**`
+### **/create_test_cases** `**WorkItem ID**`
 
 **Prüft** zuerst das WorkItem inkl. den Kommentaren sowie allenfalls schon verlinkten Test Cases und validiert die Akzeptanzkriterien auf Vollständigkeit. Macht danach Vorschläge nach ISTQB® für weitere Test Cases. Diese können **im Dialog bearbeitet** werden und danach **erstellt Copilot diese auf Wunsch** und **verlinkt** diese auch korrekt mit dem WorkItem.
 
-### **/create\_feature** `**File**` **oder** `**Beschreibung**`
+### **/create_feature** `**File**` **oder** `**Beschreibung**`
 
-**Analysiert** die Datei (Markdown, Text, ASCIIDOC oder PDF) oder die Beschreibung, **prüft** dann die Anforderungen nach IREB® und **geht dann in einen Dialog**. Sind alle Fragen beantwortet und der Vorschlag im Dialog überarbeitet, **erstellt der Copilot daraus das Feature**.  
+**Analysiert** die Datei (Markdown, Text, ASCIIDOC oder PDF) oder die Beschreibung, **prüft** dann die Anforderungen nach IREB® und **geht dann in einen Dialog**. Sind alle Fragen beantwortet und der Vorschlag im Dialog überarbeitet, **erstellt der Copilot daraus das Feature**.  
 
-### **/gf\_info** `**Name des Geschäftsfalles**`
+### **/gf_info** `**Name des Geschäftsfalles**`
 
 Sucht **alle Informationen zu einem Geschäftsfall** und erstellt dann eine Zusammenfassung daraus.
 
-### **/research\_topic** `**Topic**`
+### **/research_topic** `**Topic**`
 
 Du **suchst** nach einem bestimmten **Thema**, Du weisst, es ist irgendwo in den Tiefen eines **ADO WIKIs** (_Sharepoint wird aktuell noch nicht unterstützt_), aber Du findest es nicht? **ARE wird es für Dich finden!**
 
-### **/analyze\_bug** `**WorkItem ID**`
+### **/analyze_bug** `**WorkItem ID**`
 
 Analysiert das Bug WorkItem und sucht dann ähnliche Bugs, vermutlich relevante PBIs, prüft Pull Requests, **analysiert** den Code und **erstellt** Dir dann eine **Übersicht**.
 
-### **/analyze\_load\_chain** `**Property Name**`
+### **/analyze_load_chain** `**Property Name**`
 
 Du hast ein Property, **bei dem Du nicht weisst, woher es kommt und wohin es geht**? Dann versuche mal diesen Prompt und lass ihn nach der kompletten Strecke suchen. Er sucht das Property in allen Repositories die er findet und analysiert dann die gesamt Ladekette. Dabei referenziert er auf den Code und berücksichtigt auch WorkItems.
 
-### **/analyze\_logs** `**LogFile**`
+### **/analyze_logs** `**LogFile**`
 
 **Kopiere Dein LogFile** in den Ordner `.assets` und gib es dann diesem Prompt mit. Er **analysiert das Log**, untersucht den Source Code und die Pull Requests und gibt dann eine **zusammengefasste Analyse** aus.
 
-### **/create\_ui\_test** `**TestCase ID**`
+### **/create_ui_test** `**TestCase ID**`
 
-Führt den manuellen Test Case aus und erstellt auf Wunsch eine entsprechende **Playwright Testdatei**. (Funktioniert nur mit WEB UIs). 
+Führt den manuellen Test Case aus und erstellt auf Wunsch eine entsprechende **Playwright Testdatei**. (Funktioniert nur mit WEB UIs). 
 
-Anstatt die `TestCase ID` kann auch **ein Test beschrieben werden**, z.B. _/create\_ui\_test https://www.stadt-zuerich.ch/de/lebenslagen/neu-in-zuerich/other-languages.html - klicke auf jede Sprache und prüfe dann auf der Folgeseite ob alle Übersetzungen korrekt und fehlerfrei sind_
+Anstatt die `TestCase ID` kann auch **ein Test beschrieben werden**, z.B. _/create_ui_test https://www.stadt-zuerich.ch/de/lebenslagen/neu-in-zuerich/other-languages.html - klicke auf jede Sprache und prüfe dann auf der Folgeseite ob alle Übersetzungen korrekt und fehlerfrei sind_
 
-### **/forensic\_analyze\_pdf** `**PDF Datei**`
+### **/forensic_analyze_pdf** `**PDF Datei**`
 
 Lade das gewünschte PDF in den Ordner `.assets` und gib diese dann dem Prompt mit. Er kann das PDF generell aber auch einzelne Unterschriften im Dokument **forensisch untersuchen**. 
 

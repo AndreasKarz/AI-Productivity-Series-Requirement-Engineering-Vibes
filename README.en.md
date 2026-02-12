@@ -11,7 +11,7 @@ Imagine saving valuable time while elevating the quality of your projects to a n
 
 ## Prerequisites
 
-> **Download the** [**are\_setup.ps1**](https://github.com/AndreasKarz/AI-Productivity-Series-Requirement-Engineering-Vibes/blob/main/are_setup.ps1) **installation script** and run it in PowerShell. It will help you make the necessary preparations and set up the environment. After installation, you'll find the "ARE" folder in your user directory and **Visual Studio Code Insiders will open** in this folder.
+> **Download the** [**are_setup.ps1**](https://github.com/AndreasKarz/AI-Productivity-Series-Requirement-Engineering-Vibes/blob/main/are_setup.ps1) **installation script** and run it in PowerShell. It will help you make the necessary preparations and set up the environment. After installation, you'll find the "ARE" folder in your user directory and **Visual Studio Code Insiders will open** in this folder.
 > 
 > Additionally, you'll find a shortcut to ARE on your desktop, which allows you to work directly in this folder.
 
@@ -41,45 +41,45 @@ Imagine saving valuable time while elevating the quality of your projects to a n
 
 > 👉🏻 When you're in Copilot **Agent** mode, you can easily call the following prompts by starting the instruction with **/** and then beginning to type the prompt name.
 
-### **/analyze\_workitem** `**WorkItem ID**`
+### **/analyze_workitem** `**WorkItem ID**`
 
 Analyzes a WorkItem in **Azure DevOps (ADO)** according to IREB®, ISTQB®, CTRM, OKR and FlightLevels. Then provides a **summary** of the analysis with **suggestions**. These can be **adjusted in the dialog** and will then be **taken over directly into the WorkItem** by Copilot upon request.
 
-### **/create\_test\_cases** `**WorkItem ID**`
+### **/create_test_cases** `**WorkItem ID**`
 
 First **checks** the WorkItem including comments and any already linked Test Cases and validates the acceptance criteria for completeness. Then makes suggestions according to ISTQB® for additional Test Cases. These can be **edited in the dialog** and then **Copilot creates them upon request** and **links** them correctly with the WorkItem.
 
-### **/create\_feature** `**File**` **or** `**Description**`
+### **/create_feature** `**File**` **or** `**Description**`
 
 **Analyzes** the file (Markdown, Text, ASCIIDOC or PDF) or the description, **checks** the requirements according to IREB® and **then enters a dialog**. Once all questions are answered and the suggestion is revised in the dialog, **Copilot creates the Feature from it**.
 
-### **/gf\_info** `**Business Case Name**`
+### **/gf_info** `**Business Case Name**`
 
 Searches **all information about a business case** and then creates a summary from it.
 
-### **/research\_topic** `**Topic**`
+### **/research_topic** `**Topic**`
 
 You're **looking** for a specific **topic**, you know it's somewhere in the depths of an **ADO WIKI** (_SharePoint is currently not yet supported_), but you can't find it? **ARE will find it for you!**
 
-### **/analyze\_bug** `**WorkItem ID**`
+### **/analyze_bug** `**WorkItem ID**`
 
 Analyzes the Bug WorkItem and then searches for similar bugs, presumably relevant PBIs, checks Pull Requests, **analyzes** the code and then **creates** an **overview** for you.
 
-### **/analyze\_load\_chain** `**Property Name**`
+### **/analyze_load_chain** `**Property Name**`
 
 You have a property **where you don't know where it comes from and where it goes**? Then try this prompt and let it search for the complete chain. It searches for the property in all repositories it finds and then analyzes the entire load chain. It references the code and also considers WorkItems.
 
-### **/analyze\_logs** `**LogFile**`
+### **/analyze_logs** `**LogFile**`
 
 **Copy your LogFile** to the `.assets` folder and then provide it to this prompt. It **analyzes the log**, examines the source code and pull requests and then outputs a **summarized analysis**.
 
-### **/create\_ui\_test** `**TestCase ID**`
+### **/create_ui_test** `**TestCase ID**`
 
 Executes the manual test case and creates a corresponding **Playwright test file** upon request. (Only works with WEB UIs).
 
-Instead of the `TestCase ID`, **a test can also be described**, e.g. _/create\_ui\_test https://www.stadt-zuerich.ch/de/lebenslagen/neu-in-zuerich/other-languages.html - click on each language and then check on the follow-up page whether all translations are correct and error-free_
+Instead of the `TestCase ID`, **a test can also be described**, e.g. _/create_ui_test https://www.stadt-zuerich.ch/de/lebenslagen/neu-in-zuerich/other-languages.html - click on each language and then check on the follow-up page whether all translations are correct and error-free_
 
-### **/forensic\_analyze\_pdf** `**PDF File**`
+### **/forensic_analyze_pdf** `**PDF File**`
 
 Upload the desired PDF to the `.assets` folder and then provide it to the prompt. It can **forensically examine** the PDF in general but also individual signatures in the document.
 
