@@ -13,6 +13,60 @@ Use the `.github\instructions\user.copilot.instructions.md` file for additional 
 # MCP Servers
 1.  Check the `.vscode\mcp.json` and **start all configured servers before start with working**!
 
+# Temporary Files Management
+**CRITICAL RULE:** All temporary files, logs, extracts, and intermediate outputs **MUST** be saved to `.temp` directory.
+
+- **Rule:** `/.temp/` is the ONLY location for temporary data
+- **Cleanup:** Temporary files should be deleted after use unless explicitly needed
+- **Structure:** Organize temp files in subdirectories by feature/task when needed
+- **Examples:**
+  - Screenshots: `.temp/screenshots/`
+  - Extracts: `.temp/extracts/`
+  - Logs: `.temp/logs/`
+  - Cache: `.temp/cache/`
+- **Never:** Create temp folders in root, `.github`, `src`, or any production directories
+- **Exception:** Only generated/committed artifacts should be stored in their target directories
+
+# Digital Style Guide Reference
+> **Purpose:** This guide defines design standards for all digital outputs and communications.
+> **Location:** `.github/Digital-Styleguide.md`
+> **Scope:** All design decisions, documentation, and digital products should adhere to these standards.
+
+## Quick Reference
+
+### Core Design Principles
+1. **Customer Centricity** - Users first in all decisions
+2. **Consistency** - Unified experience across platforms
+3. **Transparency** - Honest, clear communication
+4. **Simplicity** - Minimal, focused interfaces (max 7 items visible)
+5. **Joy of Use** - Professional yet delightful experiences
+6. **Personalization** - Contextual, tailored experiences
+
+### Color System (The 90/10 Rule)
+- **90% Primary** (Red #D82034, Black, White, Grays)
+- **10% Secondary** (Warm: Bordeaux, Flamingo, etc. | Cold: Forest, Sea, Sky, etc.)
+- Green (#018803) = Status only
+
+### Typography
+- **Headings:** Merriweather (free, serif) 
+- **Body:** Source Sans Pro (free, sans-serif) 
+- **Mobile:** Roboto (Android), San Francisco (iOS)
+- **Hierarchy:** H1–60px down to Meta Text–12px
+
+### Key Components
+- Accordion, Buttons, Cards, Forms, Navigation, Tables, Notifications
+- All with mobile variants and accessibility support
+
+### Application Rules
+✓ Maintain visual consistency across all platforms  
+✓ Verify WCAG AA color contrast compliance  
+✓ Use components from the library  
+✓ Apply typography hierarchy rules  
+✓ Test on mobile-first approach  
+✓ Ensure accessibility in all interactions
+
+**For full guidelines, see:** `.github/Digital-Styleguide.md`
+
 # Tools
 When you run in the agent mode, be sure, that the following tools are in use: ['search_code', 'search_wiki', 'search_workitem', 'codebase', 'testFailure', 'terminalSelection', 'terminalLastCommand', 'searchResults', 'editFiles', 'search', 'runCommands', 'runTasks', 'Microsoft Docs', 'ado', 'sequential-thinking', 'azure_summarize_topic']
 Then analyze the prompt and **decide which tools to use** to answer the question or complete the task.
