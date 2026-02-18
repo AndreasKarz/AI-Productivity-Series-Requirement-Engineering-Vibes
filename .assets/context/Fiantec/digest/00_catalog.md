@@ -1,56 +1,65 @@
 # FiANTEC Context Catalog
 
-**Last Updated:** 2026-01-16 08:38
-**Source:** `.assets/context/Fiantec/RAW`
-**Status:** ✅ Optimized (Phase 3 complete)
+**Last Updated:** 2026-02-18  
+**Source:** `.assets/context/Fiantec/RAW`  
+**Ansatz:** Originaldateien (keine Konvertierung zu Markdown)
 
-## Summary
+## Zusammenfassung
 
-| Metric | Value |
-|--------|-------|
-| **Markdown files** | 818 |
-| Original count | 2,366 |
-| Reduction | 1548 (65%) |
-| Target | ≤ 2,400 ✅ |
+| Metrik | Wert |
+| --- | --- |
+| **Originaldateien** | 9'030 |
+| **Gesamtgrösse** | ~8.3 GB |
+| **RAW-Ordner** | 6 |
+| **Digest-Dateien** | 11 |
 
-## Quick Navigation
+## Schnellnavigation
 
-### By Folder
+### Nach Ordner (RAW-Spiegel)
 
-| Folder | Description | Digest |
-|--------|-------------|--------|
-| 01_Handbücher | Manuals & Guides | [→](20_folders/01_Handbücher.digest.md) |
-| 02_Change Management | Releases & Changes | [→](20_folders/02_Change_Management.digest.md) |
-| 04_Testmanagement | Testing Documentation | [→](20_folders/04_Testmanagement.digest.md) |
-| **FiANTEC v4 Handbuch** | **Official User Manual (HTML)** | [→](20_folders/05_FiANTEC_v4_Handbuch.digest.md) |
+| Ordner | Beschreibung | Dateien | Grösse | Digest |
+| --- | --- | --- | --- | --- |
+| 01\_Handbücher | Handbücher, Systemdoku, Anleitungen | 1'351 | 7.3 GB | [→](01_Handb%C3%BCcher.md) |
+| 02\_Change Management | Releases, Zertifikate, CRs | 961 | 250 MB | [→](02_Change_Management.md) |
+| 03\_Reglemente | Vergütungsreglemente (KRITISCH) | 25 | 7.6 MB | [→](03_Reglemente.md) |
+| 04\_Testmanagement | Testcode & Testdokumentation | 6'692 | 769 MB | [→](04_Testmanagement.md) |
+| 05\_FiANTEC\_v4\_Handbuch | Offizielles Benutzerhandbuch (PDF) | 1 | 31.5 MB | [→](05_FiANTEC_v4_Handbuch.md) |
+| 06\_test\_mit\_bildern | FiANTEC GUI-Screenshots (laufend befüllt) | 0+ | dynamisch | [→](06_test_mit_bildern.md) |
 
-### By Topic
+### Querschnittsthemen
 
-- [Handbücher (Manuals & User Guides)](10_topics/Handbücher.md)
-- [Change Management & Release Documentation](10_topics/Change_Management.md)
-- [Testmanagement (Quality Assurance & Testing)](10_topics/Testmanagement.md)
-- [Releases & Version Management](10_topics/Releases.md)
-- [Fachprozesse (Business Processes)](10_topics/Prozesse.md)
-- [**FiANTEC v4 Handbuch (Official User Manual)**](10_topics/FiANTEC_v4_Handbuch.md) ⭐ NEW
+- [10 Prozesse](10_Prozesse.md) — Fachprozesse quer über alle Bereiche
+- [11 Releases](11_Releases.md) — Namenskonventionen und Release-Typen
 
-### Reference
+### Referenz
 
-- [📖 Glossary](glossary.md) - 104 terms and abbreviations
-- [📋 Decisions](decisions.md) - Documented constraints
+- [Glossar](00_glossary.md) — 160 Abkürzungen, 53 Fachbegriffe
+- [Entscheidungen](00_decisions.md) — Dokumentierte Entscheide und Constraints
 
-## Optimization History
+## Dateiformate im RAW
 
-| Phase | Action | Files Removed |
-|-------|--------|---------------|
-| 1 | Exact duplicate removal | 489 |
-| 2 | Near-duplicate merge | 1059 |
-| **Total** | | **1548** |
+| Format | Anzahl | Vorkommen |
+| --- | --- | --- |
+| java | 2'035 | 04\_Testmanagement (SOAP UI) |
+| feature | 1'025 | 04\_Testmanagement (SpecFlow) |
+| cs | 795 | 04\_Testmanagement (SpecFlow) |
+| dll | 707 | 04\_Testmanagement (SpecFlow) |
+| xlsx | 432+ | 01\_Handbücher, 02\_Change Management |
+| docx | 482+ | 01\_Handbücher, 02\_Change Management |
+| pdf | 384+ | Alle Ordner |
+| doc | 288+ | 01\_Handbücher, 02\_Change Management |
+| xls | 205 | 01\_Handbücher |
+| vsd | 177 | 01\_Handbücher (Visio-Diagramme) |
 
-## Reports
+> **Hinweis:** Code-Artefakte (java, feature, cs, dll) machen >60% der Dateien aus, sind aber für die ARE-Arbeit weniger relevant. Die ~1'800 Office-Dokumente (xlsx, docx, pdf, doc, xls, vsd, pptx) sind der Kernbestand.
 
-Full audit trail available in `_reports/20260116-0754/`:
-- `inventory.csv` - Original file inventory
-- `duplicates_exact.md` - Exact duplicate groups
-- `duplicates_near.md` - Near-duplicate clusters
-- `merge_log.md` - Merge operation log
-- `final_counts.md` - Final statistics
+## Zugriff auf Originaldateien
+
+| Format | Skill | Tool |
+| --- | --- | --- |
+| PDF | pdf | pdfplumber |
+| DOCX | docx | unpack.py (XML-basiert) |
+| XLSX | xlsx | pandas + openpyxl |
+| PPTX | pptx | markitdown |
+
+> Für .doc, .xls, .vsd und andere Legacy-Formate steht kein direkter Skill bereit.
