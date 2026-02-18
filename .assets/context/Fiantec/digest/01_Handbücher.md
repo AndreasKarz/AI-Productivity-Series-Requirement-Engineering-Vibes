@@ -2,6 +2,8 @@
 
 **RAW:** `RAW/01_Handbücher` | **Files:** 1'351 | **Size:** ~7.3 GB
 
+**Stichwörter:** Architektur, Datenmodell, Referenzdaten, Schnittstellen, SOAP, REST, WSDL, XSD, Vertriebsstruktur, Vertriebsorganisation, Geschäftspartner, Geschäftslogik, IAM, Berechtigungen, GUI-Dokumentation, Masken, Prozessübersicht, BPMN, ADONIS, Camunda, Verträge, SLA, Vorlagen, Templates, Visio, Zeitscheiben, Historisierung, ProvFia WebClient, Recherchedesigner
+
 ## Wann hier suchen?
 
 - **Systemdokumentation** — Architektur, Geschäftslogik, Schnittstellen, Datenmodell (FiANTEC Systemdoku, 14 Abschnitte)

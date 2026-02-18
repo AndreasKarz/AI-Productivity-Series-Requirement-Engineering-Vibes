@@ -2,6 +2,8 @@
 
 **RAW:** `RAW/03_Reglemente` | **Files:** 25 | **Size:** ~7.6 MB
 
+**Stichwörter:** Provision, Provisionssatz, Vergütung, Entschädigung, Bonus, Storno, Reglement, Aussendienst, Innenbetrieb, Einzelleben, Kollektivleben, BVG, Nicht-Leben, Sach, Cross-Border, Fondslösungen, Hypotheken, Krankenversicherung, RAD, Reorganisation, Rundschreiben, Gültigkeitsdatum, Berechnungsformel, Satzstruktur
+
 > ⚠️ **Fundament:** Reglemente definieren die verbindlichen Geschäftsregeln. Bei jeder Analyse ZUERST prüfen!
 
 ## Dokumenttypen

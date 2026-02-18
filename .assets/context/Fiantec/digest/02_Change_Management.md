@@ -2,6 +2,15 @@
 
 **RAW:** `RAW/02_Change Management` | **Files:** 961 | **Size:** ~250 MB
 
+**Stichwörter:** Release, Deployment, Produktivsetzung, GoLive, Change Request, CR, Zertifizierung, Release Bulletin, Zertifikat, ProvFia, DMV, Datenmigration, Canossa, Batchjobs, MEV, Datenbank, BI Reporting, Feature-Spezifikation, Impact-Analyse, Checkliste, Post-GoLive
+
+## Wann hier suchen?
+
+- **Release-Dokumentation** — Bulletins, Zertifikate, Checklisten pro Produktivsetzung
+- **Change Requests** — Feature-Spezifikationen, Impact-Analysen
+- **Historische Releases** — Was wurde wann deployt, welche Artefakte gehören dazu
+- **Fachbereichs-Releases** — ProvFia, DMV, Canossa, Batchjobs, Schnittstellen, Datenbank, BI
+
 ## Prozessablauf
 
 1. **CR erstellt** → Change Request im ADO erfasst

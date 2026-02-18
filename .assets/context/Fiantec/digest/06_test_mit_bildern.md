@@ -2,6 +2,8 @@
 
 **RAW:** `RAW/06_test_mit_bildern` | **Status:** Aktiv (wird laufend befüllt)
 
+**Stichwörter:** Screenshot, GUI, Maske, Dialog, Menü, Fehlermeldung, Oberfläche, Bildschirm, Feldname, Maskenbezeichnung, visuell
+
 ## Zweck
 
 Sammlung von **FiANTEC-GUI-Screenshots** — Masken, Dialoge, Menüs, Fehlermeldungen. Ziel: Die KI lernt die FiANTEC-Oberfläche schrittweise kennen und kann bei Testfällen, Spezifikationen und Support präzisere Aussagen treffen.

@@ -2,6 +2,15 @@
 
 **RAW:** `RAW/04_Testmanagement` | **Files:** 6'692 | **Size:** ~769 MB
 
+**Stichwörter:** Test, Testfall, Testschritt, Regression, Systemtest, UAT, PAV, Abnahmetest, SOAP UI, SpecFlow, BDD, Gherkin, Feature-File, Akzeptanzkriterien, Testanleitung, Checkliste, Testprotokoll, Testautomation, Webservice-Test, Pipeline
+
+## Wann hier suchen?
+
+- **Testanleitungen & Checklisten** — Manuelle Testprozesse, Testvorlagen (Anleitungen Testing, 56 Dateien)
+- **Akzeptanzkriterien-Referenz** — .feature-Files in Gherkin-Syntax als Vorlage für PBI-Spezifikation
+- **Regressionstests** — Bestehende automatisierte Tests (SOAP UI, SpecFlow) als Referenz
+- **Testinfrastruktur** — Pipeline-Konfigurationen, Testumgebungen
+
 ## Teststufen
 
 | Stufe | Beschreibung |

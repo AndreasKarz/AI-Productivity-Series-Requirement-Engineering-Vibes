@@ -2,6 +2,8 @@
 
 **RAW:** `RAW/05_FiANTEC_v4_Handbuch` | **Files:** 1 | **Size:** ~31.5 MB
 
+**Stichwörter:** Handbuch, Benutzerhandbuch, Stammdaten, Geschäftspartner, Vermittler, GA, Makler, Vertriebsvereinbarung, Vertriebsgruppe, Vertriebsstruktur, Qualifikation, Provisionssatz, Provisionsberechnung, Satzfinder, Berechnungsformel, Provisionsbuchung, Stornobehandlung, Bonifikation, Provisionsauszahlung, Auszahlungslauf, Kontenabstimmung, Recherche, Recherchedesigner, Report, Druckauftrag, Import, Export, Batchverarbeitung, MEV, TEV, JEVE, Administration, Benutzerverwaltung, Zeitscheiben
+
 **Datei:** `FiANTEC v4 - Handbuch v4.10.40.pdf` (PDF, pdfplumber-lesbar)
 
 ## Kapitelstruktur
