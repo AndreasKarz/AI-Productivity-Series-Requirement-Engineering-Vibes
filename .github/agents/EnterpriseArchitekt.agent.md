@@ -65,69 +65,11 @@ Aus dem Input extrahieren:
 
 ## Schritt 3: Standards-Check durchführen
 
-Prüfe systematisch gegen diese EA-Standardkategorien:
-
-| Kategorie | Prüfpunkte |
-|-----------|-----------|
-| **SEAL-Lifecycle** | Lifecycle-Phase dokumentiert? SEAL-Gate bestanden? |
-| **Building Blocks** | Wiederverwendbare SL-Komponenten genutzt? |
-| **Integration** | API-First? Event-Driven? Standard-Patterns? |
-| **Data Governance** | Datenklassifizierung? Datenflüsse dokumentiert? |
-| **Cloud/Azure** | Landing Zone konform? Standard-IaC? |
-| **Security** | Security Baseline erfüllt? AuthN/AuthZ gemäss Standard? |
-| **Dokumentation** | arc42-konform? ADRs vorhanden? Schnittstellendoku? |
-
-Bewertungsskala:
-- ✔ konform
-- ⚠ teilweise konform
-- ✖ nicht konform
-- ❓ nicht bewertbar (fehlt in Dokumentation)
+→ Die 7 EA-Standardkategorien (SEAL-Lifecycle, Building Blocks, Integration, Data Governance, Cloud/Azure, Security, Dokumentation) und die Bewertungsskala sind im `enterprise-architect` Skill definiert. Für formelle Reviews den `architecture_review` Prompt nutzen.
 
 ## Schritt 4: Report generieren
 
-```markdown
-# EA-Standards Review: [Systemname]
-
-**Datum:** [Datum] | **Scope:** [Geltungsbereich] | **Gesamtstatus:** 🟢/🟡/🔴
-
-## Standards-Compliance
-
-| # | EA-Standard | Status | Evidenz / Abweichung |
-|---|-------------|--------|----------------------|
-| 1 | SEAL-Lifecycle | ✔/⚠/✖/❓ | [Kurzbegründung + Quelle] |
-| 2 | Building Blocks | ✔/⚠/✖/❓ | |
-| 3 | Integration Patterns | ✔/⚠/✖/❓ | |
-| 4 | Data Governance | ✔/⚠/✖/❓ | |
-| 5 | Cloud/Azure Standards | ✔/⚠/✖/❓ | |
-| 6 | Security Baseline | ✔/⚠/✖/❓ | |
-| 7 | Dokumentationsstandard | ✔/⚠/✖/❓ | |
-
-## Kritische Abweichungen
-
-| # | Standard | Soll (SHERPA) | Ist | Handlungsbedarf | Prio |
-|---|----------|--------------|-----|-----------------|------|
-| 1 | | | | | P1/P2/P3 |
-
-## Empfehlungen
-
-| # | Massnahme | Begründung (Standard-Referenz) | Aufwand |
-|---|-----------|-------------------------------|---------|
-| 1 | | | S/M/L |
-
-## Fazit
-
-[2-3 Sätze: Hauptstärken, kritischste Lücken, klare Handlungsempfehlung]
-
-## Quellenvalidierung
-
-| Quelle | Status | Relevante Findings |
-|--------|--------|-------------------|
-| CoA SharePoint | ✔/✖ | |
-| ADoIT | ✔/✖ | |
-| ADO Standards-Wiki | ✔/✖ | |
-| ADO CTRM-Wiki | ✔/✖ | |
-| sl-ch-nexus | ✔/✖/n.a. | |
-```
+→ Das vollständige Report-Template (Standards-Compliance-Tabelle, Kritische Abweichungen, Empfehlungen, Fazit, Quellenvalidierung) ist im `architecture_review` Prompt definiert. Bei Ad-hoc-Analysen das Ausgabeformat aus dem `enterprise-architect` Skill verwenden.
 
 # Architektur-Entscheidungsanalyse
 

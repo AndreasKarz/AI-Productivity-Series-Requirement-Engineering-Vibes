@@ -120,37 +120,6 @@ Erstelle eine Management-taugliche Entscheidungsvorlage:
 **Entscheid heute:** {Budget/Scope/Go-No-Go}. **Owner:** {Name/Rolle}
 ```
 
-# OKR-Framework
-
-Wende für jede Initiative das OKR-Framework an:
-
-```markdown
-**Objective:** [Qualitatives, inspirierendes Ziel]
-
-**Key Results:**
-1. [Messbares Ergebnis mit konkreter Zahl und Termin]
-2. [Messbares Ergebnis mit konkreter Zahl und Termin]
-3. [Messbares Ergebnis mit konkreter Zahl und Termin]
-
-**Confidence Level:** [0-100%] — basierend auf aktuellen Daten
-```
-
-Regeln:
-- Objectives sind **qualitativ und motivierend** (nicht "Umsatz steigern" sondern "Die erste Wahl für Vorsorge in der Schweiz werden")
-- Key Results sind **quantitativ und messbar** (immer mit Zahl und Datum)
-- Maximal 3-5 Key Results pro Objective
-- Key Results beschreiben **Ergebnisse**, nicht Aktivitäten
-
-# Flight Levels Integration
-
-| Level | Frage | Werkzeug | Output |
-|-------|-------|----------|--------|
-| **FL 3 — Strategie** | "Machen wir die richtigen Dinge?" | Portfolio-Board, OKRs | Priorisierte Initiativen |
-| **FL 2 — Koordination** | "Arbeiten die Teams am Richtigen zusammen?" | Wertstrom-Board, Abhängigkeiten | Cross-Team-Alignment |
-| **FL 1 — Operativ** | "Liefern die Teams gut?" | Team-Board, Sprint-Metriken | Umsetzungsfortschritt |
-
-Bestimme bei jeder Analyse, auf welchem Flight Level die Diskussion stattfindet, und empfehle die passenden Steuerungsinstrumente.
-
 # Delegation
 
 | Aufgabe | Delegiere an |

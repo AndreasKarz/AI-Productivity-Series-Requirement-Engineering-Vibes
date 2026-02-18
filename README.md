@@ -9,8 +9,41 @@ Stell dir vor, Du sparst wertvolle Zeit und hebst gleichzeitig die Qualität Dei
 
 **Be ready – und lass Dich von smarter Automatisierung und punktgenauer Präzision begeistern.**
 
+---
 
-## Liste der verfügbaren Prompts:
+# Architektur: Agents, Skills & Prompts
+
+ARE folgt dem Prinzip **«Agents orchestrieren, Skills liefern Domänenwissen»**. Die zentrale Orchestrierung wird über die Datei `.github/AGENTS.md` gesteuert.
+
+## Spezialisierte Agents
+
+Agents werden direkt im Copilot Chat über `@` aufgerufen, z.B. `@RequirementsEngineer`.
+
+| Agent | Expertise | Wann einsetzen |
+|-------|-----------|---------------|
+| **@RequirementsEngineer** | IREB-konforme Anforderungen, Features, PBIs, Epics, Akzeptanzkriterien | Anforderungen erheben, dokumentieren, validieren |
+| **@Testmanager** | ISTQB-konforme Testfälle, Teststrategie, Coverage-Analyse | Testfälle erstellen, Testpläne verwalten, Testberichte |
+| **@BusinessAnalyst** | OKR, Flight Levels, Stakeholder-Analyse, Business Cases | Geschäftswert bewerten, strategische Entscheidungen |
+| **@EnterpriseArchitekt** | SHERPA-Standards, EA-Reviews, ADoIT, SEAL-Lifecycle | Architektur bewerten, Standards prüfen |
+| **@PowerBI** | DAX, Power Query M, ETL, Star Schema, Visualisierungen | Reports erstellen, Datenmodelle entwerfen |
+
+## Skills (Domänenwissen)
+
+Skills werden automatisch von den Agents geladen und liefern die fachliche Tiefe. Sie werden **nicht direkt** aufgerufen.
+
+| Skill | Inhalt |
+|-------|--------|
+| `business-analyst` | OKR-Framework, Flight Levels, Stakeholder-Matrix, Business-Case-Methodik, Schweizer Markt, FINMA/DSG |
+| `requirements-engineer` | IREB-Lebenszyklus, GIVEN/WHEN/THEN-Patterns, NFR nach ISO 25010, ADO-Templates |
+| `testmanager` | ISTQB-Testprozess, Testdesign-Techniken, deterministische Expected Results, Coverage-Analyse |
+| `enterprise-architect` | SHERPA-Framework, CoA/ADoIT-Zugriff, Architektur-Ebenen, Standards-Compliance |
+| `powerbi` | ETL-Pipeline-Design, Star Schema, DAX-Patterns, Power Query M, Visualisierungen |
+
+Weitere verfügbare Utility-Skills: `agent-creator`, `skill-creator`, `instructions-creator`, `prompt-creator`, `hierarchical-rag`, `sharepoint`, `docx`, `xlsx`, `pptx`, `pdf`
+
+---
+
+## Liste der verfügbaren Prompts
 
 > 👉🏻 Wenn Du im Copilot im `**Agent**` Mode bist, kannst Du die folgenden Prompts einfach aufrufen, in dem Du die Anweisung mit `**/**` beginnst und dann den Namen des Prompts zu schreiben beginnst .
 
@@ -60,14 +93,31 @@ Anstatt die `TestCase ID` kann auch **ein Test beschrieben werden**, z.B. _/crea
 
 ### **/forensic_analyze_pdf** `**PDF Datei**`
 
-Lade das gewünschte PDF in den Ordner `.assets` und gib diese dann dem Prompt mit. Er kann das PDF generell aber auch einzelne Unterschriften im Dokument **forensisch untersuchen**. 
+Lade das gewünschte PDF in den Ordner `.assets` und gib diese dann dem Prompt mit. Er kann das PDF generell aber auch einzelne Unterschriften im Dokument **forensisch untersuchen**. 
 
-# ARE Aufbau
+### **/architecture_review** `**Input**`
+
+Prüft eine Architektur-Dokumentation (Attachment, ADO URL, SharePoint, ADoIT oder Freitext) **gegen die EA-Standards des SHERPA-Frameworks**. Lädt mindestens 3 von 5 Quellen (CoA SharePoint, ADoIT, ADO Standards-Wiki, CTRM-Wiki, sl-ch-nexus) und erstellt einen kompakten **Standards-Compliance-Report**.
+
+### **/aggregate_support_tickets** `**CSV Pfad**` `**Output Ordner**`
+
+Aggregiert **Support Tickets aus einer CSV-Datei** zu einem JSON-Wissensgraphen und reichert diese mit ADO-Informationen an.
+
+### **/analyze_time_savings_v2** `**Zeitraum**`
+
+Analysiert und visualisiert die **Zeitersparnis über alle WorkItems** im CTRM-Projekt, die den Tag `AI Gen` tragen. Ideal für Reporting und ROI-Nachweise.
+
+### **/create_hierarchical_rag** `**Projektname**`
+
+Baut ein neues **Hierarchical RAG (DIGEST/RAW)** für ein Projekt auf — inkl. Quellen-Download, Digest-Generierung, Freshness Gate und Anonymisierung. Erstellt die Wissensstruktur in `.assets/context/`.
 
 Mach Dich mit der Verzeichnisstruktur vertraut. Hier findest Du alle wichtigen Dateien und Ordner, die Dir helfen, effizient zu arbeiten. **Für eigenen Dateien, Assets und Instruktionen das Icon 🤐 beachten!** Diese werden NICHT versioniert und somit auch nicht gelöscht bei einer Aktualisierung des Repository.
 
 *   🤐 `.assets/`: Hier kannst Du Deine persönlichen Assets für Demos/Schulungen speichern. Es wird nur die README versioniert.
 *   🔄️ `.vscode/`: Enthält die Konfigurationsdateien für Visual Studio Code.
+*   🔄️ `.github/AGENTS.md`: Zentrale Orchestrierungsdatei — definiert die Persona, den Workflow und die Delegationstabellen.
+*   🔄️ `.github/agents/`: Enthält die spezialisierten Agents (RequirementsEngineer, Testmanager, BusinessAnalyst, EnterpriseArchitekt, PowerBI).
+*   🔄️ `.github/skills/`: Enthält das Domänenwissen der Agents (IREB, ISTQB, OKR, SHERPA, DAX etc.) plus Utility-Skills.
 *   🔄️ `.github/instructions/`: Beinhaltet die Copilot Instruktionen.
     *   🤐 für projektspezifische Instruktionen in diesem Ordner eine neue Datei `project.copilot.instructions.md` erstellen.
     *   🤐 für eigene Instruktionen in diesem Ordner eine neue Datei `user.copilot.instructions.md` erstellen.
@@ -75,14 +125,17 @@ Mach Dich mit der Verzeichnisstruktur vertraut. Hier findest Du alle wichtigen D
 *   🤐 `.github/userprompts/`: Hier kannst Du Deine eigenen Prompts speichern. Es wird nur das Template versioniert.
 *   🔄️ `Root Verzeichnis`: Wird versioniert.
 
-## Hierarchie der Instruktionen und Prompts
+## Hierarchie der Instruktionen, Agents und Prompts
 
-Dies ist die Reihenfolge, in der die Anweisungen und Prompts verarbeitet werden. Achte darauf, dass die spezifischen Anweisungen Vorrang vor den allgemeinen haben. Achte auf widersprüchliche Anweisungen in deinen Benutzer- und Projektspezifischen Anweisungen. Sollten sich diese nicht vermeiden lassen, weise GitHub Copilot an, die spezifischen Anweisungen zu befolgen und die vorherigen, widersprüchlichen Anweisungen explizit zu ignorieren.
+Dies ist die Reihenfolge, in der die Anweisungen verarbeitet werden. Achte darauf, dass die spezifischen Anweisungen Vorrang vor den allgemeinen haben. Achte auf widersprüchliche Anweisungen in deinen Benutzer- und Projektspezifischen Anweisungen. Sollten sich diese nicht vermeiden lassen, weise GitHub Copilot an, die spezifischen Anweisungen zu befolgen und die vorherigen, widersprüchlichen Anweisungen explizit zu ignorieren.
 
-*   `.github/instructions/copilot.instructions.md`: Allgemeine Anweisungen für GitHub Copilot.
-*   `.github/instructions/project.copilot.instructions.md`: Projektspezifische Anweisungen für GitHub Copilot.
-*   `.github/instructions/user.copilot.instructions.md`: Benutzerdefinierte Anweisungen für GitHub Copilot.
-*   `.github/prompts/`: Enthält die vorgefertigten Prompts für die Nutzung mit GitHub Copilot.
+1.  `.github/instructions/copilot.instructions.md`: Allgemeine Anweisungen für GitHub Copilot.
+2.  `.github/instructions/project.copilot.instructions.md`: Projektspezifische Anweisungen.
+3.  `.github/instructions/user.copilot.instructions.md`: Benutzerdefinierte Anweisungen.
+4.  `.github/AGENTS.md`: Zentrale Orchestrierung — delegiert an spezialisierte Agents.
+5.  `.github/agents/*.agent.md`: Spezialisierte Agents — orchestrieren ihren Fachbereich.
+6.  `.github/skills/*/SKILL.md`: Domänenwissen — wird von Agents geladen, nie dupliziert.
+7.  `.github/prompts/*.prompt.md`: Vorgefertigte Prompts für häufige Aufgaben.
 
 # Installierte [MCP](https://github.blog/ai-and-ml/llms/what-the-heck-is-mcp-and-why-is-everyone-talking-about-it) Server
 

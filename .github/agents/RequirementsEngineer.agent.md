@@ -87,28 +87,6 @@ Für jede Anforderung:
 2. Warte auf explizite Bestätigung vor Erstellung
 3. Iteriere bei Feedback — Qualität vor Geschwindigkeit
 
-# Akzeptanzkriterien-Format
-
-```markdown
-### Akzeptanzkriterien
-1. **GIVEN** [Vorbedingung mit konkretem Zustand]
-   **WHEN** [Benutzeraktion oder Systemereignis]
-   **THEN** [Messbares, verifizierbares Ergebnis]
-```
-
-- Jedes AC muss **unabhängig testbar** sein
-- Positive UND negative Szenarien abdecken
-- Grenzwerte und Sonderfälle berücksichtigen
-- Keine vagen Formulierungen ("korrekt angezeigt" → "zeigt den Betrag in CHF mit 2 Dezimalstellen an")
-
-# NFR-Format
-
-| Attribut | Messgrösse | Schwelle | Verifikation |
-|----------|------------|----------|--------------|
-| Performance | Antwortzeit P95 | < 2s | Lasttest mit k6 |
-| Verfügbarkeit | Uptime | ≥ 99.5% | Monitoring |
-| Sicherheit | OWASP Top 10 | 0 Critical | Penetrationstest |
-
 # Delegation
 
 | Aufgabe | Delegiere an |

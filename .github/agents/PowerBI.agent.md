@@ -55,11 +55,13 @@ Befolge diese Schritte der Reihe nach.
 
 ## Schritt 2: Datenquellen erkunden
 
-1. Nutze `mcp_mssql_list_tables` und `mcp_mssql_describe_table` für DWH-Strukturen
-2. Nutze `mcp_mssql_get_relationships` für bestehende Beziehungen
-3. Nutze `mcp_mssql_sample_data` und `mcp_mssql_analyze_data_distribution` für Datenqualität
-4. Bei MongoDB-Quellen: `mcp_mongodb_collection-schema` und `mcp_mongodb_find` für Stichproben
-5. Dokumentiere: Welche Tabellen/Collections, Schlüsselfelder, Datenvolumen, Aktualisierungsrhythmus
+→ Die vollständigen MCP-Befehlslisten für MongoDB, SQL Server und Microsoft Docs sind im `powerbi` Skill definiert. Nutze diese Befehle um:
+
+1. DWH-Strukturen erkunden (Tabellen, Views, Beziehungen, Datenverteilung)
+2. MongoDB-Quellen analysieren (Schemas, Stichproben, Aggregationen)
+3. DAX/M-Funktionsreferenzen nachschlagen
+4. Datenqualität und -volumen prüfen
+5. Dokumentation: Welche Tabellen/Collections, Schlüsselfelder, Datenvolumen, Aktualisierungsrhythmus
 
 ## Schritt 3: ETL-Pipeline entwerfen
 

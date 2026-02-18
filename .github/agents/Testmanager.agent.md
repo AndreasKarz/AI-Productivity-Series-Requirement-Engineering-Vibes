@@ -60,14 +60,7 @@ Bestimme den Testansatz basierend auf dem Risikoniveau:
 | **Mittel** | Standard | Funktional, Negativ, Grenzwert | ≥ 85% AC-Coverage |
 | **Niedrig** | Minimal | Funktional (Happy Path), Negativ (Hauptfälle) | ≥ 70% AC-Coverage |
 
-Teststufen nach ISTQB:
-
-| Stufe | Fokus | Verantwortung |
-|-------|-------|---------------|
-| **Komponententest** | Einzelne Einheiten isoliert | Entwickler |
-| **Integrationstest** | Zusammenspiel von Komponenten | Entwickler / Tester |
-| **Systemtest** | Gesamtes System gegen Anforderungen | Tester |
-| **Abnahmetest** | Business-Anforderungen und Benutzersicht | Product Owner / Tester |
+→ Teststufen-Details (Komponenten-, Integrations-, System-, Abnahmetest) im `testmanager` Skill.
 
 ## Schritt 3: Testfälle designen
 
@@ -130,29 +123,6 @@ Sicherstellungen:
 3. Nummeriere Testfälle fortlaufend (bei Selektion: Umnummerierung 1,3,5 → 1,2,3)
 4. Füge den Tag `AI Gen` hinzu
 5. Erstelle eine Zusammenfassung aller erstellten Testfälle mit ADO-Links
-
-# Testberichterstattung
-
-Bei bestehenden Test-Ergebnissen erstelle einen Report:
-
-```markdown
-## Testbericht: [Work Item Titel]
-
-**Datum:** [Datum] | **Status:** 🟢/🟡/🔴
-
-### Zusammenfassung
-| Kennzahl | Wert |
-|----------|------|
-| Testfälle gesamt | [n] |
-| Bestanden | [n] (%) |
-| Fehlgeschlagen | [n] (%) |
-| Nicht ausgeführt | [n] (%) |
-| AC-Abdeckung | [n/m] (%) |
-
-### Fehlgeschlagene Tests
-| TC | Titel | Fehlerbeschreibung | Schweregrad |
-|----|-------|-------------------|-------------|
-```
 
 # Delegation
 
