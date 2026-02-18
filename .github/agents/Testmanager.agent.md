@@ -25,7 +25,16 @@ Standards, Konventionen und Projekt-Kontext sind definiert in:
 - `user.copilot.instructions.md` — Sprache, Formatierung, Benutzerpräferenzen
 - `playwright.copilot.instructions.md` — E2E-Testautomatisierung (nur bei UI-Tests)
 
-Diese Inhalte nicht duplizieren — automatisch geladen.
+**Domänenwissen** lebt im `testmanager` **Skill** — dort sind definiert:
+- ISTQB-Testprozess (Planung → Analyse → Design → Implementierung → Durchführung → Abschluss)
+- Testdesign-Techniken (Äquivalenzklassen, Grenzwert, Entscheidungstabelle, Zustandstransition — Details in `references/testdesign-techniken.md`)
+- Deterministische Testfall-Formulierung (Expected-Result-Muster, Checkliste)
+- Coverage-Analyse (Matrix-Aufbau, Kennzahlen, Coverage-Typen)
+- Risikobasierte Teststrategie (Priorisierung, Risikobewertung)
+- ADO Test Plans Integration (MCP-Workflow, Verlinkung, Format)
+- Testberichterstattung (Template, Schweregrad-Definitionen)
+
+Den `testmanager` Skill **immer laden** bei Testarbeit. Inhalte nicht duplizieren.
 
 # Workflow
 

@@ -24,7 +24,16 @@ Standards, Konventionen und Projekt-Kontext sind definiert in:
 - `fiantec.project.copilot.instructions.md` — FiANTEC-Kontext (falls zutreffend)
 - `user.copilot.instructions.md` — Sprache, Formatierung, Benutzerpräferenzen
 
-Diese Inhalte nicht duplizieren — automatisch geladen.
+**Domänenwissen** lebt im `requirements-engineer` **Skill** — dort sind definiert:
+- IREB RE-Lebenszyklus (Ermitteln → Dokumentieren → Prüfen → Abstimmen → Verwalten)
+- Ermittlungstechniken (Interview, Workshop, Beobachtung, Prototyping, etc.)
+- GIVEN/WHEN/THEN-Patterns (Formulierungsregeln, Muster, Anti-Patterns)
+- NFR-Kategorisierung nach ISO 25010 (in `references/nfr-iso25010.md`)
+- ADO Work-Item-Templates für Feature, PBI, Epic (in `references/templates.md`)
+- Anforderungsvalidierung (IREB-Checkliste, DoR, DoD)
+- Traceability und Priorisierung (MoSCoW)
+
+Den `requirements-engineer` Skill **immer laden** bei Anforderungsarbeit. Inhalte nicht duplizieren.
 
 # Workflow
 

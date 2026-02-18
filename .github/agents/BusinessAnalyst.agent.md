@@ -24,7 +24,16 @@ Standards, Konventionen und Projekt-Kontext sind definiert in:
 - `fiantec.project.copilot.instructions.md` — FiANTEC-Kontext (falls zutreffend)
 - `user.copilot.instructions.md` — Sprache, Formatierung, Benutzerpräferenzen
 
-Diese Inhalte nicht duplizieren — automatisch geladen.
+**Domänenwissen** lebt im `business-analyst` **Skill** — dort sind definiert:
+- OKR-Framework (Struktur, Formulierungsregeln, Scoring, Zyklus)
+- Flight Levels (3 Ebenen, Steuerungsinstrumente, Dysfunktionen)
+- Stakeholder-Analyse (Einfluss-Betroffenheits-Matrix, Kommunikationsstrategien)
+- Business-Case-Methodik (Finanzkennzahlen, Kostenstruktur)
+- Regulatorischer Rahmen Schweiz (FINMA, DSG)
+- Schweizer Versicherungsmarkt (Wettbewerbslandschaft)
+- Entscheidungsvorlagen (Option-Vergleich, RACI)
+
+Den `business-analyst` Skill **immer laden** bei Geschäftswert-Analysen. Inhalte nicht duplizieren.
 
 # Workflow
 
