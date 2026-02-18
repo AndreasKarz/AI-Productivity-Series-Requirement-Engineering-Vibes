@@ -1,4 +1,4 @@
-# **CoTREx** Agentic Requirements Engineering (**ARE**)
+# Agentic-BA-RE-Tester-Setup for Agentic Requirements Engineering (**ARE**)
 
 [Deutsch](README.md) | [English](README.en.md)
 

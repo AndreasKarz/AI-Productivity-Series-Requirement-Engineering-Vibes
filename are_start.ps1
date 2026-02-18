@@ -69,7 +69,7 @@ git config --global --unset credential.githubauthmodes
 git config --global --unset credential.msauthflow
 git config --global --unset credential.interactivemode
 
-git remote set-url origin https://github.com/AndreasKarz/AI-Productivity-Series-Requirement-Engineering-Vibes
+git remote set-url origin https://github.com/AndreasKarz/Agentic-BA-RE-Tester-Setup.git
 git fetch origin
 git checkout main 2>$null
 git reset --hard origin/main
