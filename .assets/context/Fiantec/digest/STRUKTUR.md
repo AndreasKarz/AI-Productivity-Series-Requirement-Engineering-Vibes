@@ -5,9 +5,9 @@
 ```
 .assets/context/Fiantec/
 │
-├── STRUKTUR.md                          ← Diese Datei
-│
-├── digest/                              ── INDEX (11 Dateien, ~29 KB)
+├── digest/                              ── INDEX (12 Dateien, ~29 KB)
+│   │
+│   ├── STRUKTUR.md                      ← Diese Datei
 │   │
 │   │  ── Meta ──────────────────────────────────────────────
 │   ├── 00_catalog.md                    Einstiegspunkt & Schnellnavigation
