@@ -1,6 +1,6 @@
 # 03 Reglemente
 
-**RAW:** `RAW/03_Reglemente` | **Files:** 25 | **Size:** ~7.6 MB
+**RAW:** `RAW/03_Reglemente` | **Files:** 25 | **Size:** ~7.6 MB | **Letzte Aktualisierung:** 2026-02-18
 
 **Stichwörter:** Provision, Provisionssatz, Vergütung, Entschädigung, Bonus, Storno, Reglement, Aussendienst, Innenbetrieb, Einzelleben, Kollektivleben, BVG, Nicht-Leben, Sach, Cross-Border, Fondslösungen, Hypotheken, Krankenversicherung, Sparte, RAD, Reorganisation, Rundschreiben, Gültigkeitsdatum, Berechnungsformel, Satzstruktur
 

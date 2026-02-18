@@ -1,6 +1,6 @@
 # 04 Testmanagement
 
-**RAW:** `RAW/04_Testmanagement` | **Files:** 6'692 | **Size:** ~769 MB
+**RAW:** `RAW/04_Testmanagement` | **Files:** 6'692 | **Size:** ~769 MB | **Letzte Aktualisierung:** 2026-02-18
 
 **Stichwörter:** Test, Testfall, Testschritt, Testdaten, Regression, Systemtest, UAT, PAV, Abnahmetest, SOAP UI, SpecFlow, BDD, Gherkin, Feature-File, Akzeptanzkriterien, Testanleitung, Checkliste, Testprotokoll, Testautomation, Webservice-Test, Pipeline
 
