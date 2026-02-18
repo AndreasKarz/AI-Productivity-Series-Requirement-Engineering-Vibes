@@ -78,10 +78,10 @@ Folge dem sequential-thinking Workflow und dem hierarchical-rag Skill exakt.
 !/.assets/context/{{projectName}}/
 !/.assets/context/{{projectName}}/digest/
 !/.assets/context/{{projectName}}/digest/**
-!/.assets/context/{{projectName}}/_sources.md
 ```
-   - NUR `digest/` und `_sources.md` committen
+   - NUR `digest/` committen
    - `RAW/` bleibt ignoriert (durch bestehendes `/.assets/**` Pattern)
+   - `_sources.md` bleibt ignoriert (durch globale `**/_sources.md` Regel — enthält interne URLs!)
 
 3) Bestätige dem User die erstellte Struktur.
 

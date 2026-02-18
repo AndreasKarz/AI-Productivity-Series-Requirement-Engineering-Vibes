@@ -21,7 +21,7 @@ Du hast 500+ Dokumente in einem Projektordner. Wenn das LLM bei jeder Frage alle
 ```
 .assets/context/<Projekt>/
 │
-├── _sources.md              ← Quellen-Registry (woher kommt was?)
+├── _sources.md              ← Quellen-Registry (🔒 GITIGNORED — interne URLs!)
 │
 ├── digest/                  ← SCHICHT 1: Komprimiertes Wissen
 │   ├── 00_catalog.md        → Einstiegspunkt (immer zuerst lesen)

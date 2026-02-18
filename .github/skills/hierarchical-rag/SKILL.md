@@ -128,6 +128,8 @@ Wenn der Digest eines Topics grösser als das grösste RAW-Dokument ist → Dige
 
 Bei jedem Digest-Zugriff: Prüfe `_sources.md` ob die Quellen noch innerhalb ihres TTL liegen.
 
+> **🔒 Sicherheit:** `_sources.md` enthält interne URLs und ist via `**/_sources.md` in `.gitignore` ausgeschlossen. Niemals committen!
+
 ```
 _sources.md prüfen → TTL OK? → Ja → Digest direkt verwenden
                               → Nein → Quelle prüfen → Geändert? → RAW + Digest updaten

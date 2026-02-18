@@ -27,12 +27,14 @@ Liegt im **Root** der RAG-Struktur (neben `digest/` und `RAW/`):
 
 ```
 .assets/context/<Projekt>/
-├── _sources.md          ← Quellen-Registry
+├── _sources.md          ← Quellen-Registry (⚠️ GITIGNORED!)
 ├── digest/
 │   └── (wie bisher)
 └── RAW/
     └── (wie bisher)
 ```
+
+> **🔒 Sicherheitshinweis:** `_sources.md` enthält interne URLs (SharePoint, ADO, etc.) und wird über `**/_sources.md` in `.gitignore` explizit ausgeschlossen. Diese Datei darf **niemals** committed werden!
 
 ### Format
 
