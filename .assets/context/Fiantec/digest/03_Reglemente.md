@@ -78,3 +78,8 @@ Alle Dateien im Unterordner `2026 02 04_Reglemente Full Export/` als PDF.
 *   Bonusreglement 2025
 *   Entschädigungsrichtlinie für Reorganisation Aussendienst (RAD)
 *   Rundschreiben Nr. 1 (Ersatzabgangsentschädigungen)
+
+## Siehe auch
+
+- [01 Handbücher](01_Handbücher.md) → Business Logik und Vertriebsorganisation
+- [10 Prozesse](10_Prozesse.md) → Fachprozesse mit Provisionsbezug

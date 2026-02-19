@@ -72,3 +72,4 @@
 ## Siehe auch
 
 *   [02 Change Management](02_Change_Management.md) — Zertifizierungsprozess und Release-Phasen
+*   [10 Prozesse](10_Prozesse.md) — Testbare Fachprozesse

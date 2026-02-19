@@ -22,6 +22,179 @@
 | IAM, Berechtigungskonzepte | `FiANTEC Systemdoku/05 Identity and Access Management` |
 | Operative Anleitungen | `Fachprozesse & Anleitungen` |
 
+## Entity-Übersicht (Datenmodell-Navigation)
+
+FiANTEC verwaltet vier Kern-Domänen. Die folgende Tabelle zeigt, **wo im RAW** die Details zu jeder Entity liegen:
+
+### Vertriebsorganisation
+
+| Entity | Schlüssel-Dokumente | RAW-Pfad |
+| --- | --- | --- |
+| **Geschäftspartner / VMA** | VER-E236 spec Definition Vertriebsorganisation v04.03.doc | `03 Business Logik und Vertriebsorganisation/` |
+| **Aufbauorga / VOE** | VER-E236 Vertriebsorganisation FiANTEC_V01.08.vsdx | `03 Business Logik und Vertriebsorganisation/` |
+| **Gebiet / Portefeuille** | VER-E134 Datenmodell-Vertriebsstammdaten-Felder v02.00.xls | `08 Fachliches Datenmodell_und_Referenzdaten/Aus Projekt V4/` |
+| **Berufsbilder (BB)** | VER-E236 BB-Code Gesamtuebersicht v03 03.xls | `03 Business Logik und Vertriebsorganisation/` |
+
+### Vergütung & Provisionierung
+
+| Entity | Schlüssel-Dokumente | RAW-Pfad |
+| --- | --- | --- |
+| **Vergütungsvertrag / -regel / -element** | FIA 03 BusinessLogik_v01.45.docx (aktuellste) | `03 Business Logik und Vertriebsorganisation/` |
+| **Provisionsart-Konfiguration** | FIA 03 BusinessLogik_v01.45.docx | `03 Business Logik und Vertriebsorganisation/` |
+| **Provisionsstaffel** | FIA 03 BusinessLogik_v01.45.docx | `03 Business Logik und Vertriebsorganisation/` |
+| **Buchungslogik** | Doku Buchungslogik FiANTEC/ (Unterordner) | `03 Business Logik und Vertriebsorganisation/Doku Buchungslogik FiANTEC/` |
+| **Provisionsmodell** | Provisionsmodell (VER-E125)/ (Unterordner) | `03 Business Logik und Vertriebsorganisation/Provisionsmodell (VER-E125)/` |
+
+### Datenmodell & Referenzdaten
+
+| Entity | Schlüssel-Dokumente | RAW-Pfad |
+| --- | --- | --- |
+| **Datenmodell (Gesamtübersicht)** | 2021-09-27_Datenmodell_FiANTEC v00.02.xlsx | `08 Fachliches Datenmodell_und_Referenzdaten/Aus Projekt V4/` |
+| **Datenmodell Provisionierung** | Datenmodell Provisionierung (FiANTEC v4) - v01.00.jpg | `08 Fachliches Datenmodell_und_Referenzdaten/` |
+| **Datenmodell Vertriebsstammdaten** | Datenmodell Vertriebsstammdaten (FiANTEC v4) - v01.00.jpg | `08 Fachliches Datenmodell_und_Referenzdaten/` |
+| **Feldvalidierungen** | VER-E134 Datenmodell-Vertriebsstammdaten-Validierungen v02.02.xls | `08 Fachliches Datenmodell_und_Referenzdaten/Aus Projekt V4/` |
+| **CTR-Änderungen (Codetabellen)** | VER-E234 spec Änderungen CTR v02.71_tagged.xlsx | `08 Fachliches Datenmodell_und_Referenzdaten/Aus Projekt V4/` |
+| **Referenzdaten (Detail)** | ~257 XLS/XLSX Einzeldateien (Codetabellen, Referenzwerte) | `08 Fachliches Datenmodell_und_Referenzdaten/Aus V3/` |
+
+> **Hinweis:** Die 2 JPG-Dateien (Datenmodelle) sind visuelle Übersichten — unbedingt ansehen für das Verständnis der Entity-Beziehungen!
+
+## Schnittstellen-Navigation
+
+### Übersichtsdokumente
+
+| Dokument | Version | Beschreibung | RAW-Pfad |
+| --- | --- | --- | --- |
+| **FIA040_Fachliche Systemgrenzen** | v02.13 (.vsd) | Visio-Diagramm aller Systemgrenzen und Datenflüsse | `04 Schnittstellen/Tabellen und Grafiken/` |
+| **FIA040_Fachliche Systemgrenzen** | v02.11 (.pdf) | PDF-Export (etwas älter, aber lesbar) | `04 Schnittstellen/Tabellen und Grafiken/` |
+| **FIA040_SST Kontext2014** | v02.42 (.vsd) | Systemkontext-Diagramm | `04 Schnittstellen/Tabellen und Grafiken/` |
+| **FiA04 Schnittstellen** | v1.84 (.docx) | Hauptdokument Schnittstellenbeschreibung | `04 Schnittstellen/` |
+| **Verwendungsnachweise** | v01.47 (.xlsx) | Übersicht Schnittstellenverwendung | `04 Schnittstellen/Tabellen und Grafiken/` |
+| **Ansprechpartner Dritte** | v01.02 (.xlsx) | Kontaktdaten externe Partner | `04 Schnittstellen/` |
+
+### Technische Schnittstellen (WSDL/XSD)
+
+| Paket | Version | Beschreibung | RAW-Pfad |
+| --- | --- | --- | --- |
+| **ProvFia-wsdl** | 2025.11.001 | SOAP-Services für Provisionierung | `04 Schnittstellen/WSDL/` |
+| **VSDS-wsdl** | 2025.11.001 | SOAP-Services Legacy-Schnittstelle | `04 Schnittstellen/WSDL/` |
+
+### Spezifische Interface-Dokumentation
+
+| Schnittstelle | RAW-Pfad |
+| --- | --- |
+| **APRICOS** (Dokumentendruck) | `04 Schnittstellen/117_Apricos - Struktur/` |
+| **SAP-FI / CAS-FINT** | `04 Schnittstellen/131_SAP-FI CAS-FINT - Struktur/` |
+| **GPV2 Postdaten** | `04 Schnittstellen/GPV2 Postdaten Struktur/` |
+| **HCM-Export** | `03 Business Logik und Vertriebsorganisation/Doku HCM-Export FiANTEC/` |
+
+> **Alle RAW-Pfade:** Relativ zu `RAW/01_Handbücher/FiANTEC Systemdoku/`
+> **Offizielle Systemgrenzen:** Immer FIA040 v02.13 als Referenz verwenden!
+
+## FIA040 Fachliche Systemgrenzen FIANTEC V4
+
+**Version:** V02.13 vom 01.10.2025
+**RAW-Quelle:** `04 Schnittstellen/Tabellen und Grafiken/FIA040_Fachliche Systemgrenzen v02.13.vsd`
+
+> Die folgende MD-Darstellung bildet das offizielle Visio-Diagramm ab. Pfeilrichtung = Informationsfluss.
+
+### FiANTEC Kern-Entities (gelber Bereich)
+
+```
+┌─────────────────────────────────────────┐
+│              FIANTEC                    │
+│                                         │
+│  Vertriebskanal    Portefeuille         │
+│  Verträge          Bewegungsdaten       │
+│  Vertriebsorganisation                  │
+│  Gebiete           Kunden               │
+│  Vertriebsmitarbeiter                   │
+│  Provisionsregelung                     │
+│  Konfigurationen                        │
+└─────────────────────────────────────────┘
+```
+
+### Umsysteme und Datenflüsse
+
+#### Eigene Fabriken Privatkunden
+**Systeme:** OFE, BPROF, GPV, VWS, NEO, ODW
+
+| Richtung | Datenobjekte |
+| --- | --- |
+| **→ FiANTEC** | Erstbetreuung, VertragsAssets & Fondsanteile, Abschlussdaten, Kunden/Verträge, FE Bewegung, Leistungsträger |
+| **← FiANTEC** | Leistungsträger, Vertriebsmitarbeiter, Vertriebsorganisation, Betreuungen, Benutzer, Provisionssimulation |
+
+#### Eigene Fabriken Unternehmensgeschäft
+**Systeme:** DIGIS (bis 31.12.2025), COPS (ab 01.01.2026), MyLife, Offerte-MyLife
+**Adapter:** KVVSA (KollektivVertragsStammAdapter)
+
+| Richtung | Datenobjekte |
+| --- | --- |
+| **→ FiANTEC** | Kunde, Vertrag (via KVVSA) |
+| **← FiANTEC** | Vertriebsmitarbeiter, Vertriebsorganisation, Betreuungen, Gebiet, Abschlussdaten Plausi, Provisionssimulation |
+
+#### Eigener Vertrieb
+**Systeme:** Marktplatz, MyCockpit, SelectCockpit (SAP-Cockpit), PROVFIA-WebClient
+
+| Richtung | Datenobjekte |
+| --- | --- |
+| **→ FiANTEC** | Erstbetreuer, Betreuungen, FE Bewegung, Bewegung, Abschlussdaten, Leistungsträger |
+| **← FiANTEC** | Vertriebsmitarbeiter, Vertriebsorganisation, Betreuung, Gebiet, Provisionssimulation, Provisionsbeauskunftung, Abschlussdaten, Systematische Kundenbetreuung |
+
+#### Fremde Factories (mit aktiven Verträgen)
+**Systeme:** SSO, Mobiliar, Sanitas, Helsana DAS, SL Hypotheken, LPZ/IBL, SLAM, CS/SLPS/UBS/NAB, 3a-Start, SLIA, IMMO, SLSERV, Valiant, Vaudoise, CAP, SwissFEX, Group Mutuel
+
+| Richtung | Datenobjekte |
+| --- | --- |
+| **→ FiANTEC** | Kunde, Verträge, Erstbetreuung, Nummern Fremdsystem, FFE (via FFEK) |
+| **← FiANTEC** | FFE Bruttoprovision, FFE Betreuungsentschädigung, Leistungsträger, Vertriebsmitarbeiter, Provisionsabrechnungen, Betreuungen |
+
+#### Vertriebspartner (fremde Kanäle)
+**Systeme:** SL Select, SL Select AT, Vaudoise, Broker/Banken, Deutschland, Österreich
+
+| Richtung | Datenobjekte |
+| --- | --- |
+| **← FiANTEC** | Provisionsabrechnungen, Vertriebsmitarbeiter, Vertriebsorganisation, Gebiete |
+
+#### HR, Finanzen und Aktuariat
+**Systeme:** SAP-FSCD, SAP-FI, SAP-HCM, CSFM
+
+| Richtung | Datenobjekte |
+| --- | --- |
+| **→ FiANTEC** | Betreuungen, Vertriebsmitarbeiter, Vertriebsorganisation, Lohndaten |
+| **← FiANTEC** | Betreuungen, Vertriebsmitarbeiter, Vertriebsorganisation, Provisionsbeauskunftung, Provisionsabrechnung, Zahlung, Provisionsmeldung |
+
+#### Marketing
+**Systeme:** MDB
+
+| Richtung | Datenobjekte |
+| --- | --- |
+| **← FiANTEC** | Vertriebsmitarbeiter, Vertriebsorganisation, Fondsanteile, Provisionen, Forecast |
+
+#### Multichannel Management
+**Systeme:** PartnerNet, IMMOVS
+
+| Richtung | Datenobjekte |
+| --- | --- |
+| **← FiANTEC** | Betreuungen, Vertriebsmitarbeiter, Vertriebsorganisation |
+
+#### Infrastruktur
+**Systeme:** APRICOS, CTR, SRF, DWH/EV, DataHUB, OnIdentity, Cloudablage-Druck, Schweiz. Post
+
+| Richtung | Datenobjekte |
+| --- | --- |
+| **← FiANTEC** | Vertriebsmitarbeiter, Vertriebsorganisation, Betreuung, Berechtigungen, Provisionen, Daten Provisionsabrechnung, Logins, Referenzdaten, Provisionsabrechnungen, PLZ, Strassen |
+
+### Legende
+
+| Abkürzung | Bedeutung |
+| --- | --- |
+| **FE** | Fabrikereignis |
+| **FFE** | Fremdfabrikereignis |
+| **FFEK** | Fremdfabrikereignis-Konnektor |
+| **KVVSA** | KollektivVertragsStammAdapter |
+| **→ FiANTEC** | Datenfluss IN FiANTEC (Umsystem liefert) |
+| **← FiANTEC** | Datenfluss AUS FiANTEC (FiANTEC liefert) |
+
 ## Dateitypen
 
 | Extension | Anzahl | Beschreibung |

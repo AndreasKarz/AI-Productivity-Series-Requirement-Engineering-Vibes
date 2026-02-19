@@ -7,10 +7,10 @@
 
 | Begriff | Definition |
 | --- | --- |
-| **FiANTEC** | Financial Application Technology — Provisionierungs- & Vertriebsstammdatensystem |
-| **VSDS** | Vorgängersystem (Legacy system) |
+| **FiANTEC** | Financial Application Technology — Provisionierungs- & Vertriebsstammdatensystem. Vereint die Vorgängersysteme VSDS (Stammdaten) und ProvFia (Provisionierung) |
+| **VSDS** | Vorgänger-Stammdatensystem von FiANTEC (Vertriebsstammdaten) |
+| **ProvFia** | Vorgänger-Provisionierungssystem von FiANTEC. Siehe auch: PWC (ProvFia Web Client) |
 | **FSCD** | Financial Services Core Data — Zentrales Datenmodell |
-| **SFX** | System Function eXtension — Konfigurationserweiterungsmodul |
 | **CTRM** | Change Test Release Management |
 | **ODW** | Fassadenapplikation für Kommunikation mit FiANTEC |
 | **PWC** | ProvFia Web Client |
@@ -165,6 +165,7 @@
 | **PICO** | Professional Insurance Cockpit |
 | **SAP FI** | SAP Finanzbuchhaltung |
 | **SAP HCM** | SAP Personal- und Lohnsystem |
+| **SFX** | SwissFEX AG — Unabhängige Hypotheken-Vergleichsplattform für Vermittler |
 | **VERDIS** | Versicherungs-Dienstleistungs-System |
 | **VWS** | Vertragsverwaltungssystem (3. Säule) |
 

@@ -32,7 +32,7 @@
 - Reglemente (03\_Reglemente) sind das **Fundament** — immer zuerst prüfen
 - 06\_test\_mit\_bildern wird **schrittweise** mit FiANTEC-GUI-Screenshots befüllt — dynamischer Lernprozess für die KI
 - Nur FiANTEC-Perspektive — nur systemspezifisch, nicht konzernweit
-- **Keine Firmennamen im Digest** — weder Auftraggeber noch Partner namentlich erwähnen (Dateinamen aus RAW ausgenommen)
+- **Keine Firmennamen im Digest** — weder Auftraggeber noch Partner namentlich erwähnen, ausser in technischer Systemdokumentation (Schnittstellen, Systemgrenzen), wo Systemnamen zur eindeutigen Identifikation nötig sind (Dateinamen aus RAW ausgenommen)
 - **Keine Redundanzen** — jede Information hat genau einen Ort im Digest
 - Quellenangaben nur im Chat, **nie** in Artefakten (Feature Descriptions, Acceptance Criteria)
 
