@@ -199,6 +199,11 @@ Selbstentwickelter MCP Server, damit GitHub Copilot mit PDF umgehen kann. Macht 
 
 Selbstentwickelter MCP Server, welcher aus PDFs neue AsciiDocs erstellen kann, inkl. Grafiken und Bilder.
 
+## PowerBI MCP Server
+https://youtu.be/pRFeQWzUhn0?si=MS0YNNtqRqBkLCJn&t=285 
+https://learn.microsoft.com/de-de/power-bi/developer/mcp/remote-mcp-server-get-started
+
+
 ## Elastic Search MCP
 
 Comming soon...
